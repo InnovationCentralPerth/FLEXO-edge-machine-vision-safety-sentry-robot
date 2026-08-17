@@ -1,0 +1,21 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Claude Code session state (not project content)
+.claude/
+
+# Model weights / caches (large, re-downloadable)
+models/*.pt
+*.pt
+.cache/
+data/samples/*
+!data/samples/.gitkeep
+

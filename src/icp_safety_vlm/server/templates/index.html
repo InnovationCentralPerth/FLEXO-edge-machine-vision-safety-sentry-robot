@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>ICP Safety Sentry</title>
+  <style>
+    :root { color-scheme: dark; }
+    body {
+      margin: 0; background: #111; color: #eee;
+      font-family: system-ui, sans-serif; display: flex; flex-direction: column;
+      align-items: center; padding: 24px; gap: 16px;
+    }
+    h1 { margin: 0; font-size: 1.4rem; color: #999; font-weight: 500; }
+    #banner {
+      font-size: 4rem; font-weight: 800; letter-spacing: 0.1em;
+      padding: 16px 48px; border-radius: 16px; transition: background 0.15s;
+    }
+    .go { background: #0a4; color: #fff; }
+    .stop { background: #c22; color: #fff; }
+    .starting { background: #555; color: #fff; }
+    .error { background: #333; color: #f88; border: 2px solid #c22; font-size: 2rem; }
+    img#feed { max-width: 90vw; border-radius: 8px; border: 2px solid #333; }
+    #meta { color: #888; font-size: 0.9rem; }
+    select { font-size: 1rem; padding: 4px 8px; }
+    #message {
+      font-size: 1.2rem; max-width: 640px; text-align: center; min-height: 1.4em;
+      color: #ddd;
+    }
+    #message.error-text { color: #f88; font-family: monospace; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <h1>ICP Safety Vest Sentry</h1>
+  <div>
+    Backend:
+    <select id="backend-select" onchange="switchBackend(this.value)">
+      {% for b in available %}
+        <option value="{{ b }}" {% if b == backend %}selected{% endif %}>{{ b }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div id="banner" class="starting">STARTING</div>
+  <div id="message"></div>
+  <img id="feed" alt="camera feed">
+  <div id="meta">—</div>
+
+  <script>
+    let backend = "{{ backend }}";
+
+    function switchBackend(b) {
+      backend = b;
+    }
+
+    // Polled single-JPEG fetch instead of MJPEG (multipart/x-mixed-replace)
+    // streaming: switching `img.src` between two live multipart streams is
+    // flaky across browsers (the handoff can silently fail, especially
+    // when the new stream is slow to send its first byte — as a VLM
+    // backend is during warmup). A plain cache-busted image poll, synced
+    // with the /status poll below, is dull but reliable, and there's no
+    // downside since a several-seconds-per-frame backend gets nothing
+    // from true 30fps streaming anyway.
+    function refreshFrame() {
+      document.getElementById("feed").src = "/frame?backend=" + backend + "&_=" + Date.now();
+    }
+
+    async function poll() {
+      try {
+        const res = await fetch("/status?backend=" + backend);
+        const data = await res.json();
+        const banner = document.getElementById("banner");
+        banner.textContent = data.status === "GO" ? "GO!" : data.status === "STOP" ? "STOP!" :
+          data.status === "ERROR" ? "ERROR" : data.status;
+        banner.className = data.status === "GO" ? "go" : data.status === "STOP" ? "stop" :
+          data.status === "ERROR" ? "error" : "starting";
+        const messageEl = document.getElementById("message");
+        messageEl.textContent = data.message || "";
+        messageEl.className = data.status === "ERROR" ? "error-text" : "";
+        const ageS = (data.age_ms / 1000).toFixed(1);
+        const meta = document.getElementById("meta");
+        meta.textContent =
+          `backend=${data.backend || backend} | people=${data.n_people} | latency=${data.latency_ms}ms | frame age=${ageS}s`;
+        // Slow backends (VLM) update in bursts, not live — flag it loudly
+        // when the on-screen verdict is more than a couple seconds stale.
+        meta.style.color = data.age_ms > 2500 ? "#e83" : "#888";
+      } catch (e) { /* ignore transient errors */ }
+      refreshFrame();
+      setTimeout(poll, 300);
+    }
+    poll();
+  </script>
+</body>
+</html>

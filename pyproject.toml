@@ -1,0 +1,51 @@
+[project]
+name = "icp-safety-vlm"
+version = "0.1.0"
+description = "Safety vest sentry: classic CV/YOLO vs VLM prototype, targeting RPi5 + AI HAT+ edge deployment"
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.30",
+    "opencv-python-headless>=4.10",
+    "numpy>=1.26,<2.0",
+    "pydantic>=2.8",
+    "jinja2>=3.1",
+    "python-multipart>=0.0.9",
+]
+
+[project.optional-dependencies]
+# Track A: classic CV / YOLO baseline
+yolo = [
+    "ultralytics>=8.3",
+]
+# Track B: VLM backends (vlm_qwen2vl = edge deployment candidate, matches
+# Hailo's own Qwen2-VL-2B-Instruct reference demo for the AI HAT+ 2;
+# vlm_moondream = earlier baseline kept for comparison, not on Hailo's
+# validated model list). Both currently run fine on one pinned transformers
+# version — Qwen2VLForConditionalGeneration needs >=4.45.0, moondream2's
+# trust_remote_code model class (revision 2024-08-26) breaks on the >=5.x
+# PretrainedConfig internals refactor (PhiConfig loses direct
+# .pad_token_id access) — so the window that satisfies both is narrow.
+# Revisit this pin if either backend changes.
+vlm = [
+    "torch>=2.4",
+    "torchvision>=0.19",
+    "transformers>=4.45,<4.46",
+    "accelerate>=0.34",
+    "pillow>=10.4",
+    "einops>=0.8",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3",
+    "ruff>=0.6",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/icp_safety_vlm"]
