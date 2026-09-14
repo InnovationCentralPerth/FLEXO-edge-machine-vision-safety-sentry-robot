@@ -346,6 +346,27 @@ Corrected in `deploy/jetson/icp-safety-sentry.service`.
    performance/latency, then optimize for model size + Jetson's
    TensorRT") — not started. The unsupported-build finding above is the
    concrete evidence for why this matters, not just a roadmap aspiration.
+
+   **Investigated 2026-09-14, on the actual device**: the user pointed at
+   a claimed PaliGemma2-3B W4A16/INT4 ~1.9GB figure via "Jetson AI Lab
+   NanoLLM container". Cloned both `dusty-nv/jetson-containers` and
+   `dusty-nv/NanoLLM` directly onto the Jetson and searched — **zero
+   PaliGemma references in either repo's actual source.** The only
+   PaliGemma-adjacent package (`packages/vlm/gemma_vlm`) has moved away
+   from it: its own test script comment reads "Changed from PaliGemma",
+   now defaults to `google/gemma-3-4b-it`, and — tellingly — depends on
+   `transformers`+`bitsandbytes`, the same stack this project already
+   uses, not MLC/TensorRT. `nano_llm` itself does bundle real optimized
+   engines (`mlc`, `tensorrt`, `torch2trt`) — architecturally the right
+   direction — but its newest published container image is
+   `r36.3.0` (2024-08-26), two JetPack generations behind this Jetson's
+   R39.2.1; no pre-built image exists for this device, and building the
+   8-12GB image stack from source against an untested 2-generation-newer
+   JetPack is a real, unbounded risk, not a quick win. Conclusion: the
+   specific claimed path isn't currently substantiated against what's
+   actually in these repos — worth re-checking if dusty-nv ships an
+   R39-compatible build, or if a PaliGemma NanoLLM integration lands
+   later, but not actionable today as described.
 8. ~~Systemd/persistent service setup~~ — **done for the Jetson
    (2026-09-14)**: `/etc/systemd/system/icp-safety-sentry.service`,
    `Restart=on-failure` (covers OOM-kills, which are SIGKILL), enabled
