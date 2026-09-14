@@ -16,15 +16,19 @@ Type=simple
 User=icp
 WorkingDirectory=/home/icp/projects/icp_safety_vlm
 Environment=PATH=/home/icp/.local/bin:/usr/bin:/bin
-# Defaults the landing page (no ?backend= param) to the 4-bit quantized
-# VLM track, not fp16 vlm_paligemma or yolo_hsv — fixes the OOM-kill risk
-# found 2026-09-14 (fp16's ~6GB + anything else concurrent exceeded the
-# Jetson's 7.4GB shared pool; quantized's ~2.6GB leaves real headroom).
-# See system-design-integration.md's Solution B section for the finding.
-# This does NOT remove vlm_paligemma (fp16) from the dropdown — selecting
-# it manually still carries the same OOM risk as before if used
-# concurrently with another backend.
-Environment=DETECTOR_BACKEND=vlm_paligemma_quantized
+# Locks every request to vlm_paligemma (fp16) regardless of the dropdown
+# or ?backend= query — not just a default. This is the structural fix
+# for the 2026-09-14 OOM-kill (concurrent yolo_hsv + vlm_paligemma both
+# resident at once exceeded the Jetson's 7.4GB shared pool): with only
+# one backend ever selectable, only one can ever be resident, so two
+# Sentries can never compete for memory. Chosen over locking to
+# vlm_paligemma_quantized because quantized's real memory win turned out
+# smaller than first measured (corrected in system-design-integration.md:
+# ~5.6-6GB real footprint, not the ~2.6GB tensor-allocator figure) and
+# it's slower with no accuracy upside — see that doc's Solution A
+# quantization finding. Re-evaluate if fp16-alone ever gets close to the
+# 7.4GB ceiling on its own (GNOME desktop overhead + fp16 weights).
+Environment=LOCKED_BACKEND=vlm_paligemma
 ExecStart=/home/icp/.local/bin/uv run uvicorn icp_safety_vlm.server.app:app --host 0.0.0.0 --port 8010
 Restart=on-failure
 RestartSec=5

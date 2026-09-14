@@ -248,28 +248,32 @@ pool — also running a full GNOME desktop, not headless — 6GB+ for one
 VLM backend plus anything else pushed it over the edge and the kernel
 killed the whole process, losing both backends at once.
 
-**Mitigated (2026-09-14): the Jetson's systemd service now sets
-`DETECTOR_BACKEND=vlm_paligemma_quantized`**, so the landing page (no
-`?backend=` param) defaults to the quantized track. **Correction to the
-number above**: 2.61GB was `torch.cuda.memory_allocated()` — the
-tensor-allocator's own bookkeeping, not real process memory. Measured
-via the running systemd service's actual cgroup accounting
-(`systemctl show -p MemoryCurrent`) with only `vlm_paligemma_quantized`
-loaded: **~5.6-6GB real footprint** (framework/CUDA-context overhead
-accounts for the difference), leaving `free -h`-confirmed ~2.3GB
-available system-wide, not the ~4.8GB headroom figure quoted earlier.
-The mitigation still holds — this is meaningfully better than fp16,
-which left ~1.4GB or less and is what actually triggered the OOM-kill —
-but the margin is smaller than the tensor-allocator numbers implied.
-**This is a mitigation, not a structural fix**: `vlm_paligemma` (fp16)
-is still selectable from the dropdown or via `?backend=vlm_paligemma`,
-and choosing it manually still carries the same OOM risk as before if
-run concurrently with anything else — and even quantized-only headroom
-(~2.3GB) isn't large enough to safely add a second VLM backend
-concurrently. Capping total concurrent resident backends in the Sentry
-architecture itself (so the server refuses/unloads-oldest rather than
-letting memory grow unbounded) would be the structural fix, still not
-done.
+**Superseded (2026-09-14): first mitigated with a default, then fixed
+structurally.** First attempt set
+`DETECTOR_BACKEND=vlm_paligemma_quantized`, changing only the *default*
+landing backend — `vlm_paligemma` (fp16) remained selectable via the
+dropdown or `?backend=`, so the OOM risk wasn't actually closed, just
+made less likely by default. Verifying it also surfaced a correction:
+the earlier "2.61GB" quantized-model figure was
+`torch.cuda.memory_allocated()` (tensor-allocator bookkeeping only) —
+the real cgroup-measured footprint (`systemctl show -p MemoryCurrent`)
+was **~5.6-6GB**, leaving only ~2.3GB available (`free -h`), not the
+~4.8GB headroom first assumed. Quantized alone wasn't the generous
+margin it looked like.
+
+**Structural fix**: `server/app.py` gained a `LOCKED_BACKEND` env var —
+when set, every route resolves to that one backend regardless of the
+dropdown or `?backend=` query param (not just changing what loads by
+default). The Jetson's systemd service now sets
+`LOCKED_BACKEND=vlm_paligemma` (fp16, per user decision — chosen over
+locking to quantized since quantized's real memory win turned out
+smaller than first measured, it's slower, and offers no accuracy
+upside). With only one backend ever selectable, only one Sentry can
+ever be resident — the concurrent-multi-backend OOM cause is now
+structurally impossible on this deployment, not just less likely.
+Re-evaluate if fp16-alone ever approaches the 7.4GB ceiling by itself
+(GNOME desktop overhead + fp16 weights, no second backend needed to
+trigger it).
 
 **Second real finding, still open: `yolo_hsv` latency stayed elevated
 (~350-384ms) even after a restart, well above the earlier ~25-77ms
@@ -322,11 +326,10 @@ Corrected in `deploy/jetson/icp-safety-sentry.service`.
 
 **Next steps**:
 1. ~~Run the actual FastAPI server on the Jetson~~ — done, see above.
-2. ~~Fix the OOM-kill risk~~ — **mitigated**: Jetson now defaults to
-   `vlm_paligemma_quantized`, see finding above. **Still open**: capping
-   total concurrent resident backends in the Sentry architecture itself,
-   the structural fix — manually selecting fp16 `vlm_paligemma` still
-   carries the same risk.
+2. ~~Fix the OOM-kill risk~~ — **done, structurally**: `LOCKED_BACKEND`
+   env var added to `server/app.py`; Jetson's systemd service sets
+   `LOCKED_BACKEND=vlm_paligemma`, making concurrent multi-backend
+   residency impossible on this deployment. See finding above.
 3. **Resolve the GPU devfreq/power-mode issue** so the Jetson reliably
    runs at its real max performance rather than the `25W` boot default —
    try a reboot after `nvpmodel -m 2` instead of a live switch, or

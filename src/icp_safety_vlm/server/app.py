@@ -5,7 +5,13 @@ Run with:
 
 Switch backend via env var or query string:
     DETECTOR_BACKEND=yolo_hsv uv run uvicorn icp_safety_vlm.server.app:app
-    http://localhost:8000/?backend=vlm_qwen2vl
+    http://localhost:8000/?backend=vlm_paligemma
+
+Or lock the server to exactly one backend regardless of the dropdown or
+?backend= query — e.g. on a memory-constrained box where two resident
+backends risk an OOM (see the Jetson OOM-kill finding in
+system-design-integration.md):
+    LOCKED_BACKEND=vlm_paligemma uv run uvicorn icp_safety_vlm.server.app:app
 """
 
 from __future__ import annotations
@@ -34,6 +40,14 @@ CAMERA_INDEX = int(os.environ.get("CAMERA_INDEX", "0"))
 FRAME_WIDTH = int(os.environ.get("FRAME_WIDTH", "640"))
 FRAME_HEIGHT = int(os.environ.get("FRAME_HEIGHT", "480"))
 DEFAULT_BACKEND = os.environ.get("DETECTOR_BACKEND", "yolo_hsv")
+# Set this to force every request onto one backend regardless of the
+# dropdown or ?backend= query param — not just changing the default.
+# This is the structural fix for the concurrent-multi-backend OOM risk
+# on memory-constrained boxes (e.g. the Jetson): with only one backend
+# ever selectable, only one can ever be resident, so two Sentries can
+# never compete for memory at once. See system-design-integration.md
+# "Solution B" for the 2026-09-14 OOM-kill this addresses.
+LOCKED_BACKEND = os.environ.get("LOCKED_BACKEND", "").strip()
 # Set this to pull frames from a remote scripts/camera_relay.py instead of a
 # local V4L2 device — e.g. running the server on a GPU box (brannigan) with
 # no camera attached, sourcing frames from a laptop's webcam over Tailscale:
@@ -302,6 +316,8 @@ _sentries_lock = threading.Lock()
 
 
 def get_sentry(backend: str) -> Sentry:
+    if LOCKED_BACKEND:
+        backend = LOCKED_BACKEND
     with _sentries_lock:
         if backend not in _sentries:
             s = Sentry(backend)
@@ -324,11 +340,14 @@ def _shutdown() -> None:
 
 @app.get("/", response_class=HTMLResponse)
 def index(request: Request, backend: str = Query(default=DEFAULT_BACKEND)):
+    if LOCKED_BACKEND:
+        backend = LOCKED_BACKEND
     get_sentry(backend)  # ensure it's started
+    available = [LOCKED_BACKEND] if LOCKED_BACKEND else list_detectors()
     return templates.TemplateResponse(
         request,
         "index.html",
-        {"backend": backend, "available": list_detectors()},
+        {"backend": backend, "available": available},
     )
 
 
