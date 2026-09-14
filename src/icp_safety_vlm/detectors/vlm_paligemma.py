@@ -215,6 +215,25 @@ class PaliGemma2QuantizedDetector(PaliGemmaDetector):
     server process — quantization here is load-bearing for fitting at
     all, not just a speed optimization.
 
+    **On brannigan specifically, this is a memory-footprint trade only —
+    not a speed or accuracy win, confirmed by direct measurement
+    (2026-09-14, same frame, back-to-back).** vs. `PaliGemmaDetector`:
+    VRAM 2.62GB vs. 6.08GB (the real, intended win), but latency ~318ms
+    vs. ~295ms — quantized is *slightly slower*, not faster, and output
+    (verdict + message) was identical on every test frame, which makes
+    sense since it's the same weights at lower precision, not a different
+    or "better" model. The latency regression has a concrete cause, not
+    generic quantization overhead: bitsandbytes warns
+    `inner dimension (4304) is not aligned for fast kernel with
+    blocksize=64, falling back to slower implementation` for this model's
+    layer dimensions — the dequantize-then-matmul fallback path costs more
+    than the memory-bandwidth savings recover, and brannigan's 16GB has no
+    memory pressure for quantization to relieve in the first place. This
+    finding is brannigan/bitsandbytes-CUDA-specific and may not transfer
+    to the Jetson's ARM/Ampere bitsandbytes build or its actually-
+    constrained memory budget — re-measure there rather than assume either
+    outcome.
+
     Requires a CUDA device and the `vlm` extra's `bitsandbytes` dependency
     — see system-design-integration.md's "Operational gaps" item 4 for the
     still-open question of whether bitsandbytes-on-transformers or a

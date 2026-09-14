@@ -187,14 +187,31 @@ Both solutions plug into the existing architecture without modification:
   machine; the live server (either solution) is for demoing, not clean
   benchmarking, per the existing README caveat.
 
-## Benchmark plan (both solutions, once PaliGemma is integrated)
+## Benchmark plan (both solutions)
 
-| Axis | On-Prem (brannigan) | On-Device (Jetson Orin Nano Super) |
-|---|---|---|
-| yolo_hsv latency | ✅ measured: 2.8ms | not yet measured |
-| VLM latency | previously 890ms (Qwen2-VL-2B) — re-measure with PaliGemma 3B | not yet measured (quantized PaliGemma 3B) |
-| VLM accuracy | not yet re-verified against PaliGemma (see Prompt design note above) | not yet measured |
-| Power draw | not applicable (shared server) | key edge metric — same Hailo-10H-review lesson applies: TOPS/params don't predict tokens/sec or watts, measure on real hardware |
+| Axis | On-Prem (brannigan, fp16) | On-Prem (brannigan, 4-bit) | On-Device (Jetson Orin Nano Super) |
+|---|---|---|---|
+| yolo_hsv latency | ✅ measured: 2.8ms | n/a | not yet measured |
+| VLM latency | ✅ measured: ~295ms/frame (`vlm_paligemma`) | ✅ measured: ~318ms/frame — **slower**, not faster (see below) | not yet measured (`vlm_paligemma_quantized`) |
+| VLM VRAM/memory | ✅ measured: 6.08GB | ✅ measured: 2.62GB (57% less — the actual point of this variant) | not yet measured |
+| VLM accuracy | ✅ verified live: correct on worn (both colors)/off/held-not-worn, 37/37 across a stability pass — see README status note | ✅ identical output to fp16 on every test frame (expected — same weights, lower precision) | not yet measured |
+| Power draw | not applicable (shared server) | not applicable | key edge metric — same Hailo-10H-review lesson applies: TOPS/params don't predict tokens/sec or watts, measure on real hardware |
+
+**Real finding (2026-09-14, controlled back-to-back measurement on the
+same frame)**: on brannigan, 4-bit quantization is a pure memory-footprint
+trade, not a speed or accuracy win. `vlm_paligemma_quantized` uses 57%
+less VRAM but is *slightly slower* (~318ms vs. ~295ms) with identical
+output — bitsandbytes falls back to a slower dequant kernel for this
+model's layer dimensions
+(`inner dimension (4304) is not aligned for fast kernel with blocksize=64`),
+and brannigan's 16GB has no memory pressure for quantization to relieve
+in the first place. **This does not predict the Jetson result** — different
+bitsandbytes build (ARM/Ampere vs. x86/Ada), and the Jetson's 7.4GB
+*is* genuinely memory-constrained, which is the actual scenario
+quantization is meant to help — measure there directly rather than
+assume either a repeat of this finding or its opposite. See
+`vlm_paligemma.py`'s `PaliGemma2QuantizedDetector` docstring for the full
+numbers.
 
 `scripts/benchmark.py` already supports `--backend` selection and
 GO/STOP-labeled filename accuracy scoring (`data/samples/xxx__GO.jpg`) —
