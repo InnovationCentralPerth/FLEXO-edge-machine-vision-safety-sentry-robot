@@ -60,6 +60,8 @@ overselling that would misrepresent the demo.
 
 from __future__ import annotations
 
+import re
+
 import numpy as np
 
 from .base import Detection, DetectionResult, VestDetector
@@ -78,17 +80,44 @@ _Q_VESTS = (
 _Q_TORSO_DESCRIPTION = "answer en What is the person wearing on their upper body?"
 
 _MESSAGE_STOP_TEMPLATE = (
-    "I see you're wearing {description}, not a safety vest — please put "
+    "I see you're wearing {description}, not a safety vest - please put "
     "on a proper high-visibility safety vest before proceeding."
 )
 _MESSAGE_GO_TEMPLATE = (
-    "I see you're wearing {description} — that's a proper safety vest, "
+    "I see you're wearing {description} - that's a proper safety vest, "
     "you may proceed."
+)
+
+_VOWEL_START = ("a", "e", "i", "o", "u")
+
+
+_REDUNDANT_PREFIX = re.compile(
+    r"^(the person is|they('re| are)?|he('s| is)?|she('s| is)?)\s+wearing\s+",
+    re.IGNORECASE,
 )
 
 
 def _compose_message(description: str, compliant: bool) -> str:
     description = description.strip().rstrip(".") or "something unclear"
+    # Usually a bare noun phrase ("hoodie", "a yellow vest"), but strip a
+    # redundant "wearing" clause on the rare longer, full-sentence answer
+    # so it doesn't double up with this function's own "wearing {...}".
+    description = _REDUNDANT_PREFIX.sub("", description).strip() or description
+    # PaliGemma's short VQA answers are often a bare noun ("hoodie",
+    # "vest") without an article — add one so the composed sentence reads
+    # naturally ("wearing a hoodie" vs. "wearing hoodie").
+    first_word = description.split(" ", 1)[0].lower()
+    needs_article = (
+        description[:1].isalpha()
+        and not first_word.endswith("s")
+        and first_word not in ("a", "an", "the")
+    )
+    if needs_article:
+        article = "an" if first_word.startswith(_VOWEL_START) else "a"
+        description = f"{article} {description}"
+    # cv2.putText's Hershey fonts are ASCII-only — a non-ASCII dash here
+    # renders as "?" glyphs on the annotated video frame (see
+    # server/app.py's _draw_wrapped_text), so templates use a plain "-".
     template = _MESSAGE_GO_TEMPLATE if compliant else _MESSAGE_STOP_TEMPLATE
     return template.format(description=description)
 
@@ -220,7 +249,5 @@ class PaliGemma2QuantizedDetector(PaliGemmaDetector):
 def _parse_int(answer: str) -> int:
     """Best-effort parse of a numeric answer; falls back to 0 rather than raising
     if the model returns something unexpected."""
-    import re
-
     match = re.search(r"\d+", answer)
     return int(match.group(0)) if match else 0
