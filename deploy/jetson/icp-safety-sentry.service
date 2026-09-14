@@ -1,0 +1,18 @@
+[Unit]
+Description=ICP Safety VLM Sentry (Jetson standalone)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=icp
+WorkingDirectory=/home/icp/projects/icp_safety_vlm
+Environment=PATH=/home/icp/.local/bin:/usr/bin:/bin
+ExecStart=/home/icp/.local/bin/uv run uvicorn icp_safety_vlm.server.app:app --host 0.0.0.0 --port 8010
+Restart=on-failure
+RestartSec=5
+StartLimitIntervalSec=300
+StartLimitBurst=8
+
+[Install]
+WantedBy=multi-user.target

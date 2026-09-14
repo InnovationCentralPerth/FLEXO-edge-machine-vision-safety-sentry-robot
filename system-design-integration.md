@@ -196,6 +196,12 @@ worth re-measuring memory headroom with the whole server (camera +
 model) running, not just the model in isolation, before deciding which
 variant is the real On-Device default.
 
+**Systemd service**: `deploy/jetson/icp-safety-sentry.service` (installed
+at `/etc/systemd/system/` on the Jetson, `enable`d for
+`multi-user.target`) — source of truth for how it's actually deployed
+there; re-copy and `systemctl daemon-reload` after editing rather than
+hand-editing the installed copy.
+
 **Live server verified working end-to-end (2026-09-14)**, real Jetson
 camera, real server code path (not the ad-hoc script above): both
 `yolo_hsv` and `vlm_paligemma` ran live via `uvicorn ... --port 8010`
@@ -285,9 +291,15 @@ the GPU devfreq sysfs path is missing/inaccessible on this build.
    performance/latency, then optimize for model size + Jetson's
    TensorRT") — not started. The unsupported-build finding above is the
    concrete evidence for why this matters, not just a roadmap aspiration.
-8. Systemd/persistent service setup — would also mean an automatic
-   restart after a future OOM-kill or power cycle, directly addressing
-   today's "unable to reach the dashboard" symptom at its root.
+8. ~~Systemd/persistent service setup~~ — **done for the Jetson
+   (2026-09-14)**: `/etc/systemd/system/icp-safety-sentry.service`,
+   `Restart=on-failure` (covers OOM-kills, which are SIGKILL), enabled
+   for `multi-user.target` (survives reboot), `StartLimitBurst=8` per
+   300s to avoid a crash-loop if the OOM condition (item 2) recurs
+   immediately. **Not yet done on brannigan** (both the `:8010` and
+   `:8020` server processes) or the camera relays/tunnels (laptop, demo
+   client `icp-gmk-01`) — deferred, not forgotten; still foreground
+   `nohup` processes there.
 
 ## Shared interface (unchanged by this work)
 
