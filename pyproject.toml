@@ -35,6 +35,9 @@ vlm = [
     "accelerate>=0.34",
     "pillow>=10.4",
     "einops>=0.8",
+    # 4-bit quantized loading for vlm_qwen2vl_7b (accuracy-comparison track,
+    # needs 16GB+ VRAM even quantized — see vlm_qwen2vl.py's QwenVL7BDetector).
+    "bitsandbytes>=0.43",
 ]
 
 [dependency-groups]

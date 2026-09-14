@@ -167,6 +167,49 @@ class QwenVLDetector(VestDetector):
         return DetectionResult(detections=detections, message=message)
 
 
+class QwenVL7BDetector(QwenVLDetector):
+    """Same prompts/pipeline as QwenVLDetector, swapped to Qwen2-VL-7B-Instruct
+    for a higher-accuracy comparison track — not an edge deployment
+    candidate (see module docstring: Qwen2-VL-2B is what Hailo's AI HAT+ 2
+    reference demo validates), just a bigger-VRAM-box comparison point once
+    16GB+ is available (e.g. brannigan's RTX 4080), which the 8GB dev laptop
+    can't run.
+
+    Loaded 4-bit (bitsandbytes NF4) rather than fp16: the 7B's fp16 weights
+    alone are ~16GB, which is the *entire* card with nothing left for
+    activations or a second resident backend. 4-bit brings resident weights
+    to ~5-6GB, leaving real headroom. Requires the `vlm` extra's
+    `bitsandbytes` dependency and a CUDA device — falls back to raising
+    rather than silently running fp32 on CPU, since that's impractically
+    slow for a 7B VLM."""
+
+    name = "vlm_qwen2vl_7b"
+
+    def __init__(self, model_id: str = "Qwen/Qwen2-VL-7B-Instruct", device: str | None = None):
+        super().__init__(model_id=model_id, device=device)
+
+    def warmup(self) -> None:
+        import torch
+        from transformers import AutoProcessor, BitsAndBytesConfig, Qwen2VLForConditionalGeneration
+
+        if not torch.cuda.is_available():
+            raise RuntimeError(
+                f"{self.name} requires a CUDA GPU for 4-bit inference (none detected)"
+            )
+
+        quant_config = BitsAndBytesConfig(
+            load_in_4bit=True,
+            bnb_4bit_quant_type="nf4",
+            bnb_4bit_compute_dtype=torch.float16,
+        )
+        self._model = Qwen2VLForConditionalGeneration.from_pretrained(
+            self.model_id, quantization_config=quant_config, device_map="cuda"
+        )
+        self._model.eval()
+        self._processor = AutoProcessor.from_pretrained(self.model_id)
+        self._device = "cuda"
+
+
 def _parse_int(answer: str) -> int:
     """Best-effort parse of a numeric answer; falls back to 0 rather than raising
     if the model returns something unexpected."""

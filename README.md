@@ -10,13 +10,59 @@ before committing to one for the edge target.
 
 ## Hardware
 
-- **Dev laptop (this repo runs here today):** Ubuntu 24 / WSL2, RTX 3000 Ada
-  8GB VRAM (driver reports CUDA 13.2, toolkit 12.0).
+- **Dev laptop:** Ubuntu 24 / WSL2, RTX 3000 Ada 8GB VRAM (driver reports
+  CUDA 13.2, toolkit 12.0). Has the webcam; runs `scripts/camera_relay.py`
+  when the server itself runs on brannigan (see [Distributed
+  setup](#distributed-setup-brannigan-rtx-4080) below).
+- **brannigan (RTX 4080, 16GB VRAM):** where the server + dashboard +
+  inference run day-to-day now — enough VRAM headroom for the
+  `vlm_qwen2vl_7b` accuracy-comparison track, which doesn't fit on the
+  laptop's 8GB card. No camera attached; sources frames from the laptop's
+  relay over Tailscale.
 - **Final edge target:** Raspberry Pi 5 + **AI HAT+ 2 (Hailo-10H)** + Pi
   Camera Module 3, standalone, no laptop/GPU box attached. See
   [Edge target: Hailo-10H](#edge-target-hailo-10h) below — it's a
   purpose-built on-device GenAI accelerator, not a classic CNN-only NPU,
   which materially shapes the optimization plan.
+
+## Distributed setup (brannigan RTX 4080)
+
+The server, dashboard, and both VLM tracks now run on **brannigan**
+(`stanley@brannigan.taila277ca.ts.net`, Tailscale), which has no camera of
+its own. This laptop's webcam is relayed to it over the tailnet instead of
+attaching hardware directly.
+
+**One-time setup on brannigan:**
+```bash
+ssh stanley@brannigan.taila277ca.ts.net
+cd ~/projects/icp_safety_vlm   # already `git clone`d from this repo's origin
+uv sync --extra yolo --extra vlm
+```
+brannigan's NVIDIA driver needed a reboot to clear a driver/library version
+mismatch (`nvidia-smi` failing) as of this port — confirm `nvidia-smi` works
+before expecting CUDA to be picked up; `torch.cuda.is_available()` silently
+falls back to CPU otherwise.
+
+**Every run, two processes:**
+```bash
+# 1. On the laptop (has the webcam) — see WSL2 webcam passthrough above
+#    if /dev/video* isn't showing up first:
+uv run python scripts/camera_relay.py
+
+# 2. On brannigan — point it at the laptop's relay instead of a local device:
+CAMERA_SOURCE=http://<laptop-tailnet-name>.taila277ca.ts.net:8100/frame \
+    uv run uvicorn icp_safety_vlm.server.app:app --host 0.0.0.0 --port 8000
+```
+Then open `http://brannigan.taila277ca.ts.net:8000/` from any machine on the
+tailnet. `CAMERA_SOURCE` overrides `CAMERA_INDEX` entirely — see
+`server/app.py`'s `Camera` class. Frame latency over Tailscale adds on the
+order of tens of ms; irrelevant next to VLM inference time, and still far
+below the classic-CV track's budget for anything but a tight real-time
+demo.
+
+To go back to running everything locally on one machine (e.g. back on the
+dev laptop), just don't set `CAMERA_SOURCE` — the server falls back to
+opening `CAMERA_INDEX` directly, as before.
 
 ## Two active tracks
 
@@ -38,6 +84,15 @@ before committing to one for the edge target.
   a verdict it's already been given — see
   [Prompt design](#prompt-design-vlm-detection) for why the more obvious
   "ask the model to self-classify" design had to be abandoned.
+- **Track B (accuracy variant) — `vlm_qwen2vl_7b`** (`detectors/vlm_qwen2vl.py`,
+  `QwenVL7BDetector`): same three-call pipeline and prompts as
+  `vlm_qwen2vl`, swapped to Qwen2-VL-**7B**-Instruct, 4-bit quantized
+  (bitsandbytes NF4) to fit brannigan's 16GB card alongside headroom for a
+  second resident backend. **Not an edge deployment candidate** — it's a
+  ceiling-accuracy comparison point now that 16GB+ VRAM is available;
+  Qwen2-VL-2B stays the Hailo target. Needs a CUDA GPU with real headroom;
+  `warmup()` raises outright on the 8GB dev laptop rather than silently
+  falling back to a CPU/fp32 crawl.
 
 Both backends implement the same `VestDetector` interface
 (`detectors/base.py`), so the server, benchmark script, and future backends
@@ -333,12 +388,16 @@ src/icp_safety_vlm/
     base.py            # VestDetector interface, Detection/DetectionResult
     messages.py         # fixed GO/STOP message templates
     yolo_hsv.py          # Track A
-    vlm_qwen2vl.py        # Track B (edge deployment candidate)
+    vlm_qwen2vl.py        # Track B: QwenVLDetector (edge candidate, 2B) +
+                          #   QwenVL7BDetector (accuracy comparison, 4-bit 7B)
     vlm_moondream.py       # archived comparison baseline (not registered)
     registry.py              # name -> detector class
   server/          # FastAPI app (Camera/Sentry) + browser UI (templates/index.html)
+                   #   Camera supports CAMERA_SOURCE for a remote camera_relay.py
 scripts/
   benchmark.py     # latency/accuracy comparison across backends, one at a time
+  camera_relay.py  # serves a local webcam over HTTP for a remote GPU box
+                    #   with no camera (see Distributed setup above)
 data/samples/      # drop test images here
 models/            # downloaded YOLO weights (gitignored)
 ```

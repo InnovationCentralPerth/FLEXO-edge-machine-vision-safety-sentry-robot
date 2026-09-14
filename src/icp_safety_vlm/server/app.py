@@ -17,6 +17,7 @@ from pathlib import Path
 
 import cv2
 import numpy as np
+import urllib.request
 from fastapi import FastAPI, Query
 from fastapi.responses import HTMLResponse, Response, StreamingResponse
 from fastapi.templating import Jinja2Templates
@@ -33,13 +34,21 @@ CAMERA_INDEX = int(os.environ.get("CAMERA_INDEX", "0"))
 FRAME_WIDTH = int(os.environ.get("FRAME_WIDTH", "640"))
 FRAME_HEIGHT = int(os.environ.get("FRAME_HEIGHT", "480"))
 DEFAULT_BACKEND = os.environ.get("DETECTOR_BACKEND", "yolo_hsv")
+# Set this to pull frames from a remote scripts/camera_relay.py instead of a
+# local V4L2 device — e.g. running the server on a GPU box (brannigan) with
+# no camera attached, sourcing frames from a laptop's webcam over Tailscale:
+#   CAMERA_SOURCE=http://laptop.tailnet.ts.net:8100/frame
+# Overrides CAMERA_INDEX entirely when set. See README "Remote camera" section.
+CAMERA_SOURCE = os.environ.get("CAMERA_SOURCE", "").strip()
 
 
 class Camera:
-    """Owns the single VideoCapture handle. V4L2/UVC webcams generally only
-    allow one open handle at a time, so every backend's Sentry reads frames
-    from here rather than opening the device itself — that's what caused
-    the "can't open camera by index" failures when switching backends."""
+    """Owns the single frame source. Either a local VideoCapture handle
+    (V4L2/UVC webcams generally only allow one open handle at a time, so
+    every backend's Sentry reads frames from here rather than opening the
+    device itself — that's what caused the "can't open camera by index"
+    failures when switching backends) or, when CAMERA_SOURCE is set, a
+    background poller pulling JPEGs from a remote camera_relay.py."""
 
     def __init__(self):
         self.cap: cv2.VideoCapture | None = None
@@ -49,6 +58,11 @@ class Camera:
         self._thread: threading.Thread | None = None
 
     def start(self) -> None:
+        if CAMERA_SOURCE:
+            self._thread = threading.Thread(target=self._loop_remote, daemon=True)
+            self._thread.start()
+            return
+
         self.cap = cv2.VideoCapture(CAMERA_INDEX)
         # Force MJPEG (compressed) capture. Raw YUYV needs far more USB
         # bandwidth than usbipd's virtual bus reliably provides under WSL2,
@@ -75,6 +89,25 @@ class Camera:
                 continue
             with self._lock:
                 self._latest_frame = frame
+
+    def _loop_remote(self) -> None:
+        # Polls a single-JPEG endpoint rather than consuming an MJPEG
+        # stream — same reasoning as /frame vs /stream below: simpler to
+        # get right across a flaky Tailscale link, and camera_relay.py
+        # already caches its own latest frame so this never blocks on
+        # capture, only on the HTTP round-trip.
+        while not self._stop.is_set():
+            try:
+                with urllib.request.urlopen(CAMERA_SOURCE, timeout=2) as resp:
+                    data = resp.read()
+                frame = cv2.imdecode(np.frombuffer(data, dtype=np.uint8), cv2.IMREAD_COLOR)
+                if frame is not None:
+                    with self._lock:
+                        self._latest_frame = frame
+            except Exception:  # noqa: BLE001 — relay hiccup/restart shouldn't kill the loop
+                time.sleep(0.5)
+                continue
+            time.sleep(0.03)
 
     def latest_frame(self) -> np.ndarray | None:
         with self._lock:
