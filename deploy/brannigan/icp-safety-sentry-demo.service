@@ -23,6 +23,19 @@ Environment=PATH=/home/stanley/.local/bin:/usr/bin:/bin
 # needed on the demo client, as long as icp-gmk-01 itself and its own
 # camera_relay.py process are up (that process is not yet systemd-ized
 # as of 2026-09-14 — separate machine, separate follow-up).
+# Locks every request to vlm_paligemma regardless of the dropdown or
+# ?backend= query param. Added 2026-09-14 after the foyer kiosk's
+# Firefox (running continuously since Sep 8, dozens of tabs/content
+# processes) was found stuck polling backend=yolo_hsv even though
+# vlm_paligemma had been selected in the dropdown: the selection lives
+# only in page-local JS state (`let backend = ...`), never in the URL,
+# so any tab crash/reload/session-restore silently resets it to the
+# server's DEFAULT_BACKEND (yolo_hsv). This is a walk-up unattended
+# display — nobody should be switching backends here at all — so lock
+# it server-side the same way the Jetson is locked, which also makes
+# the fix take effect immediately on the next poll with no action
+# needed on the kiosk PC itself.
+Environment=LOCKED_BACKEND=vlm_paligemma
 Environment=CAMERA_SOURCE=http://localhost:8101/frame
 Environment="PAGE_TITLE=ICP FLEXO Safety Office (On-Premise VLM)"
 ExecStart=/home/stanley/.local/bin/uv run uvicorn icp_safety_vlm.server.app:app --host 0.0.0.0 --port 8020
