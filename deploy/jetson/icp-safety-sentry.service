@@ -29,6 +29,10 @@ Environment=PATH=/home/icp/.local/bin:/usr/bin:/bin
 # quantization finding. Re-evaluate if fp16-alone ever gets close to the
 # 7.4GB ceiling on its own (GNOME desktop overhead + fp16 weights).
 Environment=LOCKED_BACKEND=vlm_paligemma
+# Cosmetic only — browser tab title and on-page heading. brannigan's two
+# instances use "...(On-Premise VLM)"; this one is "(On-Device VLM)" to
+# distinguish the two solutions per system-design-integration.md.
+Environment="PAGE_TITLE=ICP FLEXO Safety Office (On-Device VLM)"
 ExecStart=/home/icp/.local/bin/uv run uvicorn icp_safety_vlm.server.app:app --host 0.0.0.0 --port 8010
 Restart=on-failure
 RestartSec=5
