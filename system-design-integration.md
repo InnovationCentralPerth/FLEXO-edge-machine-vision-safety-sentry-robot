@@ -220,20 +220,74 @@ re-deriving them from a broader thresholding approach, before treating
 `yolo_hsv` as reliable on the Jetson's actual camera — currently it
 is not.
 
+**Real finding: the server is NOT autostarted and got OOM-killed
+(2026-09-14).** After a power cycle, the dashboard was unreachable —
+not because it failed to autostart (it was never set up to; it's still
+a foreground `nohup` process, see below), but because the *previous*
+run had already been killed by the kernel OOM killer:
+```
+oom-kill: task=uvicorn pid=6848
+Out of memory: Killed process 6848 (uvicorn) anon-rss:6522544kB
+```
+(confirmed via `sudo dmesg -T`). Cause: the server log showed `yolo_hsv`
+and `vlm_paligemma` (fp16, ~6GB) being polled concurrently — two
+different tailnet source IPs, likely two open browser tabs/dropdown
+switches — which keeps *both* Sentries resident at once (the existing
+idle-pause/unload design only unloads a backend once *it specifically*
+stops being polled, it doesn't cap total concurrent backends). On
+brannigan's 16GB that's harmless; on the Jetson's 7.4GB *total* shared
+pool — also running a full GNOME desktop, not headless — 6GB+ for one
+VLM backend plus anything else pushed it over the edge and the kernel
+killed the whole process, losing both backends at once. **Practical
+implication: don't view yolo_hsv and vlm_paligemma (fp16) at the same
+time on the Jetson from different tabs/devices** until this is
+addressed — either by switching the Jetson's live default to
+`vlm_paligemma_quantized` (2.61GB, real headroom for concurrent use) or
+by capping total concurrent resident backends in the Sentry architecture
+itself (a real architectural gap, not something either quantization or
+awareness alone fully closes).
+
+**Second real finding, still open: `yolo_hsv` latency stayed elevated
+(~350-384ms) even after a restart, well above the earlier ~25-77ms
+baseline.** Root cause attempt: the Jetson had booted into `nvpmodel`'s
+config-file default of `25W` power mode (not `MAXN_SUPER`, which was
+likely active — manually set, not persisted — during the earlier same-day
+benchmarking). Tried `sudo nvpmodel -m 2` (MAXN_SUPER) + `sudo
+jetson_clocks`: CPU clocks did increase (1.344GHz → 1.728GHz), but
+`nvpmodel -m 2` itself errored (`Error opening
+.../17000000.gpu/devfreq_dev/available_frequencies`) — a real driver/sysfs
+quirk on this JetPack R39.2.1 build, not a typo or wrong command. GPU
+clocks likely stayed capped despite the CPU fix, which would explain why
+inference latency (GPU-bound) didn't recover even though the power mode
+command "ran". Not yet resolved — needs either a full reboot after
+setting the mode (rather than a live `-m` switch), or investigating why
+the GPU devfreq sysfs path is missing/inaccessible on this build.
+
 **Next steps**:
 1. ~~Run the actual FastAPI server on the Jetson~~ — done, see above.
-2. Fix or re-tune `yolo_hsv`'s HSV thresholds for the Jetson's actual
+2. **Fix the OOM-kill risk** — either cap total concurrent resident
+   backends in the Sentry architecture, switch the Jetson's live default
+   to `vlm_paligemma_quantized`, or both. Real, reproduced crash, not
+   theoretical — see finding above.
+3. **Resolve the GPU devfreq/power-mode issue** so the Jetson reliably
+   runs at its real max performance rather than the `25W` boot default —
+   try a reboot after `nvpmodel -m 2` instead of a live switch, or
+   investigate the missing `.../17000000.gpu/devfreq_dev/` sysfs path.
+4. Fix or re-tune `yolo_hsv`'s HSV thresholds for the Jetson's actual
    camera (see finding above) — currently gives false negatives here.
-3. Set up a proper GitHub credential on this device (deploy key or the
+5. Set up a proper GitHub credential on this device (deploy key or the
    user's own key) so `git pull` works directly instead of rsync-from-brannigan.
-4. Measure real end-to-end memory headroom with the full server + camera
+6. Measure real end-to-end memory headroom with the full server + camera
    running, to settle the fp16-vs-4-bit question above with real numbers
-   instead of a plausible-sounding tradeoff.
-5. The TensorRT optimization work (per the user's stated goal: "benchmark
+   instead of a plausible-sounding tradeoff — now more urgent given the
+   confirmed OOM-kill above.
+7. The TensorRT optimization work (per the user's stated goal: "benchmark
    performance/latency, then optimize for model size + Jetson's
    TensorRT") — not started. The unsupported-build finding above is the
    concrete evidence for why this matters, not just a roadmap aspiration.
-6. Systemd/persistent service setup once the above is settled.
+8. Systemd/persistent service setup — would also mean an automatic
+   restart after a future OOM-kill or power cycle, directly addressing
+   today's "unable to reach the dashboard" symptom at its root.
 
 ## Shared interface (unchanged by this work)
 
