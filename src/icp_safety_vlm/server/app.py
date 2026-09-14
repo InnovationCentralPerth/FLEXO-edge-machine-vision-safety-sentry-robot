@@ -287,47 +287,14 @@ def _annotate(frame: np.ndarray, result: DetectionResult) -> np.ndarray:
     banner_color = (0, 200, 0) if result.status == "GO" else (0, 0, 255)
     cv2.putText(out, result.status, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1.0, banner_color, 2)
 
-    if result.message:
-        _draw_wrapped_text(out, result.message, banner_color)
+    # The advisory message is NOT drawn on the frame (previously via a
+    # bottom text band, removed 2026-09-14 per user feedback: it competed
+    # with whatever's actually in the scene — a busy background, or colors
+    # near the band — and became unreadable). The browser already shows
+    # the same text in the #message div, positioned below the video
+    # feed and above the age/latency meta line — see templates/index.html
+    # and the /status endpoint's `message` field.
     return out
-
-
-def _draw_wrapped_text(
-    img: np.ndarray, text: str, color: tuple[int, int, int], max_width_frac: float = 0.94
-) -> None:
-    """Draw `text` word-wrapped, anchored to the bottom edge of the frame
-    (grows upward with line count so it never overflows), with a
-    translucent backing band so it stays legible over any background."""
-    h, w = img.shape[:2]
-    font = cv2.FONT_HERSHEY_SIMPLEX
-    scale, thickness = 0.55, 1
-    max_width = int(w * max_width_frac)
-
-    words = text.split()
-    lines: list[str] = []
-    current = ""
-    for word in words:
-        candidate = f"{current} {word}".strip()
-        (tw, _), _ = cv2.getTextSize(candidate, font, scale, thickness)
-        if tw > max_width and current:
-            lines.append(current)
-            current = word
-        else:
-            current = candidate
-    if current:
-        lines.append(current)
-
-    line_height = 22
-    band_height = min(len(lines) * line_height + 12, h)
-    band_top = h - band_height
-    overlay = img.copy()
-    cv2.rectangle(overlay, (0, band_top), (w, h), (0, 0, 0), -1)
-    cv2.addWeighted(overlay, 0.55, img, 0.45, 0, dst=img)
-
-    y = band_top + line_height
-    for line in lines:
-        cv2.putText(img, line, (10, y), font, scale, color, thickness, cv2.LINE_AA)
-        y += line_height
 
 
 _sentries: dict[str, Sentry] = {}
