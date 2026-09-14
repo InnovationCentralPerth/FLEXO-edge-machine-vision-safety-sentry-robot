@@ -8,6 +8,15 @@ Type=simple
 User=icp
 WorkingDirectory=/home/icp/projects/icp_safety_vlm
 Environment=PATH=/home/icp/.local/bin:/usr/bin:/bin
+# Defaults the landing page (no ?backend= param) to the 4-bit quantized
+# VLM track, not fp16 vlm_paligemma or yolo_hsv — fixes the OOM-kill risk
+# found 2026-09-14 (fp16's ~6GB + anything else concurrent exceeded the
+# Jetson's 7.4GB shared pool; quantized's ~2.6GB leaves real headroom).
+# See system-design-integration.md's Solution B section for the finding.
+# This does NOT remove vlm_paligemma (fp16) from the dropdown — selecting
+# it manually still carries the same OOM risk as before if used
+# concurrently with another backend.
+Environment=DETECTOR_BACKEND=vlm_paligemma_quantized
 ExecStart=/home/icp/.local/bin/uv run uvicorn icp_safety_vlm.server.app:app --host 0.0.0.0 --port 8010
 Restart=on-failure
 RestartSec=5

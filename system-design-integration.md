@@ -244,14 +244,19 @@ stops being polled, it doesn't cap total concurrent backends). On
 brannigan's 16GB that's harmless; on the Jetson's 7.4GB *total* shared
 pool — also running a full GNOME desktop, not headless — 6GB+ for one
 VLM backend plus anything else pushed it over the edge and the kernel
-killed the whole process, losing both backends at once. **Practical
-implication: don't view yolo_hsv and vlm_paligemma (fp16) at the same
-time on the Jetson from different tabs/devices** until this is
-addressed — either by switching the Jetson's live default to
-`vlm_paligemma_quantized` (2.61GB, real headroom for concurrent use) or
-by capping total concurrent resident backends in the Sentry architecture
-itself (a real architectural gap, not something either quantization or
-awareness alone fully closes).
+killed the whole process, losing both backends at once.
+
+**Mitigated (2026-09-14): the Jetson's systemd service now sets
+`DETECTOR_BACKEND=vlm_paligemma_quantized`**, so the landing page (no
+`?backend=` param) defaults to the 2.61GB quantized track instead of
+fp16's ~6GB — real headroom for `yolo_hsv` to run concurrently without
+approaching the 7.4GB ceiling. **This is a mitigation, not a structural
+fix**: `vlm_paligemma` (fp16) is still selectable from the dropdown or
+via `?backend=vlm_paligemma`, and choosing it manually still carries the
+same OOM risk as before if run concurrently with anything else. Capping
+total concurrent resident backends in the Sentry architecture itself
+(so the server refuses/unloads-oldest rather than letting memory grow
+unbounded) would be the structural fix, still not done.
 
 **Second real finding, still open: `yolo_hsv` latency stayed elevated
 (~350-384ms) even after a restart, well above the earlier ~25-77ms
@@ -271,10 +276,11 @@ the GPU devfreq sysfs path is missing/inaccessible on this build.
 
 **Next steps**:
 1. ~~Run the actual FastAPI server on the Jetson~~ — done, see above.
-2. **Fix the OOM-kill risk** — either cap total concurrent resident
-   backends in the Sentry architecture, switch the Jetson's live default
-   to `vlm_paligemma_quantized`, or both. Real, reproduced crash, not
-   theoretical — see finding above.
+2. ~~Fix the OOM-kill risk~~ — **mitigated**: Jetson now defaults to
+   `vlm_paligemma_quantized`, see finding above. **Still open**: capping
+   total concurrent resident backends in the Sentry architecture itself,
+   the structural fix — manually selecting fp16 `vlm_paligemma` still
+   carries the same risk.
 3. **Resolve the GPU devfreq/power-mode issue** so the Jetson reliably
    runs at its real max performance rather than the `25W` boot default —
    try a reboot after `nvpmodel -m 2` instead of a live switch, or
