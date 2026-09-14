@@ -194,7 +194,7 @@ Both solutions plug into the existing architecture without modification:
 | yolo_hsv latency | ✅ measured: 2.8ms | n/a | not yet measured |
 | VLM latency | ✅ measured: ~295ms/frame (`vlm_paligemma`) | ✅ measured: ~318ms/frame — **slower**, not faster (see below) | not yet measured (`vlm_paligemma_quantized`) |
 | VLM VRAM/memory | ✅ measured: 6.08GB | ✅ measured: 2.62GB (57% less — the actual point of this variant) | not yet measured |
-| VLM accuracy | ✅ verified live: correct on worn (both colors)/off/held-not-worn, 37/37 across a stability pass — see README status note | ✅ identical output to fp16 on every test frame (expected — same weights, lower precision) | not yet measured |
+| VLM accuracy | ✅ verified live: 37/37 single-person stability pass + multi-person fix re-verified on saved frames (not yet re-verified live with two people) — see README's "On-Prem results log" | ✅ identical output to fp16 on every test frame (expected — same weights, lower precision) | not yet measured |
 | Power draw | not applicable (shared server) | not applicable | key edge metric — same Hailo-10H-review lesson applies: TOPS/params don't predict tokens/sec or watts, measure on real hardware |
 
 **Real finding (2026-09-14, controlled back-to-back measurement on the
@@ -228,6 +228,16 @@ the 3B-mix and 10B-mix checkpoints. Decided (2026-09-14) not to pursue a
 `vlm_paligemma.py`'s `PaliGemma10BDetector` docstring for the full
 diagnostic. **3B remains the confirmed better choice** for this task on
 every axis measured so far.
+
+**Third real finding (2026-09-14, user-reported): the original vest-count
+prompt undercounted with 2+ people**, producing a false STOP on a frame
+with 2 people both properly wearing vests (answered "1", not "2").
+Root-caused to two independently-fragile clauses (a color list, and the
+word "properly") rather than "compound questions are fragile in general"
+— see README's "On-Prem results log" for the before/after prompt text and
+`vlm_paligemma.py`'s module docstring for the full diagnostic. Fixed and
+re-verified through the actual deployed detector on saved test frames;
+still needs a live two-person re-check when available.
 
 `scripts/benchmark.py` already supports `--backend` selection and
 GO/STOP-labeled filename accuracy scoring (`data/samples/xxx__GO.jpg`) —

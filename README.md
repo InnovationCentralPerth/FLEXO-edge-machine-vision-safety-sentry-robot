@@ -23,6 +23,70 @@ before committing to one for the edge target.
 > `vlm_paligemma.py`'s module docstring for the current model's own
 > (differently-shaped) prompt-design notes.
 
+## On-Prem (brannigan) results log — PaliGemma 2
+
+Single place for "what model, what prompts, what we found" on the current
+On-Prem track. Full detail/code lives in `detectors/vlm_paligemma.py`'s
+docstrings and `system-design-integration.md`'s benchmark table — this is
+the summary.
+
+**Model**: `google/paligemma2-3b-mix-224` (`vlm_paligemma`, fp16) is the
+active default. Two comparison variants also registered:
+`vlm_paligemma_quantized` (same 3B, 4-bit) and `vlm_paligemma_10b`
+(`google/paligemma2-10b-mix-224`, 8-bit — required just to fit brannigan's
+16GB, not optional).
+
+**Prompts** (`vlm_paligemma.py`): person-count and vest-count are terse
+VQA questions, decided first; a torso-description VQA answer is composed
+into the final advisory sentence in code (not model-generated free text —
+PaliGemma-mix refuses open-ended generation instructions, see below).
+The vest-count prompt went through one real fix:
+- *Before* (undercounted with 2+ people): "How many people in this image
+  are properly wearing a high-visibility orange, yellow, or lime green
+  safety vest on their body? A vest only held in a hand or hanging nearby
+  does not count."
+- *After* (verified correct on 2-person-both-worn, 1-person-worn, and
+  1-person-held-not-worn): "How many people are wearing a high-visibility
+  safety vest on their body, not just holding one?"
+- Root cause, isolated by testing each clause's removal independently:
+  the color list broke even the single-person case; the word "properly"
+  alone broke the 2-person case. Not a general "shorten it" fix — a
+  specific two-clause diagnosis.
+
+**Findings, in the order found**:
+1. Message generation cannot reuse Qwen2-VL's approach — PaliGemma-mix
+   flatly refuses compound generation instructions ("explain in one full
+   sentence..."). Fixed with a short VQA description + code-composed
+   sentence template.
+2. `_parse_int()` silently dropped word-form counts ("one" parsed as 0,
+   not 1) — caused a real false STOP on a correctly-worn vest. Fixed to
+   handle both digit and word forms.
+3. Stability pass (single person, 37/37 correct): 15/15 `GO` while vest
+   worn (yellow, moving), 8/8 `STOP` vest off, 6/6 `STOP` vest held-not-worn
+   (the adversarial case), plus a separate confirmed `GO` on the orange
+   vest.
+4. 4-bit quantization (`vlm_paligemma_quantized`) is a **memory trade
+   only, not a speed win**, on brannigan: 2.62GB vs. 6.08GB VRAM, but
+   ~318ms vs. ~295ms latency (slightly *slower* — bitsandbytes falls back
+   to a slower kernel for this model's layer dimensions). May not predict
+   the Jetson result (different bitsandbytes build, genuinely
+   memory-constrained there).
+5. The 10B same-family model (`vlm_paligemma_10b`) is **worse on every
+   measured axis**: more VRAM (10.75GB), ~4x slower (~1.18s/frame), and
+   wrong on the vest-count question (answers "0" on a clearly, properly
+   worn vest) despite correctly answering simpler direct questions about
+   the same frame. Kept as a documented negative result, not pursued
+   further.
+6. Multi-person undercounting (user-reported): the original vest-count
+   prompt answered "1" for a frame with 2 people both properly wearing
+   vests, producing a false STOP. Fixed per the prompt change above;
+   re-verified through the actual deployed detector code (not just the
+   raw prompt) on saved test frames: 2-person-both-worn → GO,
+   1-person-worn → GO, 1-person-held-not-worn → STOP. **Not yet
+   re-verified live with two people since the fix deployed** — the saved-frame
+   re-test is real but a live re-check is still worth doing when two
+   people are available again.
+
 ## Hardware
 
 - **Dev laptop:** Ubuntu 24 / WSL2, RTX 3000 Ada 8GB VRAM (driver reports
