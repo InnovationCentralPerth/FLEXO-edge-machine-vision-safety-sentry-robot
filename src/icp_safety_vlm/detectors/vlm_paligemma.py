@@ -265,6 +265,54 @@ class PaliGemma2QuantizedDetector(PaliGemmaDetector):
         self._device = "cuda"
 
 
+class PaliGemma10BDetector(PaliGemmaDetector):
+    """Same prompts/pipeline as PaliGemmaDetector, scaled up to
+    PaliGemma 2 **10B**-mix — a same-family larger-model comparison point,
+    to see what a bigger model buys (or doesn't) over the 3B default, now
+    that brannigan's 16GB has headroom to try.
+
+    **Must run quantized to fit at all on brannigan** — 10B params at
+    bf16 is ~20GB, which exceeds the RTX 4080's 16GB outright, so unlike
+    `PaliGemma2QuantizedDetector` (where quantization is optional on this
+    card and only pays off on the Jetson), here it's load-bearing on
+    brannigan too. Uses **8-bit**, not 4-bit: `PaliGemma2QuantizedDetector`'s
+    docstring documents a measured 4-bit slowdown from a bitsandbytes
+    kernel-alignment fallback on this model family, and 8-bit LLM.int8()
+    fits comfortably in 16GB (~10-11GB expected) without needing to drop
+    to 4-bit's more aggressive (and, on this hardware, slower) path — keeps
+    the 3B-vs-10B comparison from being confounded by a second, unrelated
+    quantization-mode variable. Not yet measured whether 8-bit hits a
+    similar kernel-alignment issue; check the load-time bitsandbytes
+    warnings the way `PaliGemma2QuantizedDetector`'s finding was found.
+
+    Comparison is therefore "3B at full bf16" vs. "10B at 8-bit" — a real
+    limitation of this being an accuracy/capability comparison, not a
+    clean same-precision one; call this out explicitly if reporting
+    numbers from it, don't present it as controlling for precision."""
+
+    name = "vlm_paligemma_10b"
+
+    def __init__(self, model_id: str = "google/paligemma2-10b-mix-224", device: str | None = None):
+        super().__init__(model_id=model_id, device=device)
+
+    def warmup(self) -> None:
+        import torch
+        from transformers import AutoProcessor, BitsAndBytesConfig, PaliGemmaForConditionalGeneration
+
+        if not torch.cuda.is_available():
+            raise RuntimeError(
+                f"{self.name} requires a CUDA GPU for 8-bit inference (none detected)"
+            )
+
+        quant_config = BitsAndBytesConfig(load_in_8bit=True)
+        self._model = PaliGemmaForConditionalGeneration.from_pretrained(
+            self.model_id, quantization_config=quant_config, device_map="cuda"
+        )
+        self._model.eval()
+        self._processor = AutoProcessor.from_pretrained(self.model_id)
+        self._device = "cuda"
+
+
 _WORD_NUMBERS = {
     "zero": 0, "no": 0, "none": 0,
     "one": 1, "two": 2, "three": 3, "four": 4, "five": 5,

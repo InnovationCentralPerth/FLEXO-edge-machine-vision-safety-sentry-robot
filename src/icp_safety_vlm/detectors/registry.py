@@ -8,7 +8,7 @@ _REGISTRY: dict[str, type[VestDetector]] = {}
 def _lazy_register() -> None:
     if _REGISTRY:
         return
-    from .vlm_paligemma import PaliGemma2QuantizedDetector, PaliGemmaDetector
+    from .vlm_paligemma import PaliGemma2QuantizedDetector, PaliGemma10BDetector, PaliGemmaDetector
     from .yolo_hsv import YoloHsvDetector
 
     _REGISTRY["yolo_hsv"] = YoloHsvDetector
@@ -27,6 +27,12 @@ def _lazy_register() -> None:
     # unified) 7.4GB memory budget that makes quantization load-bearing
     # rather than just a speed optimization there.
     _REGISTRY["vlm_paligemma_quantized"] = PaliGemma2QuantizedDetector
+    # vlm_paligemma_10b: same family, scaled up to 10B (8-bit quantized —
+    # required to fit brannigan's 16GB at all, not optional). Larger-model
+    # comparison point, not an edge candidate; see vlm_paligemma.py's
+    # PaliGemma10BDetector docstring for why this isn't a same-precision
+    # comparison against vlm_paligemma (3B fp16).
+    _REGISTRY["vlm_paligemma_10b"] = PaliGemma10BDetector
     # Archived: vlm_qwen2vl.py (QwenVLDetector / QwenVL7BDetector) and
     # vlm_moondream.py still exist but aren't registered here — kept as
     # comparison baselines and for their documented prompt-design lessons
