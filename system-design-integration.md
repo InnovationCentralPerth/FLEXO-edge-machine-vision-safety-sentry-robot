@@ -182,16 +182,18 @@ used on brannigan — not yet a live server test)**:
 |---|---|---|---|
 | `yolo_hsv` | 4/4 correct (2-person-both-worn, 1-person-worn ×2 colors, 1-person-held-not-worn) | 25-77ms | n/a |
 | `vlm_paligemma` (fp16) | 4/4 + 3/3 repeat, multi-person fix holds (`GO`, n=2, 3/3 identical repeats) | ~1.35-1.4s | not measured precisely, but fp16 weights alone are ~6GB of the 7.4GB total pool |
-| `vlm_paligemma_quantized` (4-bit) | 3/3 correct | ~1.92s (**slower than fp16, same pattern as brannigan — confirmed to transfer, resolving the earlier "may not transfer" open question**) | 2.61GB (matches brannigan's 2.62GB almost exactly) |
+| `vlm_paligemma_quantized` (4-bit) | 3/3 correct | ~1.92s (**slower than fp16, same pattern as brannigan — confirmed to transfer, resolving the earlier "may not transfer" open question**) | ~5.6-6GB real process footprint (cgroup `MemoryCurrent`, live server) — 2.61GB was only the tensor-allocator figure, see correction below |
 
 **The memory-vs-speed tradeoff is genuinely different here than on
 brannigan.** On brannigan, quantization has no upside (16GB has zero
 memory pressure to relieve) and a real speed cost — fp16 is strictly
-better there. On the Jetson, fp16's ~6GB against a 7.4GB *total* pool
-leaves only ~1.4GB for the OS, camera capture, and the server process —
-genuinely tight. The quantized 2.61GB leaves ~4.8GB of headroom despite
-being ~40% slower. Whether that trade is worth it depends on how tight
-the full running system (not just the model) actually is in practice —
+better there. On the Jetson, fp16's ~6GB+ against a 7.4GB *total* pool
+leaves very little for the OS, camera capture, and the server process —
+this is what actually triggered the confirmed OOM-kill. Quantized's real
+~5.6-6GB footprint leaves a real but modest ~2.3GB available (confirmed
+via `free -h` on the live service) despite being ~40% slower — better
+than fp16, not a generous margin. Whether that trade is worth it depends
+on how tight the full running system (not just the model) actually is —
 worth re-measuring memory headroom with the whole server (camera +
 model) running, not just the model in isolation, before deciding which
 variant is the real On-Device default.
@@ -248,15 +250,26 @@ killed the whole process, losing both backends at once.
 
 **Mitigated (2026-09-14): the Jetson's systemd service now sets
 `DETECTOR_BACKEND=vlm_paligemma_quantized`**, so the landing page (no
-`?backend=` param) defaults to the 2.61GB quantized track instead of
-fp16's ~6GB — real headroom for `yolo_hsv` to run concurrently without
-approaching the 7.4GB ceiling. **This is a mitigation, not a structural
-fix**: `vlm_paligemma` (fp16) is still selectable from the dropdown or
-via `?backend=vlm_paligemma`, and choosing it manually still carries the
-same OOM risk as before if run concurrently with anything else. Capping
-total concurrent resident backends in the Sentry architecture itself
-(so the server refuses/unloads-oldest rather than letting memory grow
-unbounded) would be the structural fix, still not done.
+`?backend=` param) defaults to the quantized track. **Correction to the
+number above**: 2.61GB was `torch.cuda.memory_allocated()` — the
+tensor-allocator's own bookkeeping, not real process memory. Measured
+via the running systemd service's actual cgroup accounting
+(`systemctl show -p MemoryCurrent`) with only `vlm_paligemma_quantized`
+loaded: **~5.6-6GB real footprint** (framework/CUDA-context overhead
+accounts for the difference), leaving `free -h`-confirmed ~2.3GB
+available system-wide, not the ~4.8GB headroom figure quoted earlier.
+The mitigation still holds — this is meaningfully better than fp16,
+which left ~1.4GB or less and is what actually triggered the OOM-kill —
+but the margin is smaller than the tensor-allocator numbers implied.
+**This is a mitigation, not a structural fix**: `vlm_paligemma` (fp16)
+is still selectable from the dropdown or via `?backend=vlm_paligemma`,
+and choosing it manually still carries the same OOM risk as before if
+run concurrently with anything else — and even quantized-only headroom
+(~2.3GB) isn't large enough to safely add a second VLM backend
+concurrently. Capping total concurrent resident backends in the Sentry
+architecture itself (so the server refuses/unloads-oldest rather than
+letting memory grow unbounded) would be the structural fix, still not
+done.
 
 **Second real finding, still open: `yolo_hsv` latency stayed elevated
 (~350-384ms) even after a restart, well above the earlier ~25-77ms
