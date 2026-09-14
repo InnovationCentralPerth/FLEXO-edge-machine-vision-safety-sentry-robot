@@ -24,11 +24,24 @@ accepts a natural-language question with an `"answer en "` prefix rather
 than requiring pretraining-specific task strings.
 
 **Verdict prompts (person/vest counts) carried over from vlm_qwen2vl.py's
-count-based structure and work as hoped** — live-tested 2026-09-14 against
-real frames: correct STOP verdict, 398ms latency, no acquiescence-bias
-tell so far. Still needs the same adversarial re-testing vlm_qwen2vl.py's
-docstring describes (known-STOP frames, repeated calls) before being
-trusted as verified rather than "worked on the frames tried so far".
+count-based structure — partially worked, partially didn't, both found
+by direct testing, not assumed.** Single-person verdicts tested correctly
+early on (STOP, 398ms, no acquiescence-bias tell). But the original
+`_Q_VESTS` compound phrasing **undercounted with 2+ people** — a real bug
+found live 2026-09-14 (user report: multi-person frames should only GO
+when *everyone* has a vest, which is what `infer()`'s `n_vests >=
+n_people` already implements, but the count feeding it was wrong): on a
+frame with 2 people both properly wearing vests, it answered `"1"`,
+producing a false STOP. Root-caused to two specific fragility triggers —
+the color list (worse: broke even the *single*-person case down to "0")
+and the word "properly" (broke only the 2-person case) — neither a
+"compound questions are fragile in general" problem, both isolated by
+testing each clause's removal independently. Current `_Q_VESTS` (below)
+was verified correct on all three of: 2-person-both-worn, 1-person-worn,
+1-person-held-not-worn. Still needs broader adversarial re-testing (a
+non-compliant person mixed with a compliant one, 3+ people) before this
+is "verified" rather than "correct on the cases tried so far" — the same
+caveat vlm_qwen2vl.py's docstring holds itself to.
 
 **Message generation could NOT be carried over — confirmed empirically,
 not just suspected.** The Qwen2-VL-style prompt ("Speaking directly to the
@@ -67,11 +80,28 @@ import numpy as np
 from .base import Detection, DetectionResult, VestDetector
 
 _Q_PEOPLE = "answer en How many people are visible in this image?"
+# This exact phrasing was chosen empirically after the original compound
+# version (below, kept for the record) undercounted with 2+ people — see
+# module docstring "Multi-person undercounting" for the full diagnostic.
+# Two specific clauses turned out to be the fragility triggers, not
+# compound phrasing in general: the color list ("orange, yellow, or lime
+# green") broke even the single-person case, and "properly" alone broke
+# the 2-person case. This phrasing keeps "high-visibility" (excludes a
+# plain suit vest) and the explicit held-vs-worn distinction (verified
+# against the adversarial held-not-worn test case), drops both fragility
+# triggers, and was verified correct on all three: 2-person-both-worn,
+# 1-person-worn, 1-person-held-not-worn.
 _Q_VESTS = (
-    "answer en How many people in this image are properly wearing a "
-    "high-visibility orange, yellow, or lime green safety vest on their "
-    "body? A vest only held in a hand or hanging nearby does not count."
+    "answer en How many people are wearing a high-visibility safety vest "
+    "on their body, not just holding one?"
 )
+# Documented negative result, not currently used: the original compound
+# phrasing undercounted 2+ people (answered "1" for a frame with 2 people
+# both properly wearing vests, confirmed against "how many people are
+# wearing a safety vest?" correctly answering "2" on the same frame):
+#   "answer en How many people in this image are properly wearing a
+#    high-visibility orange, yellow, or lime green safety vest on their
+#    body? A vest only held in a hand or hanging nearby does not count."
 # Plain, single-clause VQA question — PaliGemma-mix answers this
 # reliably (tested: "sweatshirt", "a yellow vest") where a compound
 # generation instruction gets refused outright (see module docstring).

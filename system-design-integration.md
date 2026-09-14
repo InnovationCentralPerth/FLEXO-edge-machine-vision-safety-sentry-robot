@@ -255,5 +255,14 @@ Not yet solved, called out explicitly so they aren't lost:
    TensorRT export) — see [Model choice](#model-choice-paligemma-2-3b-replacing-qwen2-vl)
    above; needs a decision once `bitsandbytes` aarch64 wheel availability
    on JetPack 7.2.1 is confirmed one way or the other.
-5. **PaliGemma prompt design is unverified** — do not assume the
-   Qwen2-VL acquiescence-bias fix transfers; re-test.
+5. **PaliGemma prompt design has real, found-by-testing history, not a
+   clean transfer of Qwen2-VL's fix** — three separate issues found and
+   fixed live so far: message generation needed a describe+template
+   hybrid (compound generation instructions get refused outright), count
+   answers can come back as words not digits (`_parse_int` now handles
+   both), and the original `_Q_VESTS` phrasing undercounted with 2+
+   people (root-caused to a color list and the word "properly", each
+   independently fragile; fixed 2026-09-14 — see `vlm_paligemma.py`'s
+   module docstring). Still not adversarially tested for a *mixed*
+   multi-person frame (some compliant, some not) or 3+ people — don't
+   assume the fix generalizes past what's been directly tested.
