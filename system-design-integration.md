@@ -310,6 +310,19 @@ already viewed remotely over Tailscale, so the resident GNOME
 desktop's ~140MB RSS (gdm/gnome-shell/Xorg/pipewire) is pure overhead;
 user deferred this for now in favor of the backend swap above.
 
+**Follow-up, same day: headless switch also applied.** `ssh/tailscaled
+/docker/icp-safety-sentry` all confirmed independently under
+`multi-user.target` (not pulled in by `graphical.target`), so this was
+safe to do without losing remote access. `sudo systemctl set-default
+multi-user.target` (persists the choice across reboots) followed by
+`sudo systemctl isolate multi-user.target` (applies it immediately, no
+reboot needed). Verified: SSH session survived, `icp-safety-sentry`
+stayed active throughout with no interruption, gdm/gnome-shell/Xorg
+processes confirmed gone (`ps aux` count: 0), swap usage dropped
+291MB → 119MB immediately. The Jetson now boots headless from here on;
+the dashboard is unaffected since it was already only ever viewed
+remotely over Tailscale, never on this device's own screen.
+
 **Second real finding, still open: `yolo_hsv` latency stayed elevated
 (~350-384ms) even after a restart, well above the earlier ~25-77ms
 baseline.** Root cause attempt: the Jetson had booted into `nvpmodel`'s
