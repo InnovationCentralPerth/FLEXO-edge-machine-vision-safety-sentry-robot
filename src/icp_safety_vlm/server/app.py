@@ -40,6 +40,10 @@ CAMERA_INDEX = int(os.environ.get("CAMERA_INDEX", "0"))
 FRAME_WIDTH = int(os.environ.get("FRAME_WIDTH", "640"))
 FRAME_HEIGHT = int(os.environ.get("FRAME_HEIGHT", "480"))
 DEFAULT_BACKEND = os.environ.get("DETECTOR_BACKEND", "yolo_hsv")
+# Cosmetic only — browser tab title and on-page heading. Lets different
+# deployments (e.g. brannigan vs. the Jetson) show a distinct name
+# without a code change; defaults to the original prototype name.
+PAGE_TITLE = os.environ.get("PAGE_TITLE", "ICP Safety Vest Sentry")
 # Set this to force every request onto one backend regardless of the
 # dropdown or ?backend= query param — not just changing the default.
 # This is the structural fix for the concurrent-multi-backend OOM risk
@@ -347,7 +351,7 @@ def index(request: Request, backend: str = Query(default=DEFAULT_BACKEND)):
     return templates.TemplateResponse(
         request,
         "index.html",
-        {"backend": backend, "available": available},
+        {"backend": backend, "available": available, "page_title": PAGE_TITLE},
     )
 
 
