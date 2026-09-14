@@ -196,20 +196,44 @@ worth re-measuring memory headroom with the whole server (camera +
 model) running, not just the model in isolation, before deciding which
 variant is the real On-Device default.
 
+**Live server verified working end-to-end (2026-09-14)**, real Jetson
+camera, real server code path (not the ad-hoc script above): both
+`yolo_hsv` and `vlm_paligemma` ran live via `uvicorn ... --port 8010`
+with the local `CAMERA_INDEX` (no `CAMERA_SOURCE` relay — camera attached
+directly, per the standalone design). Idle-pause/unload behaved as
+expected across the multi-hop polling used to test this (brannigan → 
+Jetson SSH round-trips exceed `IDLE_TIMEOUT_S`, so the Sentry idled and
+reloaded between checks — consistent with the documented design, not a
+bug).
+
+**Real finding: `yolo_hsv` gives a false STOP on this camera** — a
+person clearly wearing an orange hi-vis vest was marked "NO VEST",
+reproducible across 3 repeated polls. On the identical live scene,
+`vlm_paligemma` correctly said `GO`. The HSV color thresholds in
+`detectors/yolo_hsv.py` were tuned against the dev laptop's webcam;
+this is real evidence they don't generalize to a different camera's
+color calibration/white balance/exposure — a genuine portability
+limitation of the classic-CV track, not a Jetson-specific bug (the same
+thresholds would likely misfire on brannigan too if fed frames from this
+same USB camera). Worth re-tuning the HSV thresholds per-camera, or
+re-deriving them from a broader thresholding approach, before treating
+`yolo_hsv` as reliable on the Jetson's actual camera — currently it
+is not.
+
 **Next steps**:
-1. Run the actual FastAPI server on the Jetson (local `CAMERA_INDEX`, no
-   `CAMERA_SOURCE` relay needed — camera is attached directly) and
-   re-verify through the real server code path, not just ad-hoc scripts.
-2. Set up a proper GitHub credential on this device (deploy key or the
+1. ~~Run the actual FastAPI server on the Jetson~~ — done, see above.
+2. Fix or re-tune `yolo_hsv`'s HSV thresholds for the Jetson's actual
+   camera (see finding above) — currently gives false negatives here.
+3. Set up a proper GitHub credential on this device (deploy key or the
    user's own key) so `git pull` works directly instead of rsync-from-brannigan.
-3. Measure real end-to-end memory headroom with the full server + camera
+4. Measure real end-to-end memory headroom with the full server + camera
    running, to settle the fp16-vs-4-bit question above with real numbers
    instead of a plausible-sounding tradeoff.
-4. The TensorRT optimization work (per the user's stated goal: "benchmark
+5. The TensorRT optimization work (per the user's stated goal: "benchmark
    performance/latency, then optimize for model size + Jetson's
    TensorRT") — not started. The unsupported-build finding above is the
    concrete evidence for why this matters, not just a roadmap aspiration.
-5. Systemd/persistent service setup once the above is settled.
+6. Systemd/persistent service setup once the above is settled.
 
 ## Shared interface (unchanged by this work)
 
