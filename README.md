@@ -8,6 +8,21 @@ message written by the model itself.
 Built to compare detection strategies head-to-head on the same hardware,
 before committing to one for the edge target.
 
+> **Current status (2026-09-14)**: this project is now two solutions —
+> On-Prem (this doc, running on brannigan's RTX 4080) and On-Device
+> (a standalone Jetson Orin Nano Super) — see
+> **[system-design-integration.md](system-design-integration.md)** for the
+> integrated architecture. The active VLM track is now **PaliGemma 2**
+> (`detectors/vlm_paligemma.py`), replacing Qwen2-VL for non-CN-origin
+> model provenance; Qwen2-VL and moondream2 are both archived (code still
+> present, not registered by default). Most of this README predates that
+> split and describes the original single-machine prototype phase — the
+> Hailo-10H research and the Qwen2-VL prompt-design writeup below are
+> still accurate *as history* and worth reading for the lessons, but
+> `vlm_qwen2vl` is no longer the backend you get by default. See
+> `vlm_paligemma.py`'s module docstring for the current model's own
+> (differently-shaped) prompt-design notes.
+
 ## Hardware
 
 - **Dev laptop:** Ubuntu 24 / WSL2, RTX 3000 Ada 8GB VRAM (driver reports
@@ -108,11 +123,15 @@ little VRAM headroom that even a genuinely idle model slows the active one
 down from memory pressure (see [Server architecture](#server-architecture)).
 Rather than fight that permanently, the default is Qwen2-VL only.
 
-To spin moondream2 back up for a benchmark comparison: add it back in
-`detectors/registry.py`'s `_lazy_register()` (one line, it's still a
-working `VestDetector`), or just run it standalone —
-`scripts/benchmark.py --backend vlm_moondream` works without any registry
-change since the script imports detectors directly.
+To spin moondream2 (or `vlm_qwen2vl`/`vlm_qwen2vl_7b`, also archived as of
+the PaliGemma switch — see the status note at the top of this file) back
+up for a benchmark comparison: add it back in `detectors/registry.py`'s
+`_lazy_register()` (one line each, still working `VestDetector`s).
+**Correction to an earlier version of this note**: `scripts/benchmark.py`
+always resolves backends via `get_detector()` (the registry), not a direct
+import — so an archived backend needs that one-line re-registration before
+`--backend vlm_moondream` (or any other archived name) will work, it does
+not run "standalone" without one.
 
 ## Setup
 
@@ -131,15 +150,20 @@ uv sync --extra yolo --extra vlm
 ```
 
 **Note on `transformers` version:** the `vlm` extra pins
-`transformers>=4.45,<4.46`. `Qwen2VLForConditionalGeneration` needs
-`>=4.45.0`; the upper bound is a holdover from keeping the archived
-moondream2 backend loadable in the same environment (its
+`transformers>=4.45,<4.46`. This version happens to support both the
+active `PaliGemmaForConditionalGeneration` and the archived
+`Qwen2VLForConditionalGeneration`/moondream2 classes; the upper bound is a
+holdover from keeping moondream2 loadable in the same environment (its
 `trust_remote_code` model class breaks on the `>=5.x` `PretrainedConfig`
 internals refactor) — safe to relax if you've dropped that comparison for
 good.
 
-Qwen2-VL-2B-Instruct is a ~4GB download on first use, cached by
-`huggingface_hub` after that.
+**PaliGemma 2 requires accepting Google's Gemma license once per Hugging
+Face account** before the first download — visit
+https://huggingface.co/google/paligemma2-3b-mix-224 while logged in, then
+`hf auth login` (or set `HF_TOKEN`) wherever the server runs. Skipping this
+fails `warmup()` with a 403 gated-repo error, not a clear license prompt.
+It's a ~6GB download on first use after that, cached by `huggingface_hub`.
 
 ## Run
 
@@ -147,8 +171,11 @@ Qwen2-VL-2B-Instruct is a ~4GB download on first use, cached by
 uv run uvicorn icp_safety_vlm.server.app:app --host 0.0.0.0 --port 8000
 ```
 
-Then open `http://localhost:8000/` (or `?backend=vlm_qwen2vl` /
-`?backend=yolo_hsv` in the URL, or the dropdown on the page).
+Then open `http://localhost:8000/` (or `?backend=vlm_paligemma` /
+`?backend=yolo_hsv` in the URL, or the dropdown on the page). See
+[system-design-integration.md](system-design-integration.md) for how this
+looks when the server runs on brannigan instead, with the camera relayed
+from a laptop over `CAMERA_SOURCE`.
 
 Env vars: `CAMERA_INDEX`, `FRAME_WIDTH`, `FRAME_HEIGHT`, `DETECTOR_BACKEND`.
 
@@ -343,8 +370,9 @@ only used by the archived `vlm_moondream.py`) is a one-line change in
 
 ```bash
 uv run python scripts/benchmark.py --images data/samples --backend yolo_hsv
-uv run python scripts/benchmark.py --images data/samples --backend vlm_qwen2vl
-uv run python scripts/benchmark.py --images data/samples --backend vlm_moondream  # archived, still works standalone
+uv run python scripts/benchmark.py --images data/samples --backend vlm_paligemma
+# vlm_qwen2vl / vlm_qwen2vl_7b / vlm_moondream are archived — re-register
+# in detectors/registry.py's _lazy_register() first (see note above)
 ```
 
 Name files `xxx__GO.jpg` / `xxx__STOP.jpg` to also get accuracy against a
@@ -388,8 +416,12 @@ src/icp_safety_vlm/
     base.py            # VestDetector interface, Detection/DetectionResult
     messages.py         # fixed GO/STOP message templates
     yolo_hsv.py          # Track A
-    vlm_qwen2vl.py        # Track B: QwenVLDetector (edge candidate, 2B) +
-                          #   QwenVL7BDetector (accuracy comparison, 4-bit 7B)
+    vlm_paligemma.py      # Track B (active): PaliGemmaDetector (On-Prem,
+                          #   full precision) + PaliGemma2QuantizedDetector
+                          #   (On-Device / Jetson candidate, 4-bit)
+    vlm_qwen2vl.py        # archived (not registered) — Qwen2-VL-2B/-7B,
+                          #   see README status note + system-design-
+                          #   integration.md for why it moved to archived
     vlm_moondream.py       # archived comparison baseline (not registered)
     registry.py              # name -> detector class
   server/          # FastAPI app (Camera/Sentry) + browser UI (templates/index.html)

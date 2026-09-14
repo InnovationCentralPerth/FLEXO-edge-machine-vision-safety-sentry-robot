@@ -2,8 +2,11 @@
 
 Usage:
     uv run --extra yolo --extra vlm python scripts/benchmark.py --images data/samples --backend yolo_hsv
-    uv run --extra yolo --extra vlm python scripts/benchmark.py --images data/samples --backend vlm_qwen2vl
-    uv run --extra yolo --extra vlm python scripts/benchmark.py --images data/samples --backend vlm_moondream
+    uv run --extra yolo --extra vlm python scripts/benchmark.py --images data/samples --backend vlm_paligemma
+
+--backend always resolves via detectors.get_detector() (the registry) —
+an archived backend (vlm_qwen2vl, vlm_qwen2vl_7b, vlm_moondream) needs a
+one-line re-registration in registry.py's _lazy_register() first.
 
 Reports per-image latency and verdict; prints summary stats (mean/p50/p95 ms).
 Ground truth: name files like `<anything>__GO.jpg` / `<anything>__STOP.jpg` to
