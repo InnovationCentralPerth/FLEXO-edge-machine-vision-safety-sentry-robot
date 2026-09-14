@@ -275,6 +275,41 @@ Re-evaluate if fp16-alone ever approaches the 7.4GB ceiling by itself
 (GNOME desktop overhead + fp16 weights, no second backend needed to
 trigger it).
 
+**That re-evaluation trigger fired the same day, live.** User reported
+the dashboard "stuck at STOP." Caught in the act via SSH: `vlm_paligemma`
+(fp16) at **6.9GB RSS / 7.3-7.4GB total used, 91MB free, 919MB in
+swap** — not a leak, this was steady state under normal active viewing
+(idle-pause only kicks in after `IDLE_TIMEOUT_S=8` with nobody polling;
+someone was actively looking at the dashboard). A `systemctl restart`
+briefly cleared it (5.5GB available immediately after) but within
+seconds of resuming active serving it climbed straight back to
+7.3GB used / 1.5GB swap — confirming steady-state, not transient. Under
+that swap pressure the inference loop stalls, so the browser keeps
+showing the last successfully-rendered frame/verdict — that's the
+"stuck" symptom, not a code regression (`_annotate()`'s whole-frame-box
+skip was verified unchanged and correct; the bounding box the user saw
+was on that same frozen stale frame from before the stall, not newly
+drawn).
+
+**Re-evaluated as asked, switched `LOCKED_BACKEND` to
+`vlm_paligemma_quantized`.** Measured under the same conditions
+(sustained active polling, post-warmup steady state):
+
+| | fp16 (`vlm_paligemma`) | quantized (`vlm_paligemma_quantized`) |
+|---|---|---|
+| Memory, steady state | 6.9GB RSS / 7.3-7.4GB used, **91MB free**, swap climbing to 1.5GB | 4.7GB used, **2.7GB available**, swap flat at ~294MB |
+| Latency (single-question, NO PERSON case) | ~505-513ms | ~745-764ms (~45% slower) |
+
+This flips the earlier trade-off: quantized's memory win is real and
+now the deciding factor (2.7GB stable headroom vs. fp16 actively
+swapping), even though it's still ~45% slower with no accuracy upside,
+as before. `LOCKED_BACKEND=vlm_paligemma_quantized` deployed and
+verified live on the Jetson. Not yet done: switching the Jetson off
+`graphical.target` to headless (`multi-user.target`) — the dashboard is
+already viewed remotely over Tailscale, so the resident GNOME
+desktop's ~140MB RSS (gdm/gnome-shell/Xorg/pipewire) is pure overhead;
+user deferred this for now in favor of the backend swap above.
+
 **Second real finding, still open: `yolo_hsv` latency stayed elevated
 (~350-384ms) even after a restart, well above the earlier ~25-77ms
 baseline.** Root cause attempt: the Jetson had booted into `nvpmodel`'s

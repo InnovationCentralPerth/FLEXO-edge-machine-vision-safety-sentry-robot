@@ -16,19 +16,27 @@ Type=simple
 User=icp
 WorkingDirectory=/home/icp/projects/icp_safety_vlm
 Environment=PATH=/home/icp/.local/bin:/usr/bin:/bin
-# Locks every request to vlm_paligemma (fp16) regardless of the dropdown
-# or ?backend= query — not just a default. This is the structural fix
-# for the 2026-09-14 OOM-kill (concurrent yolo_hsv + vlm_paligemma both
+# Locks every request to one backend regardless of the dropdown or
+# ?backend= query — not just a default. This is the structural fix for
+# the 2026-09-14 OOM-kill (concurrent yolo_hsv + vlm_paligemma both
 # resident at once exceeded the Jetson's 7.4GB shared pool): with only
 # one backend ever selectable, only one can ever be resident, so two
-# Sentries can never compete for memory. Chosen over locking to
-# vlm_paligemma_quantized because quantized's real memory win turned out
-# smaller than first measured (corrected in system-design-integration.md:
-# ~5.6-6GB real footprint, not the ~2.6GB tensor-allocator figure) and
-# it's slower with no accuracy upside — see that doc's Solution A
-# quantization finding. Re-evaluate if fp16-alone ever gets close to the
-# 7.4GB ceiling on its own (GNOME desktop overhead + fp16 weights).
-Environment=LOCKED_BACKEND=vlm_paligemma
+# Sentries can never compete for memory.
+#
+# 2026-09-14, later same day: switched fp16 -> quantized. fp16-alone was
+# first chosen over quantized because quantized's real memory win looked
+# smaller than first measured (~5.6-6GB real footprint, not the ~2.6GB
+# tensor-allocator figure) and it was slower with no accuracy upside (see
+# system-design-integration.md's Solution A quantization finding). But
+# fp16-alone then hit exactly the risk flagged below: caught live at
+# 6.9GB RSS / 7.3-7.4GB total used, with the process actively swapping
+# (up to 1.5GB) under normal active-viewing load — not a leak, steady
+# state. That's what produced the "stuck at STOP" symptom: swap
+# thrashing stalls the inference loop, so the browser shows a frozen
+# last-good frame. Re-evaluating with that swapping/stability risk now
+# weighted above the earlier speed/accuracy comparison — see that doc's
+# updated finding for before/after memory numbers under real load.
+Environment=LOCKED_BACKEND=vlm_paligemma_quantized
 # Cosmetic only — browser tab title and on-page heading. brannigan's two
 # instances use "...(On-Premise VLM)"; this one is "(On-Device VLM)" to
 # distinguish the two solutions per system-design-integration.md.
