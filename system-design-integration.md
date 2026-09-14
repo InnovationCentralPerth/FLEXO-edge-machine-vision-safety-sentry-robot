@@ -454,13 +454,24 @@ solutions can sit in one comparison table.
 
 Not yet solved, called out explicitly so they aren't lost:
 
-1. **On-Prem's SSH tunnel + camera relay are foreground/manual
-   processes**, not systemd services — they don't survive a terminal
-   closing or a reboot. Needs a supervised setup (systemd user units, or
-   equivalent) before this is a standing demo rather than a
-   manually-started one.
+1. ~~On-Prem's SSH tunnel + camera relay are foreground/manual
+   processes~~ — **done for brannigan's side (2026-09-14)**: see
+   `deploy/brannigan/` — `icp-safety-sentry-main.service` (:8010),
+   `icp-safety-sentry-demo.service` (:8020), and
+   `icp-camera-tunnel-demo.service` (the brannigan-initiated forward
+   tunnel to icp-gmk-01). All three `enable`d, survive a brannigan
+   reboot. **Real remaining gap**: `:8010`'s camera source is the P16v
+   dev laptop's *reverse* tunnel, initiated from the laptop, not
+   brannigan — a personal WSL2 machine isn't a persistent server, so
+   that side still needs `scripts/camera_relay.py` + the reverse tunnel
+   command re-run by hand after either machine restarts. Only the demo
+   pipeline (brannigan-initiated tunnel) recovers fully unattended.
+   `icp-gmk-01`'s own `camera_relay.py` process is also still
+   foreground/manual — a follow-up on that third machine, not brannigan.
 2. **Jetson is not yet on Tailscale** and has no camera attached — first
-   two concrete steps for Solution B.
+   two concrete steps for Solution B. *(Superseded — see "Solution B"
+   above: the Jetson has been on Tailscale with a camera attached and
+   its own systemd service since partway through this project.)*
 3. **PaliGemma's Gemma license** must be accepted on Hugging Face
    (per-account, one-time) before either machine can download it —
    confirm this is done before scripting an unattended first-run
