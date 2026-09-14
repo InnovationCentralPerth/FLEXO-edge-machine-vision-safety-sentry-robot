@@ -1,0 +1,33 @@
+[Unit]
+Description=ICP Safety VLM Sentry (brannigan, foyer demo - :8020, icp-gmk-01 camera)
+After=network-online.target icp-camera-tunnel-demo.service
+Wants=network-online.target
+# Soft dependency, not Requires=: if the tunnel is momentarily down this
+# server should still come up and serve a graceful "no frame" state
+# (Camera._loop_remote already retries on connection errors) rather than
+# refuse to start entirely.
+StartLimitIntervalSec=300
+StartLimitBurst=8
+
+[Service]
+Type=simple
+User=stanley
+WorkingDirectory=/home/stanley/projects/icp_safety_vlm
+Environment=PATH=/home/stanley/.local/bin:/usr/bin:/bin
+# Sources frames from the foyer demo PC (icp-gmk-01)'s camera_relay.py
+# via icp-camera-tunnel-demo.service's forward SSH tunnel (brannigan's
+# localhost:8101 -> icp-gmk-01:8100). Unlike icp-safety-sentry-main's
+# laptop dependency, this tunnel IS brannigan-initiated and IS a systemd
+# service (see icp-camera-tunnel-demo.service), so this one genuinely
+# recovers fully on its own after a brannigan reboot — no manual step
+# needed on the demo client, as long as icp-gmk-01 itself and its own
+# camera_relay.py process are up (that process is not yet systemd-ized
+# as of 2026-09-14 — separate machine, separate follow-up).
+Environment=CAMERA_SOURCE=http://localhost:8101/frame
+Environment="PAGE_TITLE=ICP FLEXO Safety Office (On-Premise VLM)"
+ExecStart=/home/stanley/.local/bin/uv run uvicorn icp_safety_vlm.server.app:app --host 0.0.0.0 --port 8020
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

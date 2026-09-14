@@ -1,0 +1,30 @@
+[Unit]
+Description=SSH forward tunnel: brannigan localhost:8101 -> icp-gmk-01 camera_relay.py :8100
+After=network-online.target
+Wants=network-online.target
+StartLimitIntervalSec=300
+StartLimitBurst=20
+
+[Service]
+Type=simple
+User=stanley
+# Forward tunnel initiated FROM brannigan (not a reverse tunnel from the
+# far end) because brannigan already has password-authenticated SSH
+# access to the demo client via sshpass — no new credential needed on
+# icp-gmk-01. This rides over the existing SSH connection (port 22),
+# which cross-tailnet ACLs allow even though a direct connection to
+# icp-gmk-01:8100 does not — see system-design-integration.md's
+# "Networking note" under Solution A for the full explanation.
+# -N: no remote command, just port forwarding.
+# ExitOnForwardFailure=yes: exit (rather than hang open with a dead
+# forward) if the forward itself can't be established, so systemd's
+# Restart=on-failure actually retries instead of leaving a zombie tunnel.
+# Password comes from a local file (/etc/icp-safety-vlm/demo-client.pass,
+# mode 600, root:stanley) rather than inline here — this unit file is
+# committed to git, the password file is not.
+ExecStart=/usr/bin/sshpass -f /etc/icp-safety-vlm/demo-client.pass ssh -N -o ExitOnForwardFailure=yes -o ServerAliveInterval=15 -o ServerAliveCountMax=3 -o StrictHostKeyChecking=accept-new -L 8101:localhost:8100 icp@icp-gmk-01
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

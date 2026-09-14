@@ -1,0 +1,31 @@
+[Unit]
+Description=ICP Safety VLM Sentry (brannigan, On-Premise dev/test - :8010, laptop camera)
+After=network-online.target
+Wants=network-online.target
+StartLimitIntervalSec=300
+StartLimitBurst=8
+
+[Service]
+Type=simple
+User=stanley
+WorkingDirectory=/home/stanley/projects/icp_safety_vlm
+Environment=PATH=/home/stanley/.local/bin:/usr/bin:/bin
+# Sources frames from the P16v dev laptop's scripts/camera_relay.py via
+# an SSH REVERSE tunnel (laptop -> brannigan, `ssh -R 8100:localhost:8100
+# stanley@brannigan`) — initiated from the laptop side, not from here.
+# That means this service autostarting on a brannigan reboot does NOT
+# by itself restore the camera feed: the laptop is a personal WSL2 dev
+# machine, not a persistent server, so its relay + reverse tunnel are
+# still manually-started foreground processes and need re-running by
+# hand after either machine restarts. This server will come up cleanly
+# and show "STARTING"/no frame until that happens — see README's WSL2
+# webcam passthrough section and system-design-integration.md's
+# Solution A architecture diagram for the laptop-side commands.
+Environment=CAMERA_SOURCE=http://localhost:8100/frame
+Environment="PAGE_TITLE=ICP FLEXO Safety Office (On-Premise VLM)"
+ExecStart=/home/stanley/.local/bin/uv run uvicorn icp_safety_vlm.server.app:app --host 0.0.0.0 --port 8010
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
