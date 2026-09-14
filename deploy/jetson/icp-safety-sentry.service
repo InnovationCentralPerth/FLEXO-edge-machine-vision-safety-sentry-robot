@@ -2,6 +2,14 @@
 Description=ICP Safety VLM Sentry (Jetson standalone)
 After=network-online.target
 Wants=network-online.target
+# StartLimit* belong in [Unit], not [Service] — an earlier version of
+# this file had them in [Service], where systemd silently ignores them
+# ("Unknown key name 'StartLimitIntervalSec' in section 'Service'" in
+# `journalctl -u icp-safety-sentry`), so the crash-loop protection never
+# actually applied during the 2026-09-14 OOM-kill incident (10 restarts
+# with zero throttling). Fixed here.
+StartLimitIntervalSec=300
+StartLimitBurst=8
 
 [Service]
 Type=simple
@@ -20,8 +28,6 @@ Environment=DETECTOR_BACKEND=vlm_paligemma_quantized
 ExecStart=/home/icp/.local/bin/uv run uvicorn icp_safety_vlm.server.app:app --host 0.0.0.0 --port 8010
 Restart=on-failure
 RestartSec=5
-StartLimitIntervalSec=300
-StartLimitBurst=8
 
 [Install]
 WantedBy=multi-user.target

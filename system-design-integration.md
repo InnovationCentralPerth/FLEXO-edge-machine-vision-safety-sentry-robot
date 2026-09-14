@@ -274,6 +274,39 @@ command "ran". Not yet resolved — needs either a full reboot after
 setting the mode (rather than a live `-m` switch), or investigating why
 the GPU devfreq sysfs path is missing/inaccessible on this build.
 
+**Third real finding: the GPU driver wedged after the OOM-kill/restart
+cycle, failing CUDA init for every process** (`libnvrm_gpu.so:
+NvRmGpuLibOpen failed, error=4`), confirmed in the actual systemd
+service's own log, not just ad-hoc testing. Methodically ruled out both
+of the obvious suspects before concluding this: (1) environment
+variables — reproduced the failure with a stripped-down `env -i`
+environment, then proved it was NOT the cause by restoring every
+variable from a working interactive session (`XDG_RUNTIME_DIR`,
+`DBUS_SESSION_BUS_ADDRESS`, etc.) inside the same `env -i` wrapper and
+still getting the identical failure; (2) group membership / device
+cgroup policy — the actual running service process has identical
+supplementary groups to an interactive login (`video`, `render`, etc. —
+checked via `/proc/<pid>/status`), and `systemctl show` confirms no
+device sandboxing (`DevicePolicy=auto`, `PrivateDevices=no`, all
+`Protect*=no`). What actually correlates: every failing test happened
+*after* today's OOM-kill/restart cascade (10 restarts); the original
+successful CUDA verification (the matmul test, and the working live
+server test) both happened *before* that cascade began. This points to
+the Tegra NVRM userspace driver being left in a bad state by repeated
+`SIGKILL`s during CUDA init — a known class of embedded-GPU driver
+issue — not a systemd config problem. **Fixed by rebooting** (the
+standard remedy for a wedged embedded GPU driver state); re-verify CUDA
+works post-reboot before trusting any Jetson benchmark run after this
+point in the log.
+
+**Also fixed while investigating**: the deployed systemd unit had
+`StartLimitIntervalSec`/`StartLimitBurst` in the `[Service]` section,
+where systemd silently ignores them (confirmed via `journalctl`:
+`Unknown key name 'StartLimitIntervalSec' in section 'Service',
+ignoring`) — they belong in `[Unit]`. The crash-loop protection never
+actually applied during today's incident (10 restarts, zero throttling).
+Corrected in `deploy/jetson/icp-safety-sentry.service`.
+
 **Next steps**:
 1. ~~Run the actual FastAPI server on the Jetson~~ — done, see above.
 2. ~~Fix the OOM-kill risk~~ — **mitigated**: Jetson now defaults to
