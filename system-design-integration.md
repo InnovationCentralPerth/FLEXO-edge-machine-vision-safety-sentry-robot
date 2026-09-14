@@ -121,56 +121,95 @@ calls) documented in the README before trusting it.
 
 ```
 ┌────────────────────────────────────────────────────┐
-│  Jetson Orin Nano Super (standalone)                │
-│  JetPack 7.2.1 (L4T R39.2.1), Python 3.12.3         │
-│  7.4GB unified CPU/GPU memory                        │
+│  icp-nano-flexo (Jetson Orin Nano Super, standalone)│
+│  JetPack 7.2.1 (L4T R39.2.1), Python 3.12.3, on      │
+│  Tailscale. 7.4GB unified CPU/GPU memory.            │
 │  CUDA 13.2, cuDNN 9.20, TensorRT 10.16 (installed    │
 │  via SDK Manager over USB-C NCM, 2026-09-14)         │
 │                                                       │
-│  Pi/USB camera attached directly ─────┐              │
-│                                        ▼              │
-│  Same icp_safety_vlm server + Camera(local device)   │
+│  USB camera attached directly (/dev/video0) ──┐      │
+│                                                ▼      │
+│  Same icp_safety_vlm server (not yet run as a live   │
+│  server here — tested via ad-hoc script so far)      │
 │    → Sentry(yolo_hsv)          [hedge/fallback track]│
-│    → Sentry(vlm_paligemma_quantized)                 │
+│    → Sentry(vlm_paligemma)             [fp16]        │
+│    → Sentry(vlm_paligemma_quantized)   [4-bit]       │
 │                                                       │
-│  Browser: http://<jetson-tailnet-ip>:8010/ — viewed  │
-│  from any tailnet machine once the Jetson joins       │
-│  Tailscale (not yet done — see below)                 │
+│  Browser: http://icp-nano-flexo.<tailnet>:8010/ once │
+│  the server is actually run here (not yet done)      │
 └────────────────────────────────────────────────────┘
 ```
 
-**Current real state of the Jetson** (checked 2026-09-14, mid-flash via
-SDK Manager from brannigan over USB-C, JetPack 7.2.1 target-components
-install): OS flashed, booted, reachable at `192.168.55.1` over the USB-C
-NCM link from brannigan; CUDA 13.2 / cuDNN 9.20 / TensorRT 10.16 confirmed
-installed via `dpkg -l`. **Not yet on Tailscale**, **no camera attached
-yet**, **this repo not yet cloned onto it**.
+**Current real state of the Jetson (updated 2026-09-14)**: on Tailscale
+as `icp-nano-flexo`, USB camera attached (`/dev/video0`), repo present
+(rsync'd from brannigan's clone rather than a fresh `git clone` — no
+GitHub SSH key set up on this device yet, so `git pull` there won't work
+until that's added; re-sync via rsync from brannigan for now), `uv`
+installed, HF token copied from brannigan's cache (same account, license
+already accepted). CUDA 13.2 / cuDNN 9.20 / TensorRT 10.16 confirmed
+installed via `dpkg -l` during the SDK Manager flash. **Not yet done**:
+running as a live server (only ad-hoc script testing against saved
+frames so far — see results below), systemd/persistent service setup.
 
 **7.4GB usable RAM is the binding constraint** — tighter than brannigan's
 16GB VRAM and tighter than even the 8GB laptop, since on a Jetson that RAM
 is *shared* between CPU and GPU (no separate VRAM pool), so the model has
 to coexist with the OS, camera capture, and the server process in the same
-budget. This is the real reason the edge copy of PaliGemma 2 needs
-aggressive quantization, not just "smaller for speed" — it may not fit
-unquantized at all alongside everything else running.
+budget.
 
-**To build**:
-1. Get the Jetson onto Tailscale (`tailscale up`) so it's reachable
-   without brannigan as a USB-C relay — needed for both remote dev and for
-   viewing its dashboard from the laptop browser.
-2. Attach a camera directly (the edge target is standalone by design — no
-   relay, unlike Solution A).
-3. Clone this repo, `uv sync` (confirm `uv` + Python 3.12 compatibility on
-   L4T aarch64 — not yet verified, first-time-per-package wheel
-   availability on aarch64 is the main risk, especially for
-   `bitsandbytes` if that's the chosen quantization path).
-4. `detectors/vlm_paligemma_quantized.py` (or a quantization-config
-   parameter on the same `PaliGemmaDetector` class, mirroring how
-   `QwenVL7BDetector` subclassed `QwenVLDetector` for a different
-   precision — same pattern applies here).
-5. Re-run `scripts/benchmark.py` on the Jetson directly for real
-   latency/power numbers — same principle as the existing Hailo-10H
-   roadmap note: project nothing, measure on the real target.
+**Real finding: generic PyPI `torch` (the same `2.13.0+cu130` wheel used
+on brannigan) installs and functionally runs on the Jetson's Orin GPU,
+but is NOT an officially supported build.** PyTorch itself warns at
+import: `No published PyTorch CUDA builds for release 2.13.0+cu130
+support this GPU` — Orin is compute capability 8.7, and this wheel was
+only compiled for other SMs (8.0/9.0/10.0/11.0/12.0). It works via
+forward-compatible PTX JIT compilation, confirmed with a real matmul, not
+just the `torch.cuda.is_available()` flag. This has a measurable, real
+cost: **the first inference call after warmup pays a one-time ~3.5-7s
+kernel-compilation tax** (confirmed by re-running the same frame after
+warmup: 7235ms first call → 1382ms, 1357ms, 1359ms on repeats). A live
+server should pre-warm with a dummy inference at startup rather than
+serve this delay to the first real viewer. This is also the concrete,
+measured version of "why TensorRT" — a properly Jetson-targeted build
+(native SM 8.7 kernels, or a TensorRT export) should remove both the JIT
+tax and likely improve steady-state throughput, though that's not yet
+measured, only implied by the mismatch warning.
+
+**Results (2026-09-14, ad-hoc script against the same saved test frames
+used on brannigan — not yet a live server test)**:
+
+| Backend | Verdict accuracy | Steady-state latency | Memory |
+|---|---|---|---|
+| `yolo_hsv` | 4/4 correct (2-person-both-worn, 1-person-worn ×2 colors, 1-person-held-not-worn) | 25-77ms | n/a |
+| `vlm_paligemma` (fp16) | 4/4 + 3/3 repeat, multi-person fix holds (`GO`, n=2, 3/3 identical repeats) | ~1.35-1.4s | not measured precisely, but fp16 weights alone are ~6GB of the 7.4GB total pool |
+| `vlm_paligemma_quantized` (4-bit) | 3/3 correct | ~1.92s (**slower than fp16, same pattern as brannigan — confirmed to transfer, resolving the earlier "may not transfer" open question**) | 2.61GB (matches brannigan's 2.62GB almost exactly) |
+
+**The memory-vs-speed tradeoff is genuinely different here than on
+brannigan.** On brannigan, quantization has no upside (16GB has zero
+memory pressure to relieve) and a real speed cost — fp16 is strictly
+better there. On the Jetson, fp16's ~6GB against a 7.4GB *total* pool
+leaves only ~1.4GB for the OS, camera capture, and the server process —
+genuinely tight. The quantized 2.61GB leaves ~4.8GB of headroom despite
+being ~40% slower. Whether that trade is worth it depends on how tight
+the full running system (not just the model) actually is in practice —
+worth re-measuring memory headroom with the whole server (camera +
+model) running, not just the model in isolation, before deciding which
+variant is the real On-Device default.
+
+**Next steps**:
+1. Run the actual FastAPI server on the Jetson (local `CAMERA_INDEX`, no
+   `CAMERA_SOURCE` relay needed — camera is attached directly) and
+   re-verify through the real server code path, not just ad-hoc scripts.
+2. Set up a proper GitHub credential on this device (deploy key or the
+   user's own key) so `git pull` works directly instead of rsync-from-brannigan.
+3. Measure real end-to-end memory headroom with the full server + camera
+   running, to settle the fp16-vs-4-bit question above with real numbers
+   instead of a plausible-sounding tradeoff.
+4. The TensorRT optimization work (per the user's stated goal: "benchmark
+   performance/latency, then optimize for model size + Jetson's
+   TensorRT") — not started. The unsupported-build finding above is the
+   concrete evidence for why this matters, not just a roadmap aspiration.
+5. Systemd/persistent service setup once the above is settled.
 
 ## Shared interface (unchanged by this work)
 
