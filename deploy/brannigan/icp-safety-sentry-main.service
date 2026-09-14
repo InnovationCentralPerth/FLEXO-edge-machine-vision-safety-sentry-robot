@@ -21,6 +21,18 @@ Environment=PATH=/home/stanley/.local/bin:/usr/bin:/bin
 # and show "STARTING"/no frame until that happens — see README's WSL2
 # webcam passthrough section and system-design-integration.md's
 # Solution A architecture diagram for the laptop-side commands.
+# Locks every request to vlm_paligemma regardless of the dropdown or
+# ?backend= query param — same fix as :8020's demo service and the
+# Jetson, applied here 2026-09-14 after the same failure mode (backend
+# selection lives only in page-local JS state, never the URL, so a tab
+# crash/reload/session-restore silently resets it to DEFAULT_BACKEND)
+# was found on the demo kiosk. Trade-off: this is normally the dev/test
+# server used to compare backends side by side via the dropdown — that
+# comparison workflow is gone while this is set. Remove this line (or
+# override with ?backend=<other> won't work while locked — must edit
+# and redeploy) when actively doing that kind of comparison testing
+# again.
+Environment=LOCKED_BACKEND=vlm_paligemma
 Environment=CAMERA_SOURCE=http://localhost:8100/frame
 Environment="PAGE_TITLE=ICP FLEXO Safety Office (On-Premise VLM)"
 ExecStart=/home/stanley/.local/bin/uv run uvicorn icp_safety_vlm.server.app:app --host 0.0.0.0 --port 8010
