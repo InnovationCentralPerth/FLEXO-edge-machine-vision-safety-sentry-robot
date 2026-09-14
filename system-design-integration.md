@@ -213,6 +213,22 @@ assume either a repeat of this finding or its opposite. See
 `vlm_paligemma.py`'s `PaliGemma2QuantizedDetector` docstring for the full
 numbers.
 
+**Second real finding (2026-09-14): a larger same-family model
+(PaliGemma2-10B-mix, 8-bit — required to fit brannigan's 16GB, since 10B
+at bf16 is ~20GB) is worse on every measured axis, not better.** VRAM
+10.75GB vs. 3B's 6.08GB; latency ~1.18s/frame vs. ~295ms (~4x slower);
+and — the disqualifying one — it answers the vest-count question
+**wrong** (`"0"`) on a frame with one person clearly, properly wearing a
+yellow vest, despite correctly answering direct questions about the same
+frame ("yes" to wearing a safety vest, "yellow" for its color). This
+isn't the 3B word-vs-digit parsing bug (10B answered a literal digit);
+the counting capability itself regressed for this prompt shape between
+the 3B-mix and 10B-mix checkpoints. Decided (2026-09-14) not to pursue a
+10B-specific prompt redesign — kept as a documented negative result, see
+`vlm_paligemma.py`'s `PaliGemma10BDetector` docstring for the full
+diagnostic. **3B remains the confirmed better choice** for this task on
+every axis measured so far.
+
 `scripts/benchmark.py` already supports `--backend` selection and
 GO/STOP-labeled filename accuracy scoring (`data/samples/xxx__GO.jpg`) —
 extend it with per-solution result tagging (e.g. an output column for

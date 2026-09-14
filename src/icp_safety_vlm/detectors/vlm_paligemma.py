@@ -288,7 +288,36 @@ class PaliGemma10BDetector(PaliGemmaDetector):
     Comparison is therefore "3B at full bf16" vs. "10B at 8-bit" — a real
     limitation of this being an accuracy/capability comparison, not a
     clean same-precision one; call this out explicitly if reporting
-    numbers from it, don't present it as controlling for precision."""
+    numbers from it, don't present it as controlling for precision.
+
+    **Measured result (2026-09-14, live + direct diagnostic on the same
+    worn-vest frame): 10B is worse on every axis for this task, not
+    better.** 8-bit loaded clean (no bitsandbytes kernel-alignment
+    warning, unlike the 4-bit 3B variant), but:
+    - VRAM: 10.75GB vs. 3B's 6.08GB.
+    - Latency: ~1.18s/frame steady-state vs. 3B's ~295ms — **~4x slower**.
+    - Accuracy on the exact question this architecture depends on: **wrong**.
+      10B correctly answers direct questions about the same frame ("yes"
+      to wearing a safety vest, "yellow" for its color) but answers `"0"`
+      to both the exact `_Q_VESTS` compound prompt AND a simplified
+      single-clause version ("How many people are wearing a yellow safety
+      vest?") on a frame with one person clearly, properly wearing a
+      yellow vest — a literal digit this time, not the 3B word-vs-digit
+      parsing bug (`_parse_int` handles both correctly; this is the model
+      giving a wrong count, not an unparseable one). It also refuses
+      `"caption en"` outright, where 3B answers it fine — a real
+      behavioral difference between the two mix checkpoints' tuning, not
+      a fixed scale-up of the same behavior.
+
+    Not pursued further per user decision (2026-09-14): keep this as a
+    documented negative result rather than sink time into redesigning a
+    10B-specific counting prompt. If revisited later, the counting-prompt
+    fragility observed across three different models now (Qwen2-VL's
+    original acquiescence bias, 3B's word-form answers, 10B's flat wrong
+    count) suggests the fix is unlikely to be a wording tweak — worth
+    trying a structurally different verdict signal (e.g., per-person
+    yes/no instead of a count) before assuming more prompt iteration will
+    converge."""
 
     name = "vlm_paligemma_10b"
 
