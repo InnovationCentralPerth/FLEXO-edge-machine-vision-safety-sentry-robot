@@ -246,8 +246,33 @@ class PaliGemma2QuantizedDetector(PaliGemmaDetector):
         self._device = "cuda"
 
 
+_WORD_NUMBERS = {
+    "zero": 0, "no": 0, "none": 0,
+    "one": 1, "two": 2, "three": 3, "four": 4, "five": 5,
+    "six": 6, "seven": 7, "eight": 8, "nine": 9, "ten": 10,
+}
+
+
 def _parse_int(answer: str) -> int:
     """Best-effort parse of a numeric answer; falls back to 0 rather than raising
-    if the model returns something unexpected."""
+    if the model returns something unexpected.
+
+    **Real bug this fixes, found live (2026-09-14)**: PaliGemma answered
+    the vest-count question with the word "one" rather than the numeral
+    "1" on a frame with a person clearly wearing a yellow AS/NZS-style
+    hi-vis vest. The original digit-only regex silently parsed that as 0
+    ("no vest"), so a correctly-perceiving model produced a wrong STOP
+    verdict purely from an answer-format mismatch — not a
+    perception/prompt-design failure the way the message-generation
+    refusal was. Confirmed by direct testing: simpler questions ("Is the
+    person wearing a safety vest?", "What color is the vest?") all
+    answered correctly ("yes", "yellow"); only the exact multi-clause
+    _Q_VESTS phrasing elicited a word instead of a digit. Handling both
+    forms here is more robust than trying to prompt-engineer PaliGemma
+    into never answering in words, since nothing observed so far
+    predicts which form a given question will get."""
     match = re.search(r"\d+", answer)
-    return int(match.group(0)) if match else 0
+    if match:
+        return int(match.group(0))
+    first_word = answer.strip().lower().split(" ", 1)[0].strip(".,!?")
+    return _WORD_NUMBERS.get(first_word, 0)
