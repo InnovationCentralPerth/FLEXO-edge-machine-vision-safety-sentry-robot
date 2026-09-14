@@ -8,21 +8,31 @@ _REGISTRY: dict[str, type[VestDetector]] = {}
 def _lazy_register() -> None:
     if _REGISTRY:
         return
-    from .vlm_qwen2vl import QwenVL7BDetector, QwenVLDetector
+    from .vlm_paligemma import PaliGemma2QuantizedDetector, PaliGemmaDetector
     from .yolo_hsv import YoloHsvDetector
 
     _REGISTRY["yolo_hsv"] = YoloHsvDetector
-    # vlm_qwen2vl is the edge deployment candidate, matching Hailo's own
-    # Qwen2-VL-2B-Instruct reference demo for the AI HAT+ 2 / Hailo-10H.
-    # vlm_moondream.py still exists (archived, not registered here) as a
-    # comparison baseline you can re-enable — see README "Archived:
-    # moondream2 comparison baseline".
-    _REGISTRY["vlm_qwen2vl"] = QwenVLDetector
-    # vlm_qwen2vl_7b is an accuracy-comparison track only (not edge-viable):
-    # Qwen2-VL-7B-Instruct, 4-bit quantized. Needs ~16GB+ VRAM headroom
-    # (e.g. brannigan's RTX 4080) — registering it is harmless on the 8GB
-    # dev laptop since detectors load lazily, but warmup() will raise there.
-    _REGISTRY["vlm_qwen2vl_7b"] = QwenVL7BDetector
+    # vlm_paligemma is the active VLM track (On-Prem, full precision) —
+    # PaliGemma 2 3B, replacing Qwen2-VL (Alibaba-origin) for a non-CN-origin
+    # open model. See system-design-integration.md "Model choice" for the
+    # rationale, and vlm_paligemma.py's module docstring for why its
+    # prompt design (inherited from vlm_qwen2vl.py's count-based structure)
+    # is not yet independently verified against acquiescence bias.
+    _REGISTRY["vlm_paligemma"] = PaliGemmaDetector
+    # vlm_paligemma_quantized: same base checkpoint, 4-bit quantized — the
+    # On-Device (Jetson Orin Nano Super) candidate. Needs a CUDA GPU;
+    # registering it is harmless on a CPU-only box since detectors load
+    # lazily, but warmup() will raise there. See system-design-
+    # integration.md "Solution B" for the Jetson's tighter (shared,
+    # unified) 7.4GB memory budget that makes quantization load-bearing
+    # rather than just a speed optimization there.
+    _REGISTRY["vlm_paligemma_quantized"] = PaliGemma2QuantizedDetector
+    # Archived: vlm_qwen2vl.py (QwenVLDetector / QwenVL7BDetector) and
+    # vlm_moondream.py still exist but aren't registered here — kept as
+    # comparison baselines and for their documented prompt-design lessons
+    # (see README "Prompt design (VLM detection)"), not because either is
+    # broken. Re-enable either with one line here if you need the
+    # comparison back.
 
 
 def list_detectors() -> list[str]:
