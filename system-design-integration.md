@@ -50,6 +50,59 @@ open-source model, so both tracks move to **PaliGemma 2 (`google/paligemma2-3b-*
   the right choice for the counting-style prompts here (person/vest counts
   don't need fine detail), and keeps compute/VRAM down on both ends.
 
+### Alternative model evaluated: NVIDIA Cosmos Reason (not pursued)
+
+Investigated 2026-09-15 as a candidate to replace or supplement PaliGemma —
+NVIDIA markets Cosmos Reason explicitly for "physical AI and robotics"
+tasks (spatio-temporal reasoning, object localization with bounding boxes),
+which sounds on-topic for a vest-compliance sentry. Two open-weight sizes
+exist, `Cosmos-Reason2-2B` and `Cosmos-Reason2-8B` (an older
+`Cosmos-Reason1-7B` generation also exists but its hosted API endpoint is
+already deprecated in favor of Reason2). **Not pursued, for three concrete
+reasons found on the model cards themselves, not assumption:**
+
+1. **Origin problem, the same one that moved this project off Qwen2-VL in
+   the first place.** Both Reason2 sizes are explicitly "post-trained
+   based on" a Qwen3-VL-Instruct base (`Qwen/Qwen3-VL-2B-Instruct` /
+   `-8B-Instruct` — confirmed on each model's HF model tree, not inferred).
+   NVIDIA's own fine-tuning is US-origin, but the base checkpoint is
+   Alibaba-origin — the exact concern that drove the [Model
+   choice](#model-choice-paligemma-2-3b-replacing-qwen2-vl) switch away
+   from Qwen2-VL to begin with. Whether a non-CN post-train on a CN base
+   satisfies this project's origin requirement is a policy question, not
+   a technical one — flagging it rather than assuming either answer.
+2. **GPU memory floor exceeds brannigan's card outright.** The model
+   cards state minimums of **24GB (2B)** and **32GB (8B)** GPU memory —
+   both above brannigan's 16GB VRAM, and both cards list only Hopper/
+   Blackwell as supported microarchitectures (tested on H100/A100), not
+   Ada (the 4080's architecture). This wasn't tested locally because the
+   stated requirement alone rules out the On-Prem card without a
+   quantization scheme neither card documents.
+3. **Reasoning-model output shape works against this project's latency
+   and prompt-design goals.** Unlike PaliGemma's single-turn short-VQA
+   completions, Cosmos Reason is built for chain-of-thought: the model
+   card's own recommended system prompt requests a structured
+   think/answer format and recommends **4096+ output tokens** to avoid
+   truncating the reasoning trace. That's a fundamentally different
+   latency profile than the ~180-300ms single-question answers this
+   project's `_Q_PEOPLE`/`_Q_VESTS` design depends on, and would need a
+   real prompt-design pass (extracting a terse verdict out of a long CoT
+   trace) rather than a drop-in prompt port — the same category of
+   up-front work PaliGemma itself needed per the "Verdict prompts" and
+   "Message generation" notes in `vlm_paligemma.py`'s module docstring.
+
+No Jetson/TensorRT/edge deployment path is mentioned on either card either
+(runtime engine listed is plain Hugging Face Transformers), so On-Device
+would face the same open quantization question as PaliGemma per item 4 in
+[Operational gaps](#operational-gaps--next-steps), with less precedent —
+NanoLLM's own PaliGemma investigation (item 7 in Solution B's next steps)
+at least found *some* signal; nothing was checked here for Cosmos since
+the GPU-memory floor already rules it out before an edge variant would
+even be relevant. **Verdict: not a fit for this project's hardware or
+latency requirements as currently shipped** — worth re-checking if NVIDIA
+publishes a smaller/quantized Cosmos Reason variant or Ada/Jetson support
+later, but not actionable today as described.
+
 **Open item, not yet decided**: exact quantization scheme for the edge
 copy (INT4 via bitsandbytes as done for the archived `vlm_qwen2vl_7b`
 track, vs. a Jetson-native path — TensorRT-LLM or ONNX Runtime with a
@@ -498,6 +551,87 @@ extend it with per-solution result tagging (e.g. an output column for
 which machine ran it) once both are live, so results from the two
 solutions can sit in one comparison table.
 
+### Alternative VLM comparison: SmolVLM2-2.2B via llama.cpp/GGUF (2026-09-15)
+
+Throwaway smoke test on brannigan (`/data/stanley/smolvlm_bench`, not
+committed to this repo) comparing the currently-locked
+`vlm_paligemma` (fp16, direct `PaliGemmaDetector` call) against
+`SmolVLM2-2.2B-Instruct` (Q8_0 GGUF + Q8_0 mmproj,
+`ggml-org/SmolVLM2-2.2B-Instruct-GGUF`) run through llama.cpp's
+`llama-mtmd-cli` (built locally with CUDA, SM 89). Same 6 saved test
+frames used elsewhere in this project's testing, same two counting
+questions PaliGemma's `_Q_PEOPLE`/`_Q_VESTS` ask (minus the
+`"answer en "` prefix, which is specific to PaliGemma's single-turn VQA
+framing and meaningless to SmolVLM2's chat-tuned model). Did not touch
+the live `:8010`/`:8020` services — GPU had 8.9GB free headroom
+throughout, confirmed before and after.
+
+| Image | Ground truth | PaliGemma fp16 | SmolVLM2-2.2B-Q8_0 |
+|---|---|---|---|
+| vest_test_frame.jpg | GO | **GO** ✓ (0.76s incl. warmup remnants) | **GO** ✓ (lenient parse) |
+| e2e_vest_verify.jpg *(pre-annotated STOP frame)* | STOP | **GO** ✗ | **STOP** ✓ (lenient parse) |
+| e2e_orange_vest.jpg *(pre-annotated GO frame)* | GO | **GO** ✓ | **GO** ✓ (lenient parse) |
+| vest_test_yellow.jpg | GO | **GO** ✓ | **GO** ✓ |
+| held_vest.jpg | STOP | **STOP** ✓ | **STOP** ✓ (lenient parse) |
+| held_vest2.jpg | STOP | **STOP** ✓ | **STOP** ✓ (lenient parse) |
+
+PaliGemma: **5/6** correct. SmolVLM2 (with a fixed parser, see below):
+**6/6** correct. n=6, not statistically meaningful on its own, but every
+result reproduced on a repeat run.
+
+**Real finding: a genuine, reproducible PaliGemma miss**, not a fluke —
+on `e2e_vest_verify.jpg` (a person in a plain hoodie, one of this
+project's own historical STOP-labeled frames), `PaliGemmaDetector` answered
+`n_vests='one'` and returned verdict **GO**, even though its *own*
+`_Q_TORSO_DESCRIPTION` question correctly answers `"hoodie"` on the exact
+same frame — the vest-count sub-answer and the garment-description
+sub-answer contradict each other within the same `infer()` call. Confirmed
+deterministic by re-running the full three-question sequence twice with
+identical output both times. This is a new failure mode beyond the three
+already documented in `vlm_paligemma.py`'s module docstring (multi-person
+undercounting, message-generation refusal, word-vs-digit parsing) — same
+family (counting-prompt fragility), different trigger. Not yet
+root-caused to a specific clause the way the multi-person bug was; logged
+here rather than in the docstring since this was found via an external
+comparison script, not the live detector path, and hasn't had the same
+isolation testing.
+
+**Real finding: this project's `_parse_int` does not port to SmolVLM2's
+answer style as-is.** SmolVLM2 answers the people-count question in full
+sentences ("There is one person visible…" / "One person is visible…") —
+inconsistently phrased per image, unlike PaliGemma's terse `"1"`/`"one"`.
+`_parse_int` only checks the *first word* of the answer
+(`vlm_paligemma.py:403`), so "There is one…" parses as `0` (silently
+degrading to "no people detected, no verdict") while "One person is…"
+happens to parse correctly purely because the number lands first. A
+number-anywhere-in-the-sentence parser (search the full string for a digit
+or word-number, not just the first token) fixes all 6 cases — this is
+what the "lenient parse" column above uses. Documented here as a porting
+gotcha, not a PaliGemma-side bug: `_parse_int`'s first-word check was a
+correct, deliberate design for PaliGemma's answer style (see its own
+docstring) and would need generalizing, not replacing, to reuse against a
+different model's phrasing habits.
+
+**Caveat on the latency comparison: not apples-to-apples as measured.**
+`llama-mtmd-cli` reloads the full model from disk and re-initializes CUDA
+on every invocation — each question took ~1.4s wall-clock, but that's
+dominated by per-process startup, not steady-state inference (the
+model-encoding step itself logged as low as 32-82ms internally). PaliGemma's
+measurement is from a long-lived warmed-up process (~0.18s/image after a
+one-time 7s warmup) — a fair comparison would need `llama-server`'s
+persistent-process mode for a real steady-state number, which wasn't set
+up for this smoke test.
+
+**Conclusion**: not adopted — this was a comparison smoke test, not a
+proposal to switch tracks, and PaliGemma remains the locked backend on
+both live brannigan services. But the SmolVLM2 result is worth keeping in
+mind as a second data point on counting-prompt fragility (now 4 documented
+failure patterns across 3 different model families: Qwen2-VL's
+acquiescence bias, PaliGemma's word-vs-digit/multi-person/this-new
+contradiction, and 10B-mix's flat wrong count), and the found PaliGemma
+miss above is real production-relevant signal, not just an artifact of
+testing a different model.
+
 ## Operational gaps / next steps
 
 Not yet solved, called out explicitly so they aren't lost:
@@ -520,23 +654,37 @@ Not yet solved, called out explicitly so they aren't lost:
    two concrete steps for Solution B. *(Superseded — see "Solution B"
    above: the Jetson has been on Tailscale with a camera attached and
    its own systemd service since partway through this project.)*
-3. **PaliGemma's Gemma license** must be accepted on Hugging Face
-   (per-account, one-time) before either machine can download it —
-   confirm this is done before scripting an unattended first-run
-   download, or it'll fail with a 403 instead of a clear "accept the
-   license" message.
-4. **Quantization path for the Jetson is undecided** (bitsandbytes vs.
-   TensorRT export) — see [Model choice](#model-choice-paligemma-2-3b-replacing-qwen2-vl)
-   above; needs a decision once `bitsandbytes` aarch64 wheel availability
-   on JetPack 7.2.1 is confirmed one way or the other.
+3. ~~PaliGemma's Gemma license must be accepted on Hugging Face
+   before either machine can download it~~ — **done**: confirmed
+   accepted on the account both brannigan and the Jetson use (see
+   Solution B's "HF token copied from brannigan's cache... license
+   already accepted"), and moot in practice now anyway — both machines'
+   live systemd services have been downloading and running PaliGemma
+   successfully since 2026-09-14, which wouldn't be possible if the
+   license gate were still blocking.
+4. ~~Quantization path for the Jetson is undecided (bitsandbytes vs.
+   TensorRT export)~~ — **decided and deployed**: bitsandbytes chosen
+   (matches the On-Prem code path, no new stack) and deployed —
+   `LOCKED_BACKEND=vlm_paligemma_quantized` running live on the Jetson
+   per the memory-vs-latency re-evaluation in Solution B above. TensorRT
+   was considered but not pursued (see Solution B's own next-steps
+   item 7 — NanoLLM's PaliGemma support turned out not to exist, and no
+   R39-compatible pre-built image was found); revisit only if
+   bitsandbytes' ~45% latency cost or its ~2.7GB headroom margin becomes
+   a real problem.
 5. **PaliGemma prompt design has real, found-by-testing history, not a
-   clean transfer of Qwen2-VL's fix** — three separate issues found and
-   fixed live so far: message generation needed a describe+template
-   hybrid (compound generation instructions get refused outright), count
-   answers can come back as words not digits (`_parse_int` now handles
-   both), and the original `_Q_VESTS` phrasing undercounted with 2+
-   people (root-caused to a color list and the word "properly", each
-   independently fragile; fixed 2026-09-14 — see `vlm_paligemma.py`'s
-   module docstring). Still not adversarially tested for a *mixed*
-   multi-person frame (some compliant, some not) or 3+ people — don't
-   assume the fix generalizes past what's been directly tested.
+   clean transfer of Qwen2-VL's fix** — four separate issues found so
+   far, not three: the original three (message generation needed a
+   describe+template hybrid since compound generation instructions get
+   refused outright; count answers can come back as words not digits,
+   `_parse_int` now handles both; the original `_Q_VESTS` phrasing
+   undercounted with 2+ people, root-caused to a color list and the word
+   "properly", each independently fragile, fixed 2026-09-14 — see
+   `vlm_paligemma.py`'s module docstring) plus a **fourth, found later
+   and not yet root-caused**: on `e2e_vest_verify.jpg`, the vest-count
+   sub-answer said `"one"` (→ GO) while the torso-description sub-answer
+   correctly said `"hoodie"` on the same frame within the same
+   `infer()` call — see the SmolVLM2 comparison write-up above. Still
+   not adversarially tested for a *mixed* multi-person frame (some
+   compliant, some not) or 3+ people — don't assume any of these fixes
+   generalize past what's been directly tested.
