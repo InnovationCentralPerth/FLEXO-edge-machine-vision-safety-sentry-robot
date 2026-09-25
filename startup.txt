@@ -1,0 +1,35 @@
+# ICP Safety VLM Sentry — start/stop cheat sheet
+
+## brannigan (3 units — main :8010, demo :8020, demo camera tunnel)
+
+```bash
+# start
+sudo systemctl start icp-camera-tunnel-demo icp-safety-sentry-main icp-safety-sentry-demo
+# stop
+sudo systemctl stop icp-safety-sentry-main icp-safety-sentry-demo icp-camera-tunnel-demo
+# status / logs
+systemctl status icp-safety-sentry-main icp-safety-sentry-demo icp-camera-tunnel-demo
+journalctl -u icp-safety-sentry-main -f
+```
+
+## Jetson (1 unit, runs as user icp on the device)
+
+```bash
+# start
+sudo systemctl start icp-safety-sentry
+# stop
+sudo systemctl stop icp-safety-sentry
+# status / logs
+systemctl status icp-safety-sentry
+journalctl -u icp-safety-sentry -f
+```
+
+## Notes
+
+- All are enabled for multi-user.target, so they auto-start on boot —
+  `stop` only stops them now; `disable` would stop the autostart.
+- Caveat: brannigan's :8010 will come up but show no frame until the
+  laptop side's camera relay + reverse tunnel are running by hand again:
+    uv run python scripts/camera_relay.py
+    ssh -R 8100:localhost:8100 stanley@brannigan.taila277ca.ts.net
+  The :8020 demo and the Jetson recover fully on their own.
