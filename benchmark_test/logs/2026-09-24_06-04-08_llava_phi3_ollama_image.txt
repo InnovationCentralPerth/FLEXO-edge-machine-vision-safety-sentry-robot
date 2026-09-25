@@ -1,0 +1,71 @@
+============================================================
+LLAVA-PHI3 (OLLAMA) + STATIC IMAGE REPEATED-INFERENCE TEST
+============================================================
+Log file: /home/icp/VLMs/benchmark_test/logs/2026-09-24_06-04-08_llava_phi3_ollama_image.txt
+Model: llava-phi3
+Image path: /home/icp/VLMs/benchmark_test/images/test.jpg
+Running warmup inference (absorbs first-call model-load cost)...
+Warmup inference: 1.804s (excluded from timing stats below)
+
+Press Ctrl+C to stop.
+------------------------------------------------------------
+
+============================================================
+INFERENCE #1
+============================================================
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and standing in front of a computer.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 1.638s  vest call: 7.020s
+Inference time: 8.659s
+Average inference: 8.659s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #2
+============================================================
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and standing in front of a computer.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 1.588s  vest call: 7.071s
+Inference time: 8.659s
+Average inference: 8.659s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #3
+============================================================
+
+
+============================================================
+TEST STOPPED
+============================================================
+Total inferences: 3
+Average inference time: 5.773s
+Total inference time: 17.318s
+
+Done. (Ollama server keeps running in the background -- nothing to unload here.)
+
+Log saved to: /home/icp/VLMs/benchmark_test/logs/2026-09-24_06-04-08_llava_phi3_ollama_image.txt

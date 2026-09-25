@@ -1,0 +1,4625 @@
+============================================================
+LLAVA-PHI3 (OLLAMA) + VIDEO FILE TIME-SAMPLED INFERENCE TEST
+============================================================
+Log file: /home/icp/VLMs/benchmark_test/logs/2026-09-25_03-30-19_llava_phi3_ollama_video.txt
+Model: llava-phi3
+Video path: /home/icp/VLMs/benchmark_test/videos/test.mp4
+Video duration: 10.0s
+Sample interval: 1.0s (wraps to 0s if it exceeds video duration)
+Running warmup inference (absorbs first-call model-load cost)...
+Warmup inference: 8.487s (excluded from timing stats below)
+
+Running unattended -- Ctrl+C to stop early.
+------------------------------------------------------------
+
+============================================================
+INFERENCE #1
+============================================================
+Sample timestamp: 0.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and glasses.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 0.909s  vest call: 6.562s
+Inference time: 7.471s
+Average inference: 7.471s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #2
+============================================================
+Sample timestamp: 1.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and a name tag.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 2.100s  vest call: 6.555s
+Inference time: 8.655s
+Average inference: 8.063s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #3
+============================================================
+Sample timestamp: 2.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 1.925s  vest call: 6.555s
+Inference time: 8.480s
+Average inference: 8.202s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #4
+============================================================
+Sample timestamp: 3.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 2.260s  vest call: 6.507s
+Inference time: 8.767s
+Average inference: 8.343s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #5
+============================================================
+Sample timestamp: 4.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest with a number 8 on it.
+2. A man wearing a yellow safety vest with a number 8 on it.
+3. A man wearing a yellow safety vest with a number 8 on it.
+4. A man wearing a yellow safety vest with a number 8 on it.
+5. A man wearing a yellow safety vest with a number 8 on it.
+6. A man wearing a yellow safety vest with a number 8 on it.
+7. A man wearing a yellow safety vest with a number 8 on it.
+8. A man wearing a yellow safety vest with a number 8 on it.
+9. A man wearing a yellow safety vest with a number 8 on it.
+10. A man wearing a yellow safety vest with a number 8 on it.')
+Status: GO
+  people call: 2.409s  vest call: 10.269s
+Inference time: 12.678s
+Average inference: 9.210s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #6
+============================================================
+Sample timestamp: 5.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and a black shirt.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 2.279s  vest call: 6.545s
+Inference time: 8.824s
+Average inference: 9.146s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #7
+============================================================
+Sample timestamp: 6.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 2.283s  vest call: 6.554s
+Inference time: 8.837s
+Average inference: 9.102s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #8
+============================================================
+Sample timestamp: 7.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and a name tag.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 3.609s  vest call: 6.592s
+Inference time: 10.201s
+Average inference: 9.239s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #9
+============================================================
+Sample timestamp: 8.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and standing with his arms outstretched.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 2.774s  vest call: 6.555s
+Inference time: 9.329s
+Average inference: 9.249s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #10
+============================================================
+Sample timestamp: 9.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 2.663s  vest call: 6.563s
+Inference time: 9.225s
+Average inference: 9.247s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #11
+============================================================
+Sample timestamp: 0.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and glasses.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 1.635s  vest call: 6.570s
+Inference time: 8.204s
+Average inference: 9.152s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #12
+============================================================
+Sample timestamp: 1.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and a name tag.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 3.816s  vest call: 6.550s
+Inference time: 10.366s
+Average inference: 9.253s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #13
+============================================================
+Sample timestamp: 2.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 3.609s  vest call: 6.555s
+Inference time: 10.164s
+Average inference: 9.323s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #14
+============================================================
+Sample timestamp: 3.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 5.530s  vest call: 6.556s
+Inference time: 12.086s
+Average inference: 9.520s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #15
+============================================================
+Sample timestamp: 4.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest with a number 8 on it.
+2. A man wearing a yellow safety vest with a number 8 on it.
+3. A man wearing a yellow safety vest with a number 8 on it.
+4. A man wearing a yellow safety vest with a number 8 on it.
+5. A man wearing a yellow safety vest with a number 8 on it.
+6. A man wearing a yellow safety vest with a number 8 on it.
+7. A man wearing a yellow safety vest with a number 8 on it.
+8. A man wearing a yellow safety vest with a number 8 on it.
+9. A man wearing a yellow safety vest with a number 8 on it.
+10. A man wearing a yellow safety vest with a number 8 on it.')
+Status: GO
+  people call: 8.393s  vest call: 10.271s
+Inference time: 18.664s
+Average inference: 10.130s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #16
+============================================================
+Sample timestamp: 5.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and a black shirt.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 12.588s  vest call: 6.555s
+Inference time: 19.143s
+Average inference: 10.693s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #17
+============================================================
+Sample timestamp: 6.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 9.673s  vest call: 6.557s
+Inference time: 16.230s
+Average inference: 11.019s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #18
+============================================================
+Sample timestamp: 7.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and a name tag.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 4.505s  vest call: 6.584s
+Inference time: 11.089s
+Average inference: 11.023s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #19
+============================================================
+Sample timestamp: 8.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and standing with his arms outstretched.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 7.969s  vest call: 6.548s
+Inference time: 14.517s
+Average inference: 11.207s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #20
+============================================================
+Sample timestamp: 9.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 6.184s  vest call: 6.575s
+Inference time: 12.759s
+Average inference: 11.284s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #21
+============================================================
+Sample timestamp: 0.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and glasses.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 10.195s  vest call: 6.577s
+Inference time: 16.771s
+Average inference: 11.546s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #22
+============================================================
+Sample timestamp: 1.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and a name tag.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 4.053s  vest call: 6.566s
+Inference time: 10.619s
+Average inference: 11.504s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #23
+============================================================
+Sample timestamp: 2.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 6.420s  vest call: 6.573s
+Inference time: 12.994s
+Average inference: 11.568s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #24
+============================================================
+Sample timestamp: 3.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 7.497s  vest call: 6.551s
+Inference time: 14.048s
+Average inference: 11.672s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #25
+============================================================
+Sample timestamp: 4.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest with a number 8 on it.
+2. A man wearing a yellow safety vest with a number 8 on it.
+3. A man wearing a yellow safety vest with a number 8 on it.
+4. A man wearing a yellow safety vest with a number 8 on it.
+5. A man wearing a yellow safety vest with a number 8 on it.
+6. A man wearing a yellow safety vest with a number 8 on it.
+7. A man wearing a yellow safety vest with a number 8 on it.
+8. A man wearing a yellow safety vest with a number 8 on it.
+9. A man wearing a yellow safety vest with a number 8 on it.
+10. A man wearing a yellow safety vest with a number 8 on it.')
+Status: GO
+  people call: 11.788s  vest call: 10.273s
+Inference time: 22.061s
+Average inference: 12.087s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #26
+============================================================
+Sample timestamp: 5.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and a black shirt.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 5.587s  vest call: 6.566s
+Inference time: 12.153s
+Average inference: 12.090s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #27
+============================================================
+Sample timestamp: 6.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 8.133s  vest call: 6.550s
+Inference time: 14.684s
+Average inference: 12.186s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #28
+============================================================
+Sample timestamp: 7.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and a name tag.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 7.311s  vest call: 6.554s
+Inference time: 13.865s
+Average inference: 12.246s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #29
+============================================================
+Sample timestamp: 8.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and standing with his arms outstretched.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 9.176s  vest call: 6.550s
+Inference time: 15.726s
+Average inference: 12.366s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #30
+============================================================
+Sample timestamp: 9.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 16.008s  vest call: 6.552s
+Inference time: 22.560s
+Average inference: 12.706s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #31
+============================================================
+Sample timestamp: 0.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and glasses.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 7.620s  vest call: 6.556s
+Inference time: 14.176s
+Average inference: 12.753s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #32
+============================================================
+Sample timestamp: 1.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and a name tag.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 12.678s  vest call: 6.554s
+Inference time: 19.233s
+Average inference: 12.956s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #33
+============================================================
+Sample timestamp: 2.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 13.216s  vest call: 6.571s
+Inference time: 19.787s
+Average inference: 13.163s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #34
+============================================================
+Sample timestamp: 3.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 13.892s  vest call: 6.551s
+Inference time: 20.444s
+Average inference: 13.377s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #35
+============================================================
+Sample timestamp: 4.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest with a number 8 on it.
+2. A man wearing a yellow safety vest with a number 8 on it.
+3. A man wearing a yellow safety vest with a number 8 on it.
+4. A man wearing a yellow safety vest with a number 8 on it.
+5. A man wearing a yellow safety vest with a number 8 on it.
+6. A man wearing a yellow safety vest with a number 8 on it.
+7. A man wearing a yellow safety vest with a number 8 on it.
+8. A man wearing a yellow safety vest with a number 8 on it.
+9. A man wearing a yellow safety vest with a number 8 on it.
+10. A man wearing a yellow safety vest with a number 8 on it.')
+Status: GO
+  people call: 6.749s  vest call: 10.286s
+Inference time: 17.035s
+Average inference: 13.481s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #36
+============================================================
+Sample timestamp: 5.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and a black shirt.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 13.339s  vest call: 6.575s
+Inference time: 19.914s
+Average inference: 13.660s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #37
+============================================================
+Sample timestamp: 6.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 6.902s  vest call: 6.558s
+Inference time: 13.460s
+Average inference: 13.654s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #38
+============================================================
+Sample timestamp: 7.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and a name tag.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 7.830s  vest call: 6.603s
+Inference time: 14.433s
+Average inference: 13.675s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #39
+============================================================
+Sample timestamp: 8.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and standing with his arms outstretched.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 13.208s  vest call: 6.549s
+Inference time: 19.757s
+Average inference: 13.831s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #40
+============================================================
+Sample timestamp: 9.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 15.627s  vest call: 6.549s
+Inference time: 22.176s
+Average inference: 14.040s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #41
+============================================================
+Sample timestamp: 0.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and glasses.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 10.886s  vest call: 6.566s
+Inference time: 17.452s
+Average inference: 14.123s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #42
+============================================================
+Sample timestamp: 1.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and a name tag.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 6.989s  vest call: 6.577s
+Inference time: 13.566s
+Average inference: 14.110s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #43
+============================================================
+Sample timestamp: 2.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 5.339s  vest call: 6.585s
+Inference time: 11.924s
+Average inference: 14.059s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #44
+============================================================
+Sample timestamp: 3.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 8.185s  vest call: 6.552s
+Inference time: 14.737s
+Average inference: 14.074s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #45
+============================================================
+Sample timestamp: 4.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest with a number 8 on it.
+2. A man wearing a yellow safety vest with a number 8 on it.
+3. A man wearing a yellow safety vest with a number 8 on it.
+4. A man wearing a yellow safety vest with a number 8 on it.
+5. A man wearing a yellow safety vest with a number 8 on it.
+6. A man wearing a yellow safety vest with a number 8 on it.
+7. A man wearing a yellow safety vest with a number 8 on it.
+8. A man wearing a yellow safety vest with a number 8 on it.
+9. A man wearing a yellow safety vest with a number 8 on it.
+10. A man wearing a yellow safety vest with a number 8 on it.')
+Status: GO
+  people call: 8.008s  vest call: 10.257s
+Inference time: 18.266s
+Average inference: 14.167s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #46
+============================================================
+Sample timestamp: 5.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and a black shirt.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 7.090s  vest call: 6.550s
+Inference time: 13.640s
+Average inference: 14.156s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #47
+============================================================
+Sample timestamp: 6.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 10.628s  vest call: 6.639s
+Inference time: 17.267s
+Average inference: 14.222s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #48
+============================================================
+Sample timestamp: 7.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and a name tag.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 7.010s  vest call: 6.564s
+Inference time: 13.574s
+Average inference: 14.209s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #49
+============================================================
+Sample timestamp: 8.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and standing with his arms outstretched.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 6.474s  vest call: 6.566s
+Inference time: 13.039s
+Average inference: 14.185s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #50
+============================================================
+Sample timestamp: 9.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 6.394s  vest call: 6.553s
+Inference time: 12.947s
+Average inference: 14.160s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #51
+============================================================
+Sample timestamp: 0.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and glasses.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 5.979s  vest call: 6.502s
+Inference time: 12.481s
+Average inference: 14.127s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #52
+============================================================
+Sample timestamp: 1.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and a name tag.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 10.522s  vest call: 6.574s
+Inference time: 17.096s
+Average inference: 14.184s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #53
+============================================================
+Sample timestamp: 2.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 8.527s  vest call: 6.566s
+Inference time: 15.094s
+Average inference: 14.201s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #54
+============================================================
+Sample timestamp: 3.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 10.366s  vest call: 7.581s
+Inference time: 17.947s
+Average inference: 14.271s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #55
+============================================================
+Sample timestamp: 4.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest with a number 8 on it.
+2. A man wearing a yellow safety vest with a number 8 on it.
+3. A man wearing a yellow safety vest with a number 8 on it.
+4. A man wearing a yellow safety vest with a number 8 on it.
+5. A man wearing a yellow safety vest with a number 8 on it.
+6. A man wearing a yellow safety vest with a number 8 on it.
+7. A man wearing a yellow safety vest with a number 8 on it.
+8. A man wearing a yellow safety vest with a number 8 on it.
+9. A man wearing a yellow safety vest with a number 8 on it.
+10. A man wearing a yellow safety vest with a number 8 on it.')
+Status: GO
+  people call: 7.770s  vest call: 10.283s
+Inference time: 18.053s
+Average inference: 14.339s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #56
+============================================================
+Sample timestamp: 5.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and a black shirt.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 6.671s  vest call: 6.603s
+Inference time: 13.274s
+Average inference: 14.320s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #57
+============================================================
+Sample timestamp: 6.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 10.668s  vest call: 6.573s
+Inference time: 17.241s
+Average inference: 14.372s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #58
+============================================================
+Sample timestamp: 7.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and a name tag.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 5.319s  vest call: 6.570s
+Inference time: 11.889s
+Average inference: 14.329s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #59
+============================================================
+Sample timestamp: 8.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and standing with his arms outstretched.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 10.166s  vest call: 6.569s
+Inference time: 16.735s
+Average inference: 14.370s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #60
+============================================================
+Sample timestamp: 9.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 7.153s  vest call: 6.557s
+Inference time: 13.711s
+Average inference: 14.359s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #61
+============================================================
+Sample timestamp: 0.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and glasses.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 12.480s  vest call: 6.552s
+Inference time: 19.032s
+Average inference: 14.435s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #62
+============================================================
+Sample timestamp: 1.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and a name tag.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 6.794s  vest call: 6.555s
+Inference time: 13.349s
+Average inference: 14.418s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #63
+============================================================
+Sample timestamp: 2.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 9.628s  vest call: 6.589s
+Inference time: 16.218s
+Average inference: 14.446s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #64
+============================================================
+Sample timestamp: 3.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 8.936s  vest call: 6.548s
+Inference time: 15.483s
+Average inference: 14.462s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #65
+============================================================
+Sample timestamp: 4.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest with a number 8 on it.
+2. A man wearing a yellow safety vest with a number 8 on it.
+3. A man wearing a yellow safety vest with a number 8 on it.
+4. A man wearing a yellow safety vest with a number 8 on it.
+5. A man wearing a yellow safety vest with a number 8 on it.
+6. A man wearing a yellow safety vest with a number 8 on it.
+7. A man wearing a yellow safety vest with a number 8 on it.
+8. A man wearing a yellow safety vest with a number 8 on it.
+9. A man wearing a yellow safety vest with a number 8 on it.
+10. A man wearing a yellow safety vest with a number 8 on it.')
+Status: GO
+  people call: 12.611s  vest call: 10.304s
+Inference time: 22.915s
+Average inference: 14.593s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #66
+============================================================
+Sample timestamp: 5.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and a black shirt.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 8.388s  vest call: 6.587s
+Inference time: 14.975s
+Average inference: 14.598s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #67
+============================================================
+Sample timestamp: 6.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 11.034s  vest call: 6.582s
+Inference time: 17.616s
+Average inference: 14.643s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #68
+============================================================
+Sample timestamp: 7.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and a name tag.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 4.289s  vest call: 6.555s
+Inference time: 10.844s
+Average inference: 14.587s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #69
+============================================================
+Sample timestamp: 8.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and standing with his arms outstretched.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 7.104s  vest call: 6.559s
+Inference time: 13.663s
+Average inference: 14.574s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #70
+============================================================
+Sample timestamp: 9.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 7.557s  vest call: 6.566s
+Inference time: 14.123s
+Average inference: 14.568s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #71
+============================================================
+Sample timestamp: 0.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and glasses.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 6.232s  vest call: 6.551s
+Inference time: 12.783s
+Average inference: 14.543s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #72
+============================================================
+Sample timestamp: 1.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and a name tag.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 11.693s  vest call: 6.570s
+Inference time: 18.263s
+Average inference: 14.594s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #73
+============================================================
+Sample timestamp: 2.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 7.352s  vest call: 6.572s
+Inference time: 13.924s
+Average inference: 14.585s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #74
+============================================================
+Sample timestamp: 3.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 8.141s  vest call: 7.030s
+Inference time: 15.170s
+Average inference: 14.593s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #75
+============================================================
+Sample timestamp: 4.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest with a number 8 on it.
+2. A man wearing a yellow safety vest with a number 8 on it.
+3. A man wearing a yellow safety vest with a number 8 on it.
+4. A man wearing a yellow safety vest with a number 8 on it.
+5. A man wearing a yellow safety vest with a number 8 on it.
+6. A man wearing a yellow safety vest with a number 8 on it.
+7. A man wearing a yellow safety vest with a number 8 on it.
+8. A man wearing a yellow safety vest with a number 8 on it.
+9. A man wearing a yellow safety vest with a number 8 on it.
+10. A man wearing a yellow safety vest with a number 8 on it.')
+Status: GO
+  people call: 9.420s  vest call: 10.290s
+Inference time: 19.710s
+Average inference: 14.661s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #76
+============================================================
+Sample timestamp: 5.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and a black shirt.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 12.731s  vest call: 6.557s
+Inference time: 19.288s
+Average inference: 14.722s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #77
+============================================================
+Sample timestamp: 6.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 9.903s  vest call: 6.566s
+Inference time: 16.469s
+Average inference: 14.745s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #78
+============================================================
+Sample timestamp: 7.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and a name tag.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 11.582s  vest call: 7.593s
+Inference time: 19.174s
+Average inference: 14.801s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #79
+============================================================
+Sample timestamp: 8.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and standing with his arms outstretched.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 12.938s  vest call: 6.555s
+Inference time: 19.494s
+Average inference: 14.861s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #80
+============================================================
+Sample timestamp: 9.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 8.637s  vest call: 6.567s
+Inference time: 15.204s
+Average inference: 14.865s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #81
+============================================================
+Sample timestamp: 0.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and glasses.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 8.440s  vest call: 6.544s
+Inference time: 14.984s
+Average inference: 14.867s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #82
+============================================================
+Sample timestamp: 1.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and a name tag.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 17.392s  vest call: 6.563s
+Inference time: 23.955s
+Average inference: 14.977s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #83
+============================================================
+Sample timestamp: 2.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 7.750s  vest call: 6.562s
+Inference time: 14.312s
+Average inference: 14.969s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #84
+============================================================
+Sample timestamp: 3.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 8.075s  vest call: 6.571s
+Inference time: 14.647s
+Average inference: 14.966s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #85
+============================================================
+Sample timestamp: 4.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest with a number 8 on it.
+2. A man wearing a yellow safety vest with a number 8 on it.
+3. A man wearing a yellow safety vest with a number 8 on it.
+4. A man wearing a yellow safety vest with a number 8 on it.
+5. A man wearing a yellow safety vest with a number 8 on it.
+6. A man wearing a yellow safety vest with a number 8 on it.
+7. A man wearing a yellow safety vest with a number 8 on it.
+8. A man wearing a yellow safety vest with a number 8 on it.
+9. A man wearing a yellow safety vest with a number 8 on it.
+10. A man wearing a yellow safety vest with a number 8 on it.')
+Status: GO
+  people call: 23.266s  vest call: 10.409s
+Inference time: 33.675s
+Average inference: 15.186s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #86
+============================================================
+Sample timestamp: 5.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and a black shirt.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 26.509s  vest call: 6.583s
+Inference time: 33.092s
+Average inference: 15.394s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #87
+============================================================
+Sample timestamp: 6.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 9.323s  vest call: 6.579s
+Inference time: 15.902s
+Average inference: 15.400s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #88
+============================================================
+Sample timestamp: 7.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and a name tag.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 20.747s  vest call: 7.090s
+Inference time: 27.837s
+Average inference: 15.541s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #89
+============================================================
+Sample timestamp: 8.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and standing with his arms outstretched.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 25.662s  vest call: 6.559s
+Inference time: 32.221s
+Average inference: 15.729s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #90
+============================================================
+Sample timestamp: 9.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 20.495s  vest call: 6.561s
+Inference time: 27.056s
+Average inference: 15.854s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #91
+============================================================
+Sample timestamp: 0.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and glasses.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 9.345s  vest call: 6.559s
+Inference time: 15.904s
+Average inference: 15.855s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #92
+============================================================
+Sample timestamp: 1.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and a name tag.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 14.289s  vest call: 6.543s
+Inference time: 20.832s
+Average inference: 15.909s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #93
+============================================================
+Sample timestamp: 2.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 20.229s  vest call: 6.594s
+Inference time: 26.823s
+Average inference: 16.026s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #94
+============================================================
+Sample timestamp: 3.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 23.365s  vest call: 6.548s
+Inference time: 29.914s
+Average inference: 16.174s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #95
+============================================================
+Sample timestamp: 4.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest with a number 8 on it.
+2. A man wearing a yellow safety vest with a number 8 on it.
+3. A man wearing a yellow safety vest with a number 8 on it.
+4. A man wearing a yellow safety vest with a number 8 on it.
+5. A man wearing a yellow safety vest with a number 8 on it.
+6. A man wearing a yellow safety vest with a number 8 on it.
+7. A man wearing a yellow safety vest with a number 8 on it.
+8. A man wearing a yellow safety vest with a number 8 on it.
+9. A man wearing a yellow safety vest with a number 8 on it.
+10. A man wearing a yellow safety vest with a number 8 on it.')
+Status: GO
+  people call: 11.139s  vest call: 10.264s
+Inference time: 21.403s
+Average inference: 16.229s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #96
+============================================================
+Sample timestamp: 5.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and a black shirt.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 12.654s  vest call: 6.573s
+Inference time: 19.227s
+Average inference: 16.260s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #97
+============================================================
+Sample timestamp: 6.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 8.389s  vest call: 6.574s
+Inference time: 14.963s
+Average inference: 16.247s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #98
+============================================================
+Sample timestamp: 7.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and a name tag.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 8.035s  vest call: 6.563s
+Inference time: 14.598s
+Average inference: 16.230s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #99
+============================================================
+Sample timestamp: 8.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and standing with his arms outstretched.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 33.465s  vest call: 6.568s
+Inference time: 40.033s
+Average inference: 16.471s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #100
+============================================================
+Sample timestamp: 9.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 11.457s  vest call: 6.555s
+Inference time: 18.013s
+Average inference: 16.486s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #101
+============================================================
+Sample timestamp: 0.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and glasses.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 11.680s  vest call: 6.560s
+Inference time: 18.240s
+Average inference: 16.503s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #102
+============================================================
+Sample timestamp: 1.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and a name tag.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 7.010s  vest call: 6.555s
+Inference time: 13.564s
+Average inference: 16.475s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #103
+============================================================
+Sample timestamp: 2.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 13.318s  vest call: 6.564s
+Inference time: 19.883s
+Average inference: 16.508s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #104
+============================================================
+Sample timestamp: 3.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 14.299s  vest call: 6.569s
+Inference time: 20.868s
+Average inference: 16.550s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #105
+============================================================
+Sample timestamp: 4.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest with a number 8 on it.
+2. A man wearing a yellow safety vest with a number 8 on it.
+3. A man wearing a yellow safety vest with a number 8 on it.
+4. A man wearing a yellow safety vest with a number 8 on it.
+5. A man wearing a yellow safety vest with a number 8 on it.
+6. A man wearing a yellow safety vest with a number 8 on it.
+7. A man wearing a yellow safety vest with a number 8 on it.
+8. A man wearing a yellow safety vest with a number 8 on it.
+9. A man wearing a yellow safety vest with a number 8 on it.
+10. A man wearing a yellow safety vest with a number 8 on it.')
+Status: GO
+  people call: 14.275s  vest call: 10.301s
+Inference time: 24.576s
+Average inference: 16.626s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #106
+============================================================
+Sample timestamp: 5.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and a black shirt.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 9.357s  vest call: 6.574s
+Inference time: 15.931s
+Average inference: 16.619s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #107
+============================================================
+Sample timestamp: 6.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 19.445s  vest call: 6.543s
+Inference time: 25.989s
+Average inference: 16.707s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #108
+============================================================
+Sample timestamp: 7.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and a name tag.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 15.721s  vest call: 6.603s
+Inference time: 22.324s
+Average inference: 16.759s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #109
+============================================================
+Sample timestamp: 8.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and standing with his arms outstretched.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 12.934s  vest call: 6.572s
+Inference time: 19.505s
+Average inference: 16.784s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #110
+============================================================
+Sample timestamp: 9.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 17.152s  vest call: 6.546s
+Inference time: 23.698s
+Average inference: 16.847s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #111
+============================================================
+Sample timestamp: 0.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and glasses.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 8.521s  vest call: 6.551s
+Inference time: 15.072s
+Average inference: 16.831s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #112
+============================================================
+Sample timestamp: 1.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and a name tag.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 18.638s  vest call: 6.585s
+Inference time: 25.223s
+Average inference: 16.906s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #113
+============================================================
+Sample timestamp: 2.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 6.822s  vest call: 6.585s
+Inference time: 13.407s
+Average inference: 16.875s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #114
+============================================================
+Sample timestamp: 3.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 19.144s  vest call: 6.560s
+Inference time: 25.704s
+Average inference: 16.953s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #115
+============================================================
+Sample timestamp: 4.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest with a number 8 on it.
+2. A man wearing a yellow safety vest with a number 8 on it.
+3. A man wearing a yellow safety vest with a number 8 on it.
+4. A man wearing a yellow safety vest with a number 8 on it.
+5. A man wearing a yellow safety vest with a number 8 on it.
+6. A man wearing a yellow safety vest with a number 8 on it.
+7. A man wearing a yellow safety vest with a number 8 on it.
+8. A man wearing a yellow safety vest with a number 8 on it.
+9. A man wearing a yellow safety vest with a number 8 on it.
+10. A man wearing a yellow safety vest with a number 8 on it.')
+Status: GO
+  people call: 14.271s  vest call: 10.273s
+Inference time: 24.544s
+Average inference: 17.019s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #116
+============================================================
+Sample timestamp: 5.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and a black shirt.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 9.992s  vest call: 6.633s
+Inference time: 16.625s
+Average inference: 17.015s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #117
+============================================================
+Sample timestamp: 6.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 9.254s  vest call: 6.560s
+Inference time: 15.814s
+Average inference: 17.005s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #118
+============================================================
+Sample timestamp: 7.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and a name tag.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 5.745s  vest call: 6.587s
+Inference time: 12.333s
+Average inference: 16.965s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #119
+============================================================
+Sample timestamp: 8.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and standing with his arms outstretched.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 5.561s  vest call: 6.574s
+Inference time: 12.134s
+Average inference: 16.925s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #120
+============================================================
+Sample timestamp: 9.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 14.661s  vest call: 6.567s
+Inference time: 21.228s
+Average inference: 16.961s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #121
+============================================================
+Sample timestamp: 0.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and glasses.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 14.034s  vest call: 6.563s
+Inference time: 20.597s
+Average inference: 16.991s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #122
+============================================================
+Sample timestamp: 1.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and a name tag.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 11.404s  vest call: 6.557s
+Inference time: 17.961s
+Average inference: 16.999s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #123
+============================================================
+Sample timestamp: 2.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 5.934s  vest call: 6.546s
+Inference time: 12.481s
+Average inference: 16.962s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #124
+============================================================
+Sample timestamp: 3.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 9.877s  vest call: 6.569s
+Inference time: 16.446s
+Average inference: 16.958s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #125
+============================================================
+Sample timestamp: 4.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest with a number 8 on it.
+2. A man wearing a yellow safety vest with a number 8 on it.
+3. A man wearing a yellow safety vest with a number 8 on it.
+4. A man wearing a yellow safety vest with a number 8 on it.
+5. A man wearing a yellow safety vest with a number 8 on it.
+6. A man wearing a yellow safety vest with a number 8 on it.
+7. A man wearing a yellow safety vest with a number 8 on it.
+8. A man wearing a yellow safety vest with a number 8 on it.
+9. A man wearing a yellow safety vest with a number 8 on it.
+10. A man wearing a yellow safety vest with a number 8 on it.')
+Status: GO
+  people call: 14.984s  vest call: 10.277s
+Inference time: 25.261s
+Average inference: 17.024s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #126
+============================================================
+Sample timestamp: 5.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and a black shirt.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 25.131s  vest call: 6.559s
+Inference time: 31.689s
+Average inference: 17.140s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #127
+============================================================
+Sample timestamp: 6.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 25.065s  vest call: 6.556s
+Inference time: 31.621s
+Average inference: 17.254s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #128
+============================================================
+Sample timestamp: 7.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and a name tag.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 14.277s  vest call: 6.578s
+Inference time: 20.855s
+Average inference: 17.283s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #129
+============================================================
+Sample timestamp: 8.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and standing with his arms outstretched.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 15.284s  vest call: 6.558s
+Inference time: 21.842s
+Average inference: 17.318s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #130
+============================================================
+Sample timestamp: 9.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 8.721s  vest call: 6.586s
+Inference time: 15.307s
+Average inference: 17.303s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #131
+============================================================
+Sample timestamp: 0.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and glasses.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 12.904s  vest call: 6.589s
+Inference time: 19.493s
+Average inference: 17.319s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #132
+============================================================
+Sample timestamp: 1.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and a name tag.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 12.413s  vest call: 6.558s
+Inference time: 18.971s
+Average inference: 17.332s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #133
+============================================================
+Sample timestamp: 2.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 9.703s  vest call: 6.589s
+Inference time: 16.292s
+Average inference: 17.324s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #134
+============================================================
+Sample timestamp: 3.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 24.751s  vest call: 6.560s
+Inference time: 31.311s
+Average inference: 17.428s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #135
+============================================================
+Sample timestamp: 4.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest with a number 8 on it.
+2. A man wearing a yellow safety vest with a number 8 on it.
+3. A man wearing a yellow safety vest with a number 8 on it.
+4. A man wearing a yellow safety vest with a number 8 on it.
+5. A man wearing a yellow safety vest with a number 8 on it.
+6. A man wearing a yellow safety vest with a number 8 on it.
+7. A man wearing a yellow safety vest with a number 8 on it.
+8. A man wearing a yellow safety vest with a number 8 on it.
+9. A man wearing a yellow safety vest with a number 8 on it.
+10. A man wearing a yellow safety vest with a number 8 on it.')
+Status: GO
+  people call: 17.295s  vest call: 10.263s
+Inference time: 27.558s
+Average inference: 17.503s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #136
+============================================================
+Sample timestamp: 5.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and a black shirt.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 10.420s  vest call: 6.548s
+Inference time: 16.967s
+Average inference: 17.499s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #137
+============================================================
+Sample timestamp: 6.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 21.446s  vest call: 6.583s
+Inference time: 28.029s
+Average inference: 17.576s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #138
+============================================================
+Sample timestamp: 7.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and a name tag.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 6.244s  vest call: 6.582s
+Inference time: 12.826s
+Average inference: 17.542s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #139
+============================================================
+Sample timestamp: 8.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and standing with his arms outstretched.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 13.203s  vest call: 6.570s
+Inference time: 19.773s
+Average inference: 17.558s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #140
+============================================================
+Sample timestamp: 9.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 30.372s  vest call: 6.542s
+Inference time: 36.915s
+Average inference: 17.696s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #141
+============================================================
+Sample timestamp: 0.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and glasses.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 10.539s  vest call: 6.559s
+Inference time: 17.098s
+Average inference: 17.692s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #142
+============================================================
+Sample timestamp: 1.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and a name tag.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 14.264s  vest call: 6.558s
+Inference time: 20.822s
+Average inference: 17.714s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #143
+============================================================
+Sample timestamp: 2.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 15.905s  vest call: 6.555s
+Inference time: 22.460s
+Average inference: 17.747s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #144
+============================================================
+Sample timestamp: 3.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 6.823s  vest call: 6.557s
+Inference time: 13.380s
+Average inference: 17.717s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #145
+============================================================
+Sample timestamp: 4.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest with a number 8 on it.
+2. A man wearing a yellow safety vest with a number 8 on it.
+3. A man wearing a yellow safety vest with a number 8 on it.
+4. A man wearing a yellow safety vest with a number 8 on it.
+5. A man wearing a yellow safety vest with a number 8 on it.
+6. A man wearing a yellow safety vest with a number 8 on it.
+7. A man wearing a yellow safety vest with a number 8 on it.
+8. A man wearing a yellow safety vest with a number 8 on it.
+9. A man wearing a yellow safety vest with a number 8 on it.
+10. A man wearing a yellow safety vest with a number 8 on it.')
+Status: GO
+  people call: 11.446s  vest call: 10.280s
+Inference time: 21.726s
+Average inference: 17.744s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #146
+============================================================
+Sample timestamp: 5.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and a black shirt.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 9.974s  vest call: 6.560s
+Inference time: 16.534s
+Average inference: 17.736s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #147
+============================================================
+Sample timestamp: 6.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 12.601s  vest call: 6.563s
+Inference time: 19.164s
+Average inference: 17.746s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #148
+============================================================
+Sample timestamp: 7.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and a name tag.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 11.657s  vest call: 6.569s
+Inference time: 18.226s
+Average inference: 17.749s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #149
+============================================================
+Sample timestamp: 8.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and standing with his arms outstretched.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 10.271s  vest call: 6.549s
+Inference time: 16.820s
+Average inference: 17.743s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #150
+============================================================
+Sample timestamp: 9.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 19.500s  vest call: 6.560s
+Inference time: 26.060s
+Average inference: 17.798s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #151
+============================================================
+Sample timestamp: 0.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and glasses.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 14.858s  vest call: 6.550s
+Inference time: 21.408s
+Average inference: 17.822s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #152
+============================================================
+Sample timestamp: 1.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and a name tag.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 7.592s  vest call: 6.576s
+Inference time: 14.168s
+Average inference: 17.798s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #153
+============================================================
+Sample timestamp: 2.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 10.986s  vest call: 7.319s
+Inference time: 18.305s
+Average inference: 17.802s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #154
+============================================================
+Sample timestamp: 3.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 15.093s  vest call: 6.569s
+Inference time: 21.662s
+Average inference: 17.827s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #155
+============================================================
+Sample timestamp: 4.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest with a number 8 on it.
+2. A man wearing a yellow safety vest with a number 8 on it.
+3. A man wearing a yellow safety vest with a number 8 on it.
+4. A man wearing a yellow safety vest with a number 8 on it.
+5. A man wearing a yellow safety vest with a number 8 on it.
+6. A man wearing a yellow safety vest with a number 8 on it.
+7. A man wearing a yellow safety vest with a number 8 on it.
+8. A man wearing a yellow safety vest with a number 8 on it.
+9. A man wearing a yellow safety vest with a number 8 on it.
+10. A man wearing a yellow safety vest with a number 8 on it.')
+Status: GO
+  people call: 22.463s  vest call: 10.265s
+Inference time: 32.728s
+Average inference: 17.923s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #156
+============================================================
+Sample timestamp: 5.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and a black shirt.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 13.712s  vest call: 6.561s
+Inference time: 20.272s
+Average inference: 17.938s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #157
+============================================================
+Sample timestamp: 6.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 13.100s  vest call: 6.589s
+Inference time: 19.689s
+Average inference: 17.949s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #158
+============================================================
+Sample timestamp: 7.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and a name tag.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 9.559s  vest call: 6.546s
+Inference time: 16.105s
+Average inference: 17.937s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #159
+============================================================
+Sample timestamp: 8.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and standing with his arms outstretched.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 16.946s  vest call: 6.554s
+Inference time: 23.500s
+Average inference: 17.972s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #160
+============================================================
+Sample timestamp: 9.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 22.920s  vest call: 6.572s
+Inference time: 29.492s
+Average inference: 18.044s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #161
+============================================================
+Sample timestamp: 0.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and glasses.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 14.472s  vest call: 6.558s
+Inference time: 21.031s
+Average inference: 18.063s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #162
+============================================================
+Sample timestamp: 1.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and a name tag.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 13.869s  vest call: 6.575s
+Inference time: 20.444s
+Average inference: 18.077s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #163
+============================================================
+Sample timestamp: 2.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 11.644s  vest call: 6.574s
+Inference time: 18.218s
+Average inference: 18.078s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #164
+============================================================
+Sample timestamp: 3.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 16.027s  vest call: 6.568s
+Inference time: 22.595s
+Average inference: 18.106s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #165
+============================================================
+Sample timestamp: 4.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest with a number 8 on it.
+2. A man wearing a yellow safety vest with a number 8 on it.
+3. A man wearing a yellow safety vest with a number 8 on it.
+4. A man wearing a yellow safety vest with a number 8 on it.
+5. A man wearing a yellow safety vest with a number 8 on it.
+6. A man wearing a yellow safety vest with a number 8 on it.
+7. A man wearing a yellow safety vest with a number 8 on it.
+8. A man wearing a yellow safety vest with a number 8 on it.
+9. A man wearing a yellow safety vest with a number 8 on it.
+10. A man wearing a yellow safety vest with a number 8 on it.')
+Status: GO
+  people call: 21.094s  vest call: 10.262s
+Inference time: 31.356s
+Average inference: 18.186s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #166
+============================================================
+Sample timestamp: 5.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and a black shirt.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 17.827s  vest call: 6.555s
+Inference time: 24.382s
+Average inference: 18.224s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #167
+============================================================
+Sample timestamp: 6.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 10.279s  vest call: 6.579s
+Inference time: 16.859s
+Average inference: 18.215s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #168
+============================================================
+Sample timestamp: 7.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and a name tag.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 22.781s  vest call: 6.562s
+Inference time: 29.343s
+Average inference: 18.282s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #169
+============================================================
+Sample timestamp: 8.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and standing with his arms outstretched.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 23.449s  vest call: 6.560s
+Inference time: 30.008s
+Average inference: 18.351s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #170
+============================================================
+Sample timestamp: 9.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 12.805s  vest call: 6.550s
+Inference time: 19.355s
+Average inference: 18.357s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #171
+============================================================
+Sample timestamp: 0.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and glasses.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 18.077s  vest call: 6.569s
+Inference time: 24.646s
+Average inference: 18.394s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #172
+============================================================
+Sample timestamp: 1.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and a name tag.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 14.592s  vest call: 6.585s
+Inference time: 21.177s
+Average inference: 18.410s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #173
+============================================================
+Sample timestamp: 2.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 7.894s  vest call: 6.557s
+Inference time: 14.450s
+Average inference: 18.387s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #174
+============================================================
+Sample timestamp: 3.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 15.051s  vest call: 6.561s
+Inference time: 21.612s
+Average inference: 18.405s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #175
+============================================================
+Sample timestamp: 4.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest with a number 8 on it.
+2. A man wearing a yellow safety vest with a number 8 on it.
+3. A man wearing a yellow safety vest with a number 8 on it.
+4. A man wearing a yellow safety vest with a number 8 on it.
+5. A man wearing a yellow safety vest with a number 8 on it.
+6. A man wearing a yellow safety vest with a number 8 on it.
+7. A man wearing a yellow safety vest with a number 8 on it.
+8. A man wearing a yellow safety vest with a number 8 on it.
+9. A man wearing a yellow safety vest with a number 8 on it.
+10. A man wearing a yellow safety vest with a number 8 on it.')
+Status: GO
+  people call: 16.677s  vest call: 10.296s
+Inference time: 26.973s
+Average inference: 18.454s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #176
+============================================================
+Sample timestamp: 5.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and a black shirt.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 9.982s  vest call: 6.551s
+Inference time: 16.533s
+Average inference: 18.444s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #177
+============================================================
+Sample timestamp: 6.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 18.732s  vest call: 6.563s
+Inference time: 25.295s
+Average inference: 18.482s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #178
+============================================================
+Sample timestamp: 7.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and a name tag.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 12.353s  vest call: 6.577s
+Inference time: 18.930s
+Average inference: 18.485s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #179
+============================================================
+Sample timestamp: 8.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and standing with his arms outstretched.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 10.586s  vest call: 6.586s
+Inference time: 17.173s
+Average inference: 18.477s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #180
+============================================================
+Sample timestamp: 9.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 17.329s  vest call: 6.558s
+Inference time: 23.886s
+Average inference: 18.507s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #181
+============================================================
+Sample timestamp: 0.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and glasses.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 16.416s  vest call: 6.543s
+Inference time: 22.959s
+Average inference: 18.532s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #182
+============================================================
+Sample timestamp: 1.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and a name tag.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 13.938s  vest call: 6.557s
+Inference time: 20.495s
+Average inference: 18.543s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #183
+============================================================
+Sample timestamp: 2.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 10.136s  vest call: 6.583s
+Inference time: 16.719s
+Average inference: 18.533s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #184
+============================================================
+Sample timestamp: 3.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 8.064s  vest call: 6.562s
+Inference time: 14.625s
+Average inference: 18.512s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #185
+============================================================
+Sample timestamp: 4.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest with a number 8 on it.
+2. A man wearing a yellow safety vest with a number 8 on it.
+3. A man wearing a yellow safety vest with a number 8 on it.
+4. A man wearing a yellow safety vest with a number 8 on it.
+5. A man wearing a yellow safety vest with a number 8 on it.
+6. A man wearing a yellow safety vest with a number 8 on it.
+7. A man wearing a yellow safety vest with a number 8 on it.
+8. A man wearing a yellow safety vest with a number 8 on it.
+9. A man wearing a yellow safety vest with a number 8 on it.
+10. A man wearing a yellow safety vest with a number 8 on it.')
+Status: GO
+  people call: 12.368s  vest call: 10.299s
+Inference time: 22.667s
+Average inference: 18.534s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #186
+============================================================
+Sample timestamp: 5.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and a black shirt.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 10.140s  vest call: 6.565s
+Inference time: 16.705s
+Average inference: 18.524s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #187
+============================================================
+Sample timestamp: 6.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 16.892s  vest call: 6.603s
+Inference time: 23.495s
+Average inference: 18.551s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #188
+============================================================
+Sample timestamp: 7.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and a name tag.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 31.288s  vest call: 6.588s
+Inference time: 37.876s
+Average inference: 18.654s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #189
+============================================================
+Sample timestamp: 8.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and standing with his arms outstretched.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 31.926s  vest call: 6.567s
+Inference time: 38.493s
+Average inference: 18.759s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #190
+============================================================
+Sample timestamp: 9.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 19.856s  vest call: 6.570s
+Inference time: 26.426s
+Average inference: 18.799s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #191
+============================================================
+Sample timestamp: 0.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and glasses.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 15.935s  vest call: 6.593s
+Inference time: 22.528s
+Average inference: 18.818s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #192
+============================================================
+Sample timestamp: 1.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and a name tag.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 9.584s  vest call: 6.564s
+Inference time: 16.148s
+Average inference: 18.805s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #193
+============================================================
+Sample timestamp: 2.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 14.013s  vest call: 6.576s
+Inference time: 20.589s
+Average inference: 18.814s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #194
+============================================================
+Sample timestamp: 3.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 7.091s  vest call: 6.548s
+Inference time: 13.639s
+Average inference: 18.787s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #195
+============================================================
+Sample timestamp: 4.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest with a number 8 on it.
+2. A man wearing a yellow safety vest with a number 8 on it.
+3. A man wearing a yellow safety vest with a number 8 on it.
+4. A man wearing a yellow safety vest with a number 8 on it.
+5. A man wearing a yellow safety vest with a number 8 on it.
+6. A man wearing a yellow safety vest with a number 8 on it.
+7. A man wearing a yellow safety vest with a number 8 on it.
+8. A man wearing a yellow safety vest with a number 8 on it.
+9. A man wearing a yellow safety vest with a number 8 on it.
+10. A man wearing a yellow safety vest with a number 8 on it.')
+Status: GO
+  people call: 9.563s  vest call: 10.270s
+Inference time: 19.833s
+Average inference: 18.793s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #196
+============================================================
+Sample timestamp: 5.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and a black shirt.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 23.346s  vest call: 6.541s
+Inference time: 29.887s
+Average inference: 18.849s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #197
+============================================================
+Sample timestamp: 6.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 12.681s  vest call: 6.592s
+Inference time: 19.273s
+Average inference: 18.851s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #198
+============================================================
+Sample timestamp: 7.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and a name tag.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 12.337s  vest call: 6.555s
+Inference time: 18.892s
+Average inference: 18.851s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #199
+============================================================
+Sample timestamp: 8.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and standing with his arms outstretched.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 18.020s  vest call: 6.558s
+Inference time: 24.577s
+Average inference: 18.880s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #200
+============================================================
+Sample timestamp: 9.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 10.766s  vest call: 6.581s
+Inference time: 17.347s
+Average inference: 18.873s
+------------------------------------------------------------
+
+
+============================================================
+TARGET REACHED (200 inferences)
+============================================================
+Total inferences: 200
+Average inference time: 18.873s
+Total inference time: 3774.518s
+
+Done. (Ollama server keeps running in the background -- nothing to unload here.)
+
+Log saved to: /home/icp/VLMs/benchmark_test/logs/2026-09-25_03-30-19_llava_phi3_ollama_video.txt

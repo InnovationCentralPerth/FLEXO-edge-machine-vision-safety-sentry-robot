@@ -19,3 +19,6 @@ models/*.pt
 data/samples/*
 !data/samples/.gitkeep
 
+
+# VLM benchmark model weights -- large binaries, re-downloadable via ollama pull
+benchmark_test/models/
