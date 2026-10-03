@@ -8,9 +8,10 @@ import ollama
 # ============================================================
 # Model registry
 #
-# Add new models here as you pull more -- (display_name, ollama
-# model_name, log_filename_slug). Nothing else in this script
-# needs to change.
+# Same models as test_ollama_models.py (the two-call baseline
+# selector) -- this script tests the same models with the
+# single-call "optimized" prompt architecture instead, for a
+# direct baseline-vs-optimized comparison per model.
 # ============================================================
 
 MODELS = {
@@ -26,8 +27,6 @@ MODELS = {
     "6": ("LLaVA-Llama3", "llava-llama3", "llava_llama3"),
     "7": ("Granite Vision", "granite3.2-vision", "granite_vision"),
     "8": ("BakLLaVA", "bakllava", "bakllava"),
-    "9": ("SmolVLM 500M", "hf.co/rajvir73/SmolVLM-500M-Instruct-GGUF:Q8_0", "smolvlm_500m"),
-    "10": ("SmolVLM2 2.2B", "richardyoung/smolvlm2-2.2b-instruct", "smolvlm2_2_2b"),
 }
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -36,27 +35,35 @@ IMAGE_PATH = PROJECT_ROOT / "images" / "test.jpg"
 
 LOG_DIR = PROJECT_ROOT / "logs"
 
-# Same count-based prompt shape used throughout this project --
-# direct yes/no or GO/STOP classification prompts are known to
-# trigger acquiescence bias on small VLMs (see project notes).
-PEOPLE_PROMPT = (
-    "How many people are visible in this image? "
-    "Answer with just a number."
-)
+MAX_INFERENCES = 200
 
-VEST_PROMPT = (
-    "How many people in this image are properly wearing a "
-    "high-visibility orange, yellow, or lime green safety vest "
-    "on their torso?\n\n"
-    "Do NOT count:\n"
-    "- a vest being held in a hand\n"
-    "- a vest being carried\n"
-    "- a vest resting on a shoulder\n"
-    "- a vest partway through being put on\n"
-    "- a vest lying or hanging nearby but not worn\n"
-    "- ordinary clothing that is not a safety vest\n\n"
-    "Answer with just a number."
-)
+# ============================================================
+# Optimized VLM Prompt
+#
+# Single combined call, same wording as the RTX optimized
+# detector (RTXQwenVLOptimizedDetector) -- one call asks for
+# both counts at once, instead of two separate calls.
+# ============================================================
+
+SAFETY_PROMPT = """
+Count two things in this image:
+1. The total number of clearly visible people.
+2. Of those, how many are properly wearing a high-visibility orange,
+   yellow, or lime green safety vest on their torso.
+
+Do NOT count as "wearing a vest":
+- a vest being held in a hand
+- a vest being carried
+- a vest resting on a shoulder
+- a vest partway through being put on
+- a vest lying or hanging nearby but not worn
+- ordinary clothing that is not a safety vest
+- reflective clothing that is not a high-visibility safety vest
+
+Answer with exactly two lines, nothing else:
+PEOPLE: <integer>
+VESTS: <integer>
+""".strip()
 
 
 # ============================================================
@@ -92,7 +99,7 @@ def ask(model_name: str, image_path: Path, prompt: str) -> tuple[str, float]:
         ],
         options={
             "temperature": 0.0,  # deterministic, matches every other detector in this project
-            "num_ctx": 8192,  # default 4096 too small once image tokens are added
+            "num_ctx": 8192,  # default 4096 is too small once image tokens are added for some models
         },
     )
 
@@ -103,11 +110,29 @@ def ask(model_name: str, image_path: Path, prompt: str) -> tuple[str, float]:
     return answer, elapsed
 
 
-def parse_number(text: str) -> int:
-    """Best-effort parse of a numeric answer; falls back to 0 rather than
-    raising if the model returns something unexpected."""
-    match = re.search(r"\d+", text)
-    return int(match.group(0)) if match else 0
+def parse_count(text: str, label: str) -> int:
+    """
+    Extract an integer from responses such as:
+
+        PEOPLE: 2
+        VESTS: 1
+
+    Returns 0 if the requested label cannot be parsed -- same fallback
+    behavior as every other parser in this project, and matches
+    RTXQwenVLOptimizedDetector's parse_count().
+    """
+
+    if not text:
+        return 0
+
+    pattern = rf"{label}\s*:\s*(\d+)"
+
+    match = re.search(pattern, text, re.IGNORECASE)
+
+    if match:
+        return int(match.group(1))
+
+    return 0
 
 
 # ============================================================
@@ -129,7 +154,7 @@ def select_model() -> tuple[str, str, str]:
 
 def select_mode() -> str:
     print("\nSelect test mode:")
-    print("  [1] Quick single-image test (console only, ~2 calls)")
+    print("  [1] Quick single-image test (console only, 1 call)")
     print("  [2] Full 200-inference benchmark (logged to file)")
 
     choice = input("Enter number: ").strip()
@@ -156,14 +181,14 @@ def run_quick_test(display_name: str, model_name: str):
     print(f"Image: {IMAGE_PATH}")
     print("-" * 60)
 
-    people_answer, people_time = ask(model_name, IMAGE_PATH, PEOPLE_PROMPT)
-    print(f"People prompt -> '{people_answer}'  ({people_time:.3f}s)")
+    response, elapsed = ask(model_name, IMAGE_PATH, SAFETY_PROMPT)
 
-    vest_answer, vest_time = ask(model_name, IMAGE_PATH, VEST_PROMPT)
-    print(f"Vest prompt   -> '{vest_answer}'  ({vest_time:.3f}s)")
+    people = parse_count(response, "PEOPLE")
+    vests = min(parse_count(response, "VESTS"), people)
 
+    print(f"Raw response:\n{response}")
     print("-" * 60)
-    print(f"Total: {people_time + vest_time:.3f}s")
+    print(f"Parsed -> People: {people}  Vests: {vests}  ({elapsed:.3f}s)")
 
 
 # ============================================================
@@ -172,19 +197,17 @@ def run_quick_test(display_name: str, model_name: str):
 
 def run_benchmark(display_name: str, model_name: str, slug: str):
 
-    MAX_INFERENCES = 200
-
     LOG_DIR.mkdir(parents=True, exist_ok=True)
 
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-    log_path = LOG_DIR / f"{timestamp}_{slug}_ollama_image.txt"
+    log_path = LOG_DIR / f"{timestamp}_{slug}_ollama_optimized_image.txt"
 
     with open(log_path, "w", encoding="utf-8") as log_file:
 
         log_print("=" * 60, log_file)
         log_print(
-            f"{display_name.upper()} (OLLAMA) + STATIC IMAGE "
-            f"REPEATED-INFERENCE TEST",
+            f"{display_name.upper()} (OLLAMA, SINGLE-CALL OPTIMIZED "
+            f"PROMPT) + STATIC IMAGE REPEATED-INFERENCE TEST",
             log_file
         )
         log_print("=" * 60, log_file)
@@ -202,11 +225,6 @@ def run_benchmark(display_name: str, model_name: str, slug: str):
 
         # ----------------------------------------------------
         # Throwaway warmup inference
-        #
-        # Absorbs first-call model-load cost (Ollama loads the
-        # model into memory on first request if not already
-        # resident) outside the timed loop -- same rationale as
-        # every other test script in this project.
         # ----------------------------------------------------
 
         log_print(
@@ -217,7 +235,7 @@ def run_benchmark(display_name: str, model_name: str, slug: str):
 
         warmup_start = time.perf_counter()
 
-        _ = ask(model_name, IMAGE_PATH, PEOPLE_PROMPT)
+        _ = ask(model_name, IMAGE_PATH, SAFETY_PROMPT)
 
         warmup_time = time.perf_counter() - warmup_start
 
@@ -246,20 +264,14 @@ def run_benchmark(display_name: str, model_name: str, slug: str):
                 log_print("=" * 60, log_file)
 
                 # -------------------------------------------------
-                # 1. Count people
+                # ONE combined call
                 # -------------------------------------------------
 
-                people_answer, people_time = ask(model_name, IMAGE_PATH, PEOPLE_PROMPT)
-                n_people = parse_number(people_answer)
+                response, inference_time = ask(model_name, IMAGE_PATH, SAFETY_PROMPT)
 
-                # -------------------------------------------------
-                # 2. Count vests
-                # -------------------------------------------------
+                n_people = parse_count(response, "PEOPLE")
+                n_vests = min(parse_count(response, "VESTS"), n_people)
 
-                vest_answer, vest_time = ask(model_name, IMAGE_PATH, VEST_PROMPT)
-                n_vests = min(parse_number(vest_answer), n_people)
-
-                inference_time = people_time + vest_time
                 total_time += inference_time
 
                 # -------------------------------------------------
@@ -273,21 +285,10 @@ def run_benchmark(display_name: str, model_name: str, slug: str):
                 log_print("", log_file)
                 log_print("-" * 60, log_file)
 
-                log_print(
-                    f"People: {n_people} (raw: '{people_answer}')",
-                    log_file
-                )
-                log_print(
-                    f"Vests: {n_vests} (raw: '{vest_answer}')",
-                    log_file
-                )
+                log_print(f"Raw response: {response!r}", log_file)
+                log_print(f"People: {n_people}", log_file)
+                log_print(f"Vests: {n_vests}", log_file)
                 log_print(f"Status: {status}", log_file)
-
-                log_print(
-                    f"  people call: {people_time:.3f}s  "
-                    f"vest call: {vest_time:.3f}s",
-                    log_file
-                )
 
                 log_print(
                     f"Inference time: {inference_time:.3f}s",

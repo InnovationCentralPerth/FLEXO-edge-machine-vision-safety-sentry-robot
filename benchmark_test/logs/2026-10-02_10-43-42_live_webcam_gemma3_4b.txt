@@ -1,0 +1,8 @@
+============================================================
+LIVE WEBCAM VEST DETECTOR (OLLAMA, SINGLE-CALL OPTIMIZED PROMPT)
+============================================================
+Model: gemma3:4b
+Webcam source: 1
+Log file: /home/icp/FLEXO-edge-machine-vision-safety-sentry-robot/benchmark_test/logs/2026-10-02_10-43-42_live_webcam_gemma3_4b.txt
+
+Running warmup inference (absorbs first-call model-load cost)...

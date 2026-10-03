@@ -9,9 +9,11 @@ import ollama
 # ============================================================
 # Model registry
 #
-# Add new models here as you pull more -- (display_name, ollama
-# model_name, log_filename_slug). Nothing else in this script
-# needs to change.
+# Same models as test_ollama_model_video_optimized.py -- this
+# script resizes each sampled frame to 336x336 before sending it,
+# to check whether pre-resizing hurts accuracy here the way it did
+# on the Hailo/Qwen2-VL (dynamic-resolution) detector, across a mix
+# of fixed-resolution and dynamic-resolution models.
 # ============================================================
 
 MODELS = {
@@ -27,8 +29,6 @@ MODELS = {
     "6": ("LLaVA-Llama3", "llava-llama3", "llava_llama3"),
     "7": ("Granite Vision", "granite3.2-vision", "granite_vision"),
     "8": ("BakLLaVA", "bakllava", "bakllava"),
-    "9": ("SmolVLM 500M", "hf.co/rajvir73/SmolVLM-500M-Instruct-GGUF:Q8_0", "smolvlm_500m"),
-    "10":("SmolVLM2 2.2B", "richardyoung/smolvlm2-2.2b-instruct", "smolvlm2_2_2b"),
 }
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -37,35 +37,42 @@ VIDEO_PATH = PROJECT_ROOT / "videos" / "test.mp4"
 
 LOG_DIR = PROJECT_ROOT / "logs"
 
-# How far apart (in video-time seconds) each sampled inference frame
-# is. If MAX_INFERENCES * SAMPLE_INTERVAL_SECONDS exceeds the video's
-# duration, sampling wraps back to 0s and keeps going -- so a short
-# clip still supports a full 200-run, it just repeats. See
-# test_video_file_detector.py for the original version of this
-# approach (built for the RTX detector); same logic here.
+MAX_INFERENCES = 200
+
 SAMPLE_INTERVAL_SECONDS = 1.0
 
-# Same count-based prompt shape used throughout this project --
-# direct yes/no or GO/STOP classification prompts are known to
-# trigger acquiescence bias on small VLMs (see project notes).
-PEOPLE_PROMPT = (
-    "How many people are visible in this image? "
-    "Answer with just a number."
-)
+# Resize target -- see test_ollama_models_optimized_resized.py for
+# the reasoning behind 336x336 specifically.
+RESIZE_WIDTH = 336
+RESIZE_HEIGHT = 336
 
-VEST_PROMPT = (
-    "How many people in this image are properly wearing a "
-    "high-visibility orange, yellow, or lime green safety vest "
-    "on their torso?\n\n"
-    "Do NOT count:\n"
-    "- a vest being held in a hand\n"
-    "- a vest being carried\n"
-    "- a vest resting on a shoulder\n"
-    "- a vest partway through being put on\n"
-    "- a vest lying or hanging nearby but not worn\n"
-    "- ordinary clothing that is not a safety vest\n\n"
-    "Answer with just a number."
-)
+# ============================================================
+# Optimized VLM Prompt
+#
+# Identical wording to test_ollama_model_video_optimized.py -- the
+# only variable being changed in this script is the input
+# resolution, not the prompt.
+# ============================================================
+
+SAFETY_PROMPT = """
+Count two things in this image:
+1. The total number of clearly visible people.
+2. Of those, how many are properly wearing a high-visibility orange,
+   yellow, or lime green safety vest on their torso.
+
+Do NOT count as "wearing a vest":
+- a vest being held in a hand
+- a vest being carried
+- a vest resting on a shoulder
+- a vest partway through being put on
+- a vest lying or hanging nearby but not worn
+- ordinary clothing that is not a safety vest
+- reflective clothing that is not a high-visibility safety vest
+
+Answer with exactly two lines, nothing else:
+PEOPLE: <integer>
+VESTS: <integer>
+""".strip()
 
 
 # ============================================================
@@ -109,9 +116,10 @@ def open_video(video_path: Path) -> tuple[cv2.VideoCapture, float]:
     return cap, duration_seconds
 
 
-def grab_frame_bytes(cap: cv2.VideoCapture, timestamp_seconds: float) -> bytes:
-    """Seeks to the given timestamp and returns the frame JPEG-encoded
-    as raw bytes (no temp file written to disk)."""
+def grab_resized_frame_bytes(cap: cv2.VideoCapture, timestamp_seconds: float) -> bytes:
+    """Seeks to the given timestamp, resizes the frame to
+    RESIZE_WIDTH x RESIZE_HEIGHT, and returns it JPEG-encoded as raw
+    bytes (no temp file written to disk)."""
 
     cap.set(cv2.CAP_PROP_POS_MSEC, timestamp_seconds * 1000)
 
@@ -122,10 +130,16 @@ def grab_frame_bytes(cap: cv2.VideoCapture, timestamp_seconds: float) -> bytes:
             f"Failed to read a frame at {timestamp_seconds:.1f}s."
         )
 
-    ok, buffer = cv2.imencode(".jpg", frame_bgr)
+    resized = cv2.resize(
+        frame_bgr,
+        (RESIZE_WIDTH, RESIZE_HEIGHT),
+        interpolation=cv2.INTER_AREA,
+    )
+
+    ok, buffer = cv2.imencode(".jpg", resized)
 
     if not ok:
-        raise RuntimeError("Failed to JPEG-encode the frame.")
+        raise RuntimeError("Failed to JPEG-encode the resized frame.")
 
     return buffer.tobytes()
 
@@ -151,7 +165,7 @@ def ask(model_name: str, frame_bytes: bytes, prompt: str) -> tuple[str, float]:
         ],
         options={
             "temperature": 0.0,  # deterministic, matches every other detector in this project
-            "num_ctx": 8192,  # default 4096 is too small once image tokens are added for some models (e.g. Cosmos Reason 2)
+            "num_ctx": 8192,  # default 4096 is too small once image tokens are added for some models
         },
     )
 
@@ -162,11 +176,27 @@ def ask(model_name: str, frame_bytes: bytes, prompt: str) -> tuple[str, float]:
     return answer, elapsed
 
 
-def parse_number(text: str) -> int:
-    """Best-effort parse of a numeric answer; falls back to 0 rather than
-    raising if the model returns something unexpected."""
-    match = re.search(r"\d+", text)
-    return int(match.group(0)) if match else 0
+def parse_count(text: str, label: str) -> int:
+    """
+    Extract an integer from responses such as:
+
+        PEOPLE: 2
+        VESTS: 1
+
+    Returns 0 if the requested label cannot be parsed.
+    """
+
+    if not text:
+        return 0
+
+    pattern = rf"{label}\s*:\s*(\d+)"
+
+    match = re.search(pattern, text, re.IGNORECASE)
+
+    if match:
+        return int(match.group(1))
+
+    return 0
 
 
 # ============================================================
@@ -188,7 +218,7 @@ def select_model() -> tuple[str, str, str]:
 
 def select_mode() -> str:
     print("\nSelect test mode:")
-    print("  [1] Quick single-frame test (console only, ~2 calls)")
+    print("  [1] Quick single-frame test (console only, 1 call)")
     print("  [2] Full 200-inference benchmark (logged to file)")
 
     choice = input("Enter number: ").strip()
@@ -210,19 +240,20 @@ def run_quick_test(display_name: str, model_name: str):
     try:
         print(f"\nModel: {display_name} ({model_name})")
         print(f"Video: {VIDEO_PATH}  ({duration_seconds:.1f}s duration)")
+        print(f"Resizing each sampled frame to {RESIZE_WIDTH}x{RESIZE_HEIGHT} before sending")
 
-        frame_bytes = grab_frame_bytes(cap, 0.0)
-
-        print("-" * 60)
-
-        people_answer, people_time = ask(model_name, frame_bytes, PEOPLE_PROMPT)
-        print(f"People prompt -> '{people_answer}'  ({people_time:.3f}s)")
-
-        vest_answer, vest_time = ask(model_name, frame_bytes, VEST_PROMPT)
-        print(f"Vest prompt   -> '{vest_answer}'  ({vest_time:.3f}s)")
+        frame_bytes = grab_resized_frame_bytes(cap, 0.0)
 
         print("-" * 60)
-        print(f"Total: {people_time + vest_time:.3f}s")
+
+        response, elapsed = ask(model_name, frame_bytes, SAFETY_PROMPT)
+
+        people = parse_count(response, "PEOPLE")
+        vests = min(parse_count(response, "VESTS"), people)
+
+        print(f"Raw response:\n{response}")
+        print("-" * 60)
+        print(f"Parsed -> People: {people}  Vests: {vests}  ({elapsed:.3f}s)")
 
     finally:
         cap.release()
@@ -234,12 +265,10 @@ def run_quick_test(display_name: str, model_name: str):
 
 def run_benchmark(display_name: str, model_name: str, slug: str):
 
-    MAX_INFERENCES = 200
-
     LOG_DIR.mkdir(parents=True, exist_ok=True)
 
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-    log_path = LOG_DIR / f"{timestamp}_{slug}_ollama_video.txt"
+    log_path = LOG_DIR / f"{timestamp}_{slug}_ollama_optimized_resized_video.txt"
 
     cap, duration_seconds = open_video(VIDEO_PATH)
 
@@ -249,8 +278,9 @@ def run_benchmark(display_name: str, model_name: str, slug: str):
 
             log_print("=" * 60, log_file)
             log_print(
-                f"{display_name.upper()} (OLLAMA) + VIDEO FILE "
-                f"TIME-SAMPLED INFERENCE TEST",
+                f"{display_name.upper()} (OLLAMA, SINGLE-CALL OPTIMIZED "
+                f"PROMPT, RESIZED {RESIZE_WIDTH}x{RESIZE_HEIGHT}) + VIDEO "
+                f"FILE TIME-SAMPLED INFERENCE TEST",
                 log_file
             )
             log_print("=" * 60, log_file)
@@ -259,6 +289,7 @@ def run_benchmark(display_name: str, model_name: str, slug: str):
             log_print(f"Model: {model_name}", log_file)
             log_print(f"Video path: {VIDEO_PATH}", log_file)
             log_print(f"Video duration: {duration_seconds:.1f}s", log_file)
+            log_print(f"Resize target: {RESIZE_WIDTH}x{RESIZE_HEIGHT} (INTER_AREA)", log_file)
             log_print(
                 f"Sample interval: {SAMPLE_INTERVAL_SECONDS}s "
                 f"(wraps to 0s if it exceeds video duration)",
@@ -276,12 +307,6 @@ def run_benchmark(display_name: str, model_name: str, slug: str):
 
             # ----------------------------------------------------
             # Throwaway warmup inference
-            #
-            # Absorbs first-call model-load cost (Ollama loads the
-            # model into memory on first request if not already
-            # resident) outside the timed loop -- same rationale as
-            # every other test script in this project. Uses the
-            # t=0s frame, so nothing is wasted.
             # ----------------------------------------------------
 
             log_print(
@@ -290,11 +315,11 @@ def run_benchmark(display_name: str, model_name: str, slug: str):
                 log_file
             )
 
-            first_frame_bytes = grab_frame_bytes(cap, 0.0)
+            first_frame_bytes = grab_resized_frame_bytes(cap, 0.0)
 
             warmup_start = time.perf_counter()
 
-            _ = ask(model_name, first_frame_bytes, PEOPLE_PROMPT)
+            _ = ask(model_name, first_frame_bytes, SAFETY_PROMPT)
 
             warmup_time = time.perf_counter() - warmup_start
 
@@ -334,7 +359,7 @@ def run_benchmark(display_name: str, model_name: str, slug: str):
                     if duration_seconds > 0 and sample_timestamp >= duration_seconds:
                         sample_timestamp = sample_timestamp % duration_seconds
 
-                    frame_bytes = grab_frame_bytes(cap, sample_timestamp)
+                    frame_bytes = grab_resized_frame_bytes(cap, sample_timestamp)
 
                     log_print(
                         f"Sample timestamp: {sample_timestamp:.1f}s",
@@ -342,20 +367,14 @@ def run_benchmark(display_name: str, model_name: str, slug: str):
                     )
 
                     # -------------------------------------------------
-                    # 1. Count people
+                    # ONE combined call, resized frame
                     # -------------------------------------------------
 
-                    people_answer, people_time = ask(model_name, frame_bytes, PEOPLE_PROMPT)
-                    n_people = parse_number(people_answer)
+                    response, inference_time = ask(model_name, frame_bytes, SAFETY_PROMPT)
 
-                    # -------------------------------------------------
-                    # 2. Count vests
-                    # -------------------------------------------------
+                    n_people = parse_count(response, "PEOPLE")
+                    n_vests = min(parse_count(response, "VESTS"), n_people)
 
-                    vest_answer, vest_time = ask(model_name, frame_bytes, VEST_PROMPT)
-                    n_vests = min(parse_number(vest_answer), n_people)
-
-                    inference_time = people_time + vest_time
                     total_time += inference_time
 
                     # -------------------------------------------------
@@ -369,21 +388,10 @@ def run_benchmark(display_name: str, model_name: str, slug: str):
                     log_print("", log_file)
                     log_print("-" * 60, log_file)
 
-                    log_print(
-                        f"People: {n_people} (raw: '{people_answer}')",
-                        log_file
-                    )
-                    log_print(
-                        f"Vests: {n_vests} (raw: '{vest_answer}')",
-                        log_file
-                    )
+                    log_print(f"Raw response: {response!r}", log_file)
+                    log_print(f"People: {n_people}", log_file)
+                    log_print(f"Vests: {n_vests}", log_file)
                     log_print(f"Status: {status}", log_file)
-
-                    log_print(
-                        f"  people call: {people_time:.3f}s  "
-                        f"vest call: {vest_time:.3f}s",
-                        log_file
-                    )
 
                     log_print(
                         f"Inference time: {inference_time:.3f}s",

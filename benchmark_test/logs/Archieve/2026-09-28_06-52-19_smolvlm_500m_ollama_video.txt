@@ -1,0 +1,2825 @@
+============================================================
+SMOLVLM 500M (OLLAMA) + VIDEO FILE TIME-SAMPLED INFERENCE TEST
+============================================================
+Log file: /home/icp/FLEXO-edge-machine-vision-safety-sentry-robot/benchmark_test/logs/2026-09-28_06-52-19_smolvlm_500m_ollama_video.txt
+Model: hf.co/rajvir73/SmolVLM-500M-Instruct-GGUF:Q8_0
+Video path: /home/icp/FLEXO-edge-machine-vision-safety-sentry-robot/benchmark_test/videos/test.mp4
+Video duration: 10.0s
+Sample interval: 1.0s (wraps to 0s if it exceeds video duration)
+Running warmup inference (absorbs first-call model-load cost)...
+Warmup inference: 3.220s (excluded from timing stats below)
+
+Running unattended -- Ctrl+C to stop early.
+------------------------------------------------------------
+
+============================================================
+INFERENCE #1
+============================================================
+Sample timestamp: 0.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in safety vest with the letters NB on it.')
+Vests: 0 (raw: 'A man in safety vest with a name tag that says Newk.')
+Status: NO_PERSON
+  people call: 0.252s  vest call: 0.787s
+Inference time: 1.039s
+Average inference: 1.039s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #2
+============================================================
+Sample timestamp: 1.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest with the name newk on it.')
+Vests: 0 (raw: 'A man in a safety vest with the name newk on it.')
+Status: NO_PERSON
+  people call: 0.749s  vest call: 0.742s
+Inference time: 1.491s
+Average inference: 1.265s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #3
+============================================================
+Sample timestamp: 2.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows looking out at a tree.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of large windows looking out at a tree.')
+Status: NO_PERSON
+  people call: 0.740s  vest call: 0.787s
+Inference time: 1.527s
+Average inference: 1.352s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #4
+============================================================
+Sample timestamp: 3.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Status: NO_PERSON
+  people call: 0.696s  vest call: 0.722s
+Inference time: 1.418s
+Average inference: 1.369s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #5
+============================================================
+Sample timestamp: 4.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of windows with a tree outside.')
+Status: NO_PERSON
+  people call: 0.684s  vest call: 0.742s
+Inference time: 1.426s
+Average inference: 1.380s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #6
+============================================================
+Sample timestamp: 5.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in safety vest stands in front of windows with a tree outside.')
+Vests: 0 (raw: 'Man standing in a room with a safety vest on and a tree outside.')
+Status: NO_PERSON
+  people call: 0.697s  vest call: 0.734s
+Inference time: 1.431s
+Average inference: 1.389s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #7
+============================================================
+Sample timestamp: 6.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'Man wearing a yellow safety vest standing in front of large windows with trees outside.')
+Vests: 0 (raw: 'Man wearing a safety vest standing in front of windows with a tree outside.')
+Status: NO_PERSON
+  people call: 0.701s  vest call: 0.745s
+Inference time: 1.447s
+Average inference: 1.397s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #8
+============================================================
+Sample timestamp: 7.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A construction worker wearing a safety vest with the name tag visible.')
+Vests: 0 (raw: 'A construction worker wearing a safety vest with the name "Kwame" on it.')
+Status: NO_PERSON
+  people call: 0.677s  vest call: 0.766s
+Inference time: 1.442s
+Average inference: 1.403s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #9
+============================================================
+Sample timestamp: 8.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A worker in a yellow safety vest stands with his arms outstretched in front of large windows.')
+Vests: 0 (raw: 'A worker in safety vest stands with his arms outstretched in front of large windows.')
+Status: NO_PERSON
+  people call: 0.731s  vest call: 0.759s
+Inference time: 1.490s
+Average inference: 1.412s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #10
+============================================================
+Sample timestamp: 9.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest points out to the side.')
+Vests: 0 (raw: 'A man in safety vest points to windows with a building in the background.')
+Status: NO_PERSON
+  people call: 0.693s  vest call: 0.744s
+Inference time: 1.437s
+Average inference: 1.415s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #11
+============================================================
+Sample timestamp: 0.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in safety vest with the letters NB on it.')
+Vests: 0 (raw: 'A man in safety vest with a name tag that says Newk.')
+Status: NO_PERSON
+  people call: 0.228s  vest call: 0.729s
+Inference time: 0.957s
+Average inference: 1.373s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #12
+============================================================
+Sample timestamp: 1.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest with the name newk on it.')
+Vests: 0 (raw: 'A man in a safety vest with the name newk on it.')
+Status: NO_PERSON
+  people call: 0.225s  vest call: 0.715s
+Inference time: 0.940s
+Average inference: 1.337s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #13
+============================================================
+Sample timestamp: 2.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows looking out at a tree.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of large windows looking out at a tree.')
+Status: NO_PERSON
+  people call: 0.248s  vest call: 0.756s
+Inference time: 1.004s
+Average inference: 1.311s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #14
+============================================================
+Sample timestamp: 3.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Status: NO_PERSON
+  people call: 0.234s  vest call: 0.724s
+Inference time: 0.958s
+Average inference: 1.286s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #15
+============================================================
+Sample timestamp: 4.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of windows with a tree outside.')
+Status: NO_PERSON
+  people call: 0.219s  vest call: 0.751s
+Inference time: 0.970s
+Average inference: 1.265s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #16
+============================================================
+Sample timestamp: 5.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in safety vest stands in front of windows with a tree outside.')
+Vests: 0 (raw: 'Man standing in a room with a safety vest on and a tree outside.')
+Status: NO_PERSON
+  people call: 0.223s  vest call: 0.751s
+Inference time: 0.974s
+Average inference: 1.247s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #17
+============================================================
+Sample timestamp: 6.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'Man wearing a yellow safety vest standing in front of large windows.')
+Vests: 0 (raw: 'Man wearing a safety vest standing in front of windows with a tree outside.')
+Status: NO_PERSON
+  people call: 0.220s  vest call: 0.742s
+Inference time: 0.962s
+Average inference: 1.230s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #18
+============================================================
+Sample timestamp: 7.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A construction worker wearing a safety vest with the name tag visible.')
+Vests: 0 (raw: 'A construction worker wearing a safety vest with the name "Kwame" on it.')
+Status: NO_PERSON
+  people call: 0.215s  vest call: 0.769s
+Inference time: 0.984s
+Average inference: 1.217s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #19
+============================================================
+Sample timestamp: 8.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A worker in a yellow safety vest stands with his arms outstretched in front of large windows.')
+Vests: 0 (raw: 'A worker in safety vest stands with his arms outstretched in front of large windows.')
+Status: NO_PERSON
+  people call: 0.263s  vest call: 0.760s
+Inference time: 1.023s
+Average inference: 1.206s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #20
+============================================================
+Sample timestamp: 9.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest points out to the side.')
+Vests: 0 (raw: 'A man in safety vest points to windows with a building in the background.')
+Status: NO_PERSON
+  people call: 0.229s  vest call: 0.742s
+Inference time: 0.971s
+Average inference: 1.195s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #21
+============================================================
+Sample timestamp: 0.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in safety vest with the letters NB on it.')
+Vests: 0 (raw: 'A man in safety vest with a name tag that says Newk.')
+Status: NO_PERSON
+  people call: 0.215s  vest call: 0.728s
+Inference time: 0.944s
+Average inference: 1.183s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #22
+============================================================
+Sample timestamp: 1.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest with the name newk on it.')
+Vests: 0 (raw: 'A man in a safety vest with the name newk on it.')
+Status: NO_PERSON
+  people call: 0.227s  vest call: 0.732s
+Inference time: 0.959s
+Average inference: 1.172s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #23
+============================================================
+Sample timestamp: 2.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows looking out at a tree.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of large windows looking out at a tree.')
+Status: NO_PERSON
+  people call: 0.275s  vest call: 0.761s
+Inference time: 1.036s
+Average inference: 1.166s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #24
+============================================================
+Sample timestamp: 3.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Status: NO_PERSON
+  people call: 0.221s  vest call: 0.729s
+Inference time: 0.950s
+Average inference: 1.157s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #25
+============================================================
+Sample timestamp: 4.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of windows with a tree outside.')
+Status: NO_PERSON
+  people call: 0.219s  vest call: 0.750s
+Inference time: 0.969s
+Average inference: 1.150s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #26
+============================================================
+Sample timestamp: 5.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in safety vest stands in front of windows with a tree outside.')
+Vests: 0 (raw: 'Man standing in a room with a safety vest on and a tree outside.')
+Status: NO_PERSON
+  people call: 0.233s  vest call: 0.741s
+Inference time: 0.974s
+Average inference: 1.143s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #27
+============================================================
+Sample timestamp: 6.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'Man wearing a yellow safety vest standing in front of large windows.')
+Vests: 0 (raw: 'Man wearing a safety vest standing in front of windows with a tree outside.')
+Status: NO_PERSON
+  people call: 0.217s  vest call: 0.753s
+Inference time: 0.970s
+Average inference: 1.137s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #28
+============================================================
+Sample timestamp: 7.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A construction worker wearing a safety vest with the name tag visible.')
+Vests: 0 (raw: 'A construction worker wearing a safety vest with the name "Kwame" on it.')
+Status: NO_PERSON
+  people call: 0.224s  vest call: 0.768s
+Inference time: 0.992s
+Average inference: 1.132s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #29
+============================================================
+Sample timestamp: 8.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A worker in a yellow safety vest stands with his arms outstretched in front of large windows.')
+Vests: 0 (raw: 'A worker in safety vest stands with his arms outstretched in front of large windows.')
+Status: NO_PERSON
+  people call: 0.275s  vest call: 0.761s
+Inference time: 1.036s
+Average inference: 1.128s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #30
+============================================================
+Sample timestamp: 9.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest points out to the side.')
+Vests: 0 (raw: 'A man in safety vest points to windows with a building in the background.')
+Status: NO_PERSON
+  people call: 0.235s  vest call: 0.753s
+Inference time: 0.989s
+Average inference: 1.124s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #31
+============================================================
+Sample timestamp: 0.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in safety vest with the letters NB on it.')
+Vests: 0 (raw: 'A man in safety vest with a name tag that says Newk.')
+Status: NO_PERSON
+  people call: 0.206s  vest call: 0.742s
+Inference time: 0.949s
+Average inference: 1.118s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #32
+============================================================
+Sample timestamp: 1.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest with the name newk on it.')
+Vests: 0 (raw: 'A man in a safety vest with the name newk on it.')
+Status: NO_PERSON
+  people call: 0.222s  vest call: 0.724s
+Inference time: 0.946s
+Average inference: 1.113s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #33
+============================================================
+Sample timestamp: 2.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows looking out at a tree.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of large windows looking out at a tree.')
+Status: NO_PERSON
+  people call: 0.289s  vest call: 0.765s
+Inference time: 1.055s
+Average inference: 1.111s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #34
+============================================================
+Sample timestamp: 3.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Status: NO_PERSON
+  people call: 0.216s  vest call: 0.731s
+Inference time: 0.948s
+Average inference: 1.106s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #35
+============================================================
+Sample timestamp: 4.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of windows with a tree outside.')
+Status: NO_PERSON
+  people call: 0.214s  vest call: 0.743s
+Inference time: 0.957s
+Average inference: 1.102s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #36
+============================================================
+Sample timestamp: 5.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in safety vest stands in front of windows with a tree outside.')
+Vests: 0 (raw: 'Man standing in a room with a safety vest on and a tree outside.')
+Status: NO_PERSON
+  people call: 0.229s  vest call: 0.742s
+Inference time: 0.971s
+Average inference: 1.098s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #37
+============================================================
+Sample timestamp: 6.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'Man wearing a yellow safety vest standing in front of large windows.')
+Vests: 0 (raw: 'Man wearing a safety vest standing in front of windows with a tree outside.')
+Status: NO_PERSON
+  people call: 0.212s  vest call: 0.731s
+Inference time: 0.943s
+Average inference: 1.094s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #38
+============================================================
+Sample timestamp: 7.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A construction worker wearing a safety vest with the name tag visible.')
+Vests: 0 (raw: 'A construction worker wearing a safety vest with the name "Kwame" on it.')
+Status: NO_PERSON
+  people call: 0.211s  vest call: 0.765s
+Inference time: 0.977s
+Average inference: 1.091s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #39
+============================================================
+Sample timestamp: 8.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A worker in a yellow safety vest stands with his arms outstretched in front of large windows.')
+Vests: 0 (raw: 'A worker in safety vest stands with his arms outstretched in front of large windows.')
+Status: NO_PERSON
+  people call: 0.268s  vest call: 0.757s
+Inference time: 1.024s
+Average inference: 1.089s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #40
+============================================================
+Sample timestamp: 9.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest points out to the side.')
+Vests: 0 (raw: 'A man in safety vest points to windows with a building in the background.')
+Status: NO_PERSON
+  people call: 0.216s  vest call: 0.753s
+Inference time: 0.969s
+Average inference: 1.086s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #41
+============================================================
+Sample timestamp: 0.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in safety vest with the letters NB on it.')
+Vests: 0 (raw: 'A man in safety vest with a name tag that says Newk.')
+Status: NO_PERSON
+  people call: 0.228s  vest call: 0.728s
+Inference time: 0.956s
+Average inference: 1.083s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #42
+============================================================
+Sample timestamp: 1.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest with the name newk on it.')
+Vests: 0 (raw: 'A man in a safety vest with the name newk on it.')
+Status: NO_PERSON
+  people call: 0.233s  vest call: 0.717s
+Inference time: 0.950s
+Average inference: 1.080s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #43
+============================================================
+Sample timestamp: 2.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows looking out at a tree.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of large windows looking out at a tree.')
+Status: NO_PERSON
+  people call: 0.258s  vest call: 0.771s
+Inference time: 1.029s
+Average inference: 1.079s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #44
+============================================================
+Sample timestamp: 3.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Status: NO_PERSON
+  people call: 0.209s  vest call: 0.733s
+Inference time: 0.942s
+Average inference: 1.076s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #45
+============================================================
+Sample timestamp: 4.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of windows with a tree outside.')
+Status: NO_PERSON
+  people call: 0.214s  vest call: 0.751s
+Inference time: 0.964s
+Average inference: 1.073s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #46
+============================================================
+Sample timestamp: 5.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in safety vest stands in front of windows with a tree outside.')
+Vests: 0 (raw: 'Man standing in a room with a safety vest on and a tree outside.')
+Status: NO_PERSON
+  people call: 0.245s  vest call: 0.738s
+Inference time: 0.983s
+Average inference: 1.071s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #47
+============================================================
+Sample timestamp: 6.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'Man wearing a yellow safety vest standing in front of large windows.')
+Vests: 0 (raw: 'Man wearing a safety vest standing in front of windows with a tree outside.')
+Status: NO_PERSON
+  people call: 0.212s  vest call: 0.743s
+Inference time: 0.955s
+Average inference: 1.069s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #48
+============================================================
+Sample timestamp: 7.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A construction worker wearing a safety vest with the name tag visible.')
+Vests: 0 (raw: 'A construction worker wearing a safety vest with the name "Kwame" on it.')
+Status: NO_PERSON
+  people call: 0.218s  vest call: 0.774s
+Inference time: 0.992s
+Average inference: 1.067s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #49
+============================================================
+Sample timestamp: 8.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A worker in a yellow safety vest stands with his arms outstretched in front of large windows.')
+Vests: 0 (raw: 'A worker in safety vest stands with his arms outstretched in front of large windows.')
+Status: NO_PERSON
+  people call: 0.281s  vest call: 0.751s
+Inference time: 1.031s
+Average inference: 1.066s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #50
+============================================================
+Sample timestamp: 9.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest points out to the side.')
+Vests: 0 (raw: 'A man in safety vest points to windows with a building in the background.')
+Status: NO_PERSON
+  people call: 0.218s  vest call: 0.745s
+Inference time: 0.963s
+Average inference: 1.064s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #51
+============================================================
+Sample timestamp: 0.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in safety vest with the letters NB on it.')
+Vests: 0 (raw: 'A man in safety vest with a name tag that says Newk.')
+Status: NO_PERSON
+  people call: 0.234s  vest call: 0.724s
+Inference time: 0.958s
+Average inference: 1.062s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #52
+============================================================
+Sample timestamp: 1.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest with the name newk on it.')
+Vests: 0 (raw: 'A man in a safety vest with the name newk on it.')
+Status: NO_PERSON
+  people call: 0.228s  vest call: 0.690s
+Inference time: 0.918s
+Average inference: 1.059s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #53
+============================================================
+Sample timestamp: 2.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows looking out at a tree.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of large windows looking out at a tree.')
+Status: NO_PERSON
+  people call: 0.266s  vest call: 0.727s
+Inference time: 0.993s
+Average inference: 1.058s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #54
+============================================================
+Sample timestamp: 3.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Status: NO_PERSON
+  people call: 0.228s  vest call: 0.724s
+Inference time: 0.952s
+Average inference: 1.056s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #55
+============================================================
+Sample timestamp: 4.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of windows with a tree outside.')
+Status: NO_PERSON
+  people call: 0.232s  vest call: 0.752s
+Inference time: 0.984s
+Average inference: 1.055s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #56
+============================================================
+Sample timestamp: 5.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in safety vest stands in front of windows with a tree outside.')
+Vests: 0 (raw: 'Man standing in a room with a safety vest on and a tree outside.')
+Status: NO_PERSON
+  people call: 0.243s  vest call: 0.750s
+Inference time: 0.992s
+Average inference: 1.054s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #57
+============================================================
+Sample timestamp: 6.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'Man wearing a yellow safety vest standing in front of large windows.')
+Vests: 0 (raw: 'Man wearing a safety vest standing in front of windows with a tree outside.')
+Status: NO_PERSON
+  people call: 0.207s  vest call: 0.750s
+Inference time: 0.957s
+Average inference: 1.052s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #58
+============================================================
+Sample timestamp: 7.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A construction worker wearing a safety vest with the name tag visible.')
+Vests: 0 (raw: 'A construction worker wearing a safety vest with the name "Kwame" on it.')
+Status: NO_PERSON
+  people call: 0.216s  vest call: 0.772s
+Inference time: 0.988s
+Average inference: 1.051s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #59
+============================================================
+Sample timestamp: 8.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A worker in a yellow safety vest stands with his arms outstretched in front of large windows.')
+Vests: 0 (raw: 'A worker in safety vest stands with his arms outstretched in front of large windows.')
+Status: NO_PERSON
+  people call: 0.280s  vest call: 0.762s
+Inference time: 1.042s
+Average inference: 1.051s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #60
+============================================================
+Sample timestamp: 9.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest points out to the side.')
+Vests: 0 (raw: 'A man in safety vest points to windows with a building in the background.')
+Status: NO_PERSON
+  people call: 0.203s  vest call: 0.745s
+Inference time: 0.948s
+Average inference: 1.049s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #61
+============================================================
+Sample timestamp: 0.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in safety vest with the letters NB on it.')
+Vests: 0 (raw: 'A man in safety vest with a name tag that says Newk.')
+Status: NO_PERSON
+  people call: 0.246s  vest call: 0.728s
+Inference time: 0.974s
+Average inference: 1.048s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #62
+============================================================
+Sample timestamp: 1.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest with the name newk on it.')
+Vests: 0 (raw: 'A man in a safety vest with the name newk on it.')
+Status: NO_PERSON
+  people call: 0.224s  vest call: 0.705s
+Inference time: 0.928s
+Average inference: 1.046s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #63
+============================================================
+Sample timestamp: 2.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows looking out at a tree.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of large windows looking out at a tree.')
+Status: NO_PERSON
+  people call: 0.254s  vest call: 0.772s
+Inference time: 1.026s
+Average inference: 1.046s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #64
+============================================================
+Sample timestamp: 3.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Status: NO_PERSON
+  people call: 0.217s  vest call: 0.734s
+Inference time: 0.950s
+Average inference: 1.044s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #65
+============================================================
+Sample timestamp: 4.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of windows with a tree outside.')
+Status: NO_PERSON
+  people call: 0.230s  vest call: 0.754s
+Inference time: 0.985s
+Average inference: 1.043s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #66
+============================================================
+Sample timestamp: 5.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in safety vest stands in front of windows with a tree outside.')
+Vests: 0 (raw: 'Man standing in a room with a safety vest on and a tree outside.')
+Status: NO_PERSON
+  people call: 0.236s  vest call: 0.748s
+Inference time: 0.983s
+Average inference: 1.042s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #67
+============================================================
+Sample timestamp: 6.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'Man wearing a yellow safety vest standing in front of large windows.')
+Vests: 0 (raw: 'Man wearing a safety vest standing in front of windows with a tree outside.')
+Status: NO_PERSON
+  people call: 0.204s  vest call: 0.750s
+Inference time: 0.954s
+Average inference: 1.041s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #68
+============================================================
+Sample timestamp: 7.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A construction worker wearing a safety vest with the name tag visible.')
+Vests: 0 (raw: 'A construction worker wearing a safety vest with the name "Kwame" on it.')
+Status: NO_PERSON
+  people call: 0.214s  vest call: 0.771s
+Inference time: 0.984s
+Average inference: 1.040s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #69
+============================================================
+Sample timestamp: 8.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A worker in a yellow safety vest stands with his arms outstretched in front of large windows.')
+Vests: 0 (raw: 'A worker in safety vest stands with his arms outstretched in front of large windows.')
+Status: NO_PERSON
+  people call: 0.272s  vest call: 0.752s
+Inference time: 1.024s
+Average inference: 1.040s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #70
+============================================================
+Sample timestamp: 9.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest points out to the side.')
+Vests: 0 (raw: 'A man in safety vest points to windows with a building in the background.')
+Status: NO_PERSON
+  people call: 0.232s  vest call: 0.736s
+Inference time: 0.968s
+Average inference: 1.039s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #71
+============================================================
+Sample timestamp: 0.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in safety vest with the letters NB on it.')
+Vests: 0 (raw: 'A man in safety vest with a name tag that says Newk.')
+Status: NO_PERSON
+  people call: 0.229s  vest call: 0.733s
+Inference time: 0.961s
+Average inference: 1.038s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #72
+============================================================
+Sample timestamp: 1.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest with the name newk on it.')
+Vests: 0 (raw: 'A man in a safety vest with the name newk on it.')
+Status: NO_PERSON
+  people call: 0.266s  vest call: 0.723s
+Inference time: 0.989s
+Average inference: 1.037s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #73
+============================================================
+Sample timestamp: 2.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows looking out at a tree.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of large windows looking out at a tree.')
+Status: NO_PERSON
+  people call: 0.267s  vest call: 0.765s
+Inference time: 1.031s
+Average inference: 1.037s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #74
+============================================================
+Sample timestamp: 3.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Status: NO_PERSON
+  people call: 0.233s  vest call: 0.733s
+Inference time: 0.966s
+Average inference: 1.036s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #75
+============================================================
+Sample timestamp: 4.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of windows with a tree outside.')
+Status: NO_PERSON
+  people call: 0.216s  vest call: 0.740s
+Inference time: 0.955s
+Average inference: 1.035s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #76
+============================================================
+Sample timestamp: 5.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in safety vest stands in front of windows with a tree outside.')
+Vests: 0 (raw: 'Man standing in a room with a safety vest on and a tree outside.')
+Status: NO_PERSON
+  people call: 0.248s  vest call: 0.740s
+Inference time: 0.988s
+Average inference: 1.034s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #77
+============================================================
+Sample timestamp: 6.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'Man wearing a yellow safety vest standing in front of large windows.')
+Vests: 0 (raw: 'Man wearing a safety vest standing in front of windows with a tree outside.')
+Status: NO_PERSON
+  people call: 0.217s  vest call: 0.760s
+Inference time: 0.977s
+Average inference: 1.034s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #78
+============================================================
+Sample timestamp: 7.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A construction worker wearing a safety vest with the name tag visible.')
+Vests: 0 (raw: 'A construction worker wearing a safety vest with the name "Kwame" on it.')
+Status: NO_PERSON
+  people call: 0.208s  vest call: 0.728s
+Inference time: 0.936s
+Average inference: 1.032s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #79
+============================================================
+Sample timestamp: 8.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A worker in a yellow safety vest stands with his arms outstretched in front of large windows.')
+Vests: 0 (raw: 'A worker in safety vest stands with his arms outstretched in front of large windows.')
+Status: NO_PERSON
+  people call: 0.278s  vest call: 0.761s
+Inference time: 1.040s
+Average inference: 1.032s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #80
+============================================================
+Sample timestamp: 9.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest points out to the side.')
+Vests: 0 (raw: 'A man in safety vest points to windows with a building in the background.')
+Status: NO_PERSON
+  people call: 0.209s  vest call: 0.733s
+Inference time: 0.941s
+Average inference: 1.031s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #81
+============================================================
+Sample timestamp: 0.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in safety vest with the letters NB on it.')
+Vests: 0 (raw: 'A man in safety vest with a name tag that says Newk.')
+Status: NO_PERSON
+  people call: 0.219s  vest call: 0.725s
+Inference time: 0.943s
+Average inference: 1.030s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #82
+============================================================
+Sample timestamp: 1.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest with the name newk on it.')
+Vests: 0 (raw: 'A man in a safety vest with the name newk on it.')
+Status: NO_PERSON
+  people call: 0.221s  vest call: 0.724s
+Inference time: 0.945s
+Average inference: 1.029s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #83
+============================================================
+Sample timestamp: 2.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows looking out at a tree.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of large windows looking out at a tree.')
+Status: NO_PERSON
+  people call: 0.244s  vest call: 0.752s
+Inference time: 0.996s
+Average inference: 1.029s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #84
+============================================================
+Sample timestamp: 3.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Status: NO_PERSON
+  people call: 0.217s  vest call: 0.719s
+Inference time: 0.935s
+Average inference: 1.028s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #85
+============================================================
+Sample timestamp: 4.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of windows with a tree outside.')
+Status: NO_PERSON
+  people call: 0.218s  vest call: 0.749s
+Inference time: 0.967s
+Average inference: 1.027s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #86
+============================================================
+Sample timestamp: 5.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in safety vest stands in front of windows with a tree outside.')
+Vests: 0 (raw: 'Man standing in a room with a safety vest on and a tree outside.')
+Status: NO_PERSON
+  people call: 0.224s  vest call: 0.754s
+Inference time: 0.978s
+Average inference: 1.026s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #87
+============================================================
+Sample timestamp: 6.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'Man wearing a yellow safety vest standing in front of large windows.')
+Vests: 0 (raw: 'Man wearing a safety vest standing in front of windows with a tree outside.')
+Status: NO_PERSON
+  people call: 0.202s  vest call: 0.742s
+Inference time: 0.945s
+Average inference: 1.025s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #88
+============================================================
+Sample timestamp: 7.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A construction worker wearing a safety vest with the name tag visible.')
+Vests: 0 (raw: 'A construction worker wearing a safety vest with the name "Kwame" on it.')
+Status: NO_PERSON
+  people call: 0.230s  vest call: 0.808s
+Inference time: 1.038s
+Average inference: 1.026s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #89
+============================================================
+Sample timestamp: 8.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A worker in a yellow safety vest stands with his arms outstretched in front of large windows.')
+Vests: 0 (raw: 'A worker in safety vest stands with his arms outstretched in front of large windows.')
+Status: NO_PERSON
+  people call: 0.294s  vest call: 0.764s
+Inference time: 1.057s
+Average inference: 1.026s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #90
+============================================================
+Sample timestamp: 9.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest points out to the side.')
+Vests: 0 (raw: 'A man in safety vest points to windows with a building in the background.')
+Status: NO_PERSON
+  people call: 0.222s  vest call: 0.752s
+Inference time: 0.973s
+Average inference: 1.025s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #91
+============================================================
+Sample timestamp: 0.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in safety vest with the letters NB on it.')
+Vests: 0 (raw: 'A man in safety vest with a name tag that says Newk.')
+Status: NO_PERSON
+  people call: 0.218s  vest call: 0.727s
+Inference time: 0.945s
+Average inference: 1.024s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #92
+============================================================
+Sample timestamp: 1.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest with the name newk on it.')
+Vests: 0 (raw: 'A man in a safety vest with the name newk on it.')
+Status: NO_PERSON
+  people call: 0.230s  vest call: 0.731s
+Inference time: 0.961s
+Average inference: 1.024s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #93
+============================================================
+Sample timestamp: 2.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows looking out at a tree.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of large windows looking out at a tree.')
+Status: NO_PERSON
+  people call: 0.253s  vest call: 0.770s
+Inference time: 1.023s
+Average inference: 1.024s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #94
+============================================================
+Sample timestamp: 3.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Status: NO_PERSON
+  people call: 0.232s  vest call: 0.735s
+Inference time: 0.967s
+Average inference: 1.023s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #95
+============================================================
+Sample timestamp: 4.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of windows with a tree outside.')
+Status: NO_PERSON
+  people call: 0.216s  vest call: 0.723s
+Inference time: 0.940s
+Average inference: 1.022s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #96
+============================================================
+Sample timestamp: 5.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in safety vest stands in front of windows with a tree outside.')
+Vests: 0 (raw: 'Man standing in a room with a safety vest on and a tree outside.')
+Status: NO_PERSON
+  people call: 0.230s  vest call: 0.747s
+Inference time: 0.977s
+Average inference: 1.022s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #97
+============================================================
+Sample timestamp: 6.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'Man wearing a yellow safety vest standing in front of large windows.')
+Vests: 0 (raw: 'Man wearing a safety vest standing in front of windows with a tree outside.')
+Status: NO_PERSON
+  people call: 0.227s  vest call: 0.748s
+Inference time: 0.975s
+Average inference: 1.021s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #98
+============================================================
+Sample timestamp: 7.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A construction worker wearing a safety vest with the name tag visible.')
+Vests: 0 (raw: 'A construction worker wearing a safety vest with the name "Kwame" on it.')
+Status: NO_PERSON
+  people call: 0.244s  vest call: 0.774s
+Inference time: 1.018s
+Average inference: 1.021s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #99
+============================================================
+Sample timestamp: 8.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A worker in a yellow safety vest stands with his arms outstretched in front of large windows.')
+Vests: 0 (raw: 'A worker in safety vest stands with his arms outstretched in front of large windows.')
+Status: NO_PERSON
+  people call: 0.276s  vest call: 0.753s
+Inference time: 1.030s
+Average inference: 1.021s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #100
+============================================================
+Sample timestamp: 9.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest points out to the side.')
+Vests: 0 (raw: 'A man in safety vest points to windows with a building in the background.')
+Status: NO_PERSON
+  people call: 0.232s  vest call: 0.748s
+Inference time: 0.980s
+Average inference: 1.021s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #101
+============================================================
+Sample timestamp: 0.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in safety vest with the letters NB on it.')
+Vests: 0 (raw: 'A man in safety vest with a name tag that says Newk.')
+Status: NO_PERSON
+  people call: 0.237s  vest call: 0.732s
+Inference time: 0.969s
+Average inference: 1.020s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #102
+============================================================
+Sample timestamp: 1.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest with the name newk on it.')
+Vests: 0 (raw: 'A man in a safety vest with the name newk on it.')
+Status: NO_PERSON
+  people call: 0.245s  vest call: 0.716s
+Inference time: 0.961s
+Average inference: 1.020s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #103
+============================================================
+Sample timestamp: 2.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows looking out at a tree.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of large windows looking out at a tree.')
+Status: NO_PERSON
+  people call: 0.253s  vest call: 0.755s
+Inference time: 1.007s
+Average inference: 1.020s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #104
+============================================================
+Sample timestamp: 3.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Status: NO_PERSON
+  people call: 0.208s  vest call: 0.728s
+Inference time: 0.936s
+Average inference: 1.019s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #105
+============================================================
+Sample timestamp: 4.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of windows with a tree outside.')
+Status: NO_PERSON
+  people call: 0.215s  vest call: 0.752s
+Inference time: 0.967s
+Average inference: 1.018s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #106
+============================================================
+Sample timestamp: 5.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in safety vest stands in front of windows with a tree outside.')
+Vests: 0 (raw: 'Man standing in a room with a safety vest on and a tree outside.')
+Status: NO_PERSON
+  people call: 0.228s  vest call: 0.744s
+Inference time: 0.973s
+Average inference: 1.018s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #107
+============================================================
+Sample timestamp: 6.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'Man wearing a yellow safety vest standing in front of large windows.')
+Vests: 0 (raw: 'Man wearing a safety vest standing in front of windows with a tree outside.')
+Status: NO_PERSON
+  people call: 0.214s  vest call: 0.741s
+Inference time: 0.955s
+Average inference: 1.017s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #108
+============================================================
+Sample timestamp: 7.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A construction worker wearing a safety vest with the name tag visible.')
+Vests: 0 (raw: 'A construction worker wearing a safety vest with the name "Kwame" on it.')
+Status: NO_PERSON
+  people call: 0.213s  vest call: 0.775s
+Inference time: 0.987s
+Average inference: 1.017s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #109
+============================================================
+Sample timestamp: 8.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A worker in a yellow safety vest stands with his arms outstretched in front of large windows.')
+Vests: 0 (raw: 'A worker in safety vest stands with his arms outstretched in front of large windows.')
+Status: NO_PERSON
+  people call: 0.269s  vest call: 0.758s
+Inference time: 1.027s
+Average inference: 1.017s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #110
+============================================================
+Sample timestamp: 9.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest points out to the side.')
+Vests: 0 (raw: 'A man in safety vest points to windows with a building in the background.')
+Status: NO_PERSON
+  people call: 0.238s  vest call: 0.752s
+Inference time: 0.990s
+Average inference: 1.017s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #111
+============================================================
+Sample timestamp: 0.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in safety vest with the letters NB on it.')
+Vests: 0 (raw: 'A man in safety vest with a name tag that says Newk.')
+Status: NO_PERSON
+  people call: 0.216s  vest call: 0.732s
+Inference time: 0.948s
+Average inference: 1.016s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #112
+============================================================
+Sample timestamp: 1.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest with the name newk on it.')
+Vests: 0 (raw: 'A man in a safety vest with the name newk on it.')
+Status: NO_PERSON
+  people call: 0.222s  vest call: 0.732s
+Inference time: 0.953s
+Average inference: 1.016s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #113
+============================================================
+Sample timestamp: 2.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows looking out at a tree.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of large windows looking out at a tree.')
+Status: NO_PERSON
+  people call: 0.247s  vest call: 0.752s
+Inference time: 0.999s
+Average inference: 1.016s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #114
+============================================================
+Sample timestamp: 3.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Status: NO_PERSON
+  people call: 0.218s  vest call: 0.727s
+Inference time: 0.945s
+Average inference: 1.015s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #115
+============================================================
+Sample timestamp: 4.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of windows with a tree outside.')
+Status: NO_PERSON
+  people call: 0.222s  vest call: 0.760s
+Inference time: 0.981s
+Average inference: 1.015s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #116
+============================================================
+Sample timestamp: 5.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in safety vest stands in front of windows with a tree outside.')
+Vests: 0 (raw: 'Man standing in a room with a safety vest on and a tree outside.')
+Status: NO_PERSON
+  people call: 0.240s  vest call: 0.733s
+Inference time: 0.973s
+Average inference: 1.014s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #117
+============================================================
+Sample timestamp: 6.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'Man wearing a yellow safety vest standing in front of large windows.')
+Vests: 0 (raw: 'Man wearing a safety vest standing in front of windows with a tree outside.')
+Status: NO_PERSON
+  people call: 0.216s  vest call: 0.748s
+Inference time: 0.963s
+Average inference: 1.014s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #118
+============================================================
+Sample timestamp: 7.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A construction worker wearing a safety vest with the name tag visible.')
+Vests: 0 (raw: 'A construction worker wearing a safety vest with the name "Kwame" on it.')
+Status: NO_PERSON
+  people call: 0.203s  vest call: 0.735s
+Inference time: 0.938s
+Average inference: 1.013s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #119
+============================================================
+Sample timestamp: 8.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A worker in a yellow safety vest stands with his arms outstretched in front of large windows.')
+Vests: 0 (raw: 'A worker in safety vest stands with his arms outstretched in front of large windows.')
+Status: NO_PERSON
+  people call: 0.278s  vest call: 0.755s
+Inference time: 1.033s
+Average inference: 1.014s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #120
+============================================================
+Sample timestamp: 9.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest points out to the side.')
+Vests: 0 (raw: 'A man in safety vest points to windows with a building in the background.')
+Status: NO_PERSON
+  people call: 0.216s  vest call: 0.763s
+Inference time: 0.979s
+Average inference: 1.013s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #121
+============================================================
+Sample timestamp: 0.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in safety vest with the letters NB on it.')
+Vests: 0 (raw: 'A man in safety vest with a name tag that says Newk.')
+Status: NO_PERSON
+  people call: 0.243s  vest call: 0.725s
+Inference time: 0.968s
+Average inference: 1.013s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #122
+============================================================
+Sample timestamp: 1.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest with the name newk on it.')
+Vests: 0 (raw: 'A man in a safety vest with the name newk on it.')
+Status: NO_PERSON
+  people call: 0.252s  vest call: 0.733s
+Inference time: 0.985s
+Average inference: 1.013s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #123
+============================================================
+Sample timestamp: 2.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows looking out at a tree.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of large windows looking out at a tree.')
+Status: NO_PERSON
+  people call: 0.261s  vest call: 0.777s
+Inference time: 1.039s
+Average inference: 1.013s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #124
+============================================================
+Sample timestamp: 3.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Status: NO_PERSON
+  people call: 0.213s  vest call: 0.740s
+Inference time: 0.953s
+Average inference: 1.012s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #125
+============================================================
+Sample timestamp: 4.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of windows with a tree outside.')
+Status: NO_PERSON
+  people call: 0.204s  vest call: 0.753s
+Inference time: 0.957s
+Average inference: 1.012s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #126
+============================================================
+Sample timestamp: 5.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in safety vest stands in front of windows with a tree outside.')
+Vests: 0 (raw: 'Man standing in a room with a safety vest on and a tree outside.')
+Status: NO_PERSON
+  people call: 0.239s  vest call: 0.747s
+Inference time: 0.986s
+Average inference: 1.012s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #127
+============================================================
+Sample timestamp: 6.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'Man wearing a yellow safety vest standing in front of large windows.')
+Vests: 0 (raw: 'Man wearing a safety vest standing in front of windows with a tree outside.')
+Status: NO_PERSON
+  people call: 0.220s  vest call: 0.753s
+Inference time: 0.974s
+Average inference: 1.011s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #128
+============================================================
+Sample timestamp: 7.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A construction worker wearing a safety vest with the name tag visible.')
+Vests: 0 (raw: 'A construction worker wearing a safety vest with the name "Kwame" on it.')
+Status: NO_PERSON
+  people call: 0.215s  vest call: 0.768s
+Inference time: 0.983s
+Average inference: 1.011s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #129
+============================================================
+Sample timestamp: 8.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A worker in a yellow safety vest stands with his arms outstretched in front of large windows.')
+Vests: 0 (raw: 'A worker in safety vest stands with his arms outstretched in front of large windows.')
+Status: NO_PERSON
+  people call: 0.289s  vest call: 0.766s
+Inference time: 1.056s
+Average inference: 1.012s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #130
+============================================================
+Sample timestamp: 9.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest points out to the side.')
+Vests: 0 (raw: 'A man in safety vest points to windows with a building in the background.')
+Status: NO_PERSON
+  people call: 0.202s  vest call: 0.739s
+Inference time: 0.941s
+Average inference: 1.011s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #131
+============================================================
+Sample timestamp: 0.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in safety vest with the letters NB on it.')
+Vests: 0 (raw: 'A man in safety vest with a name tag that says Newk.')
+Status: NO_PERSON
+  people call: 0.231s  vest call: 0.732s
+Inference time: 0.963s
+Average inference: 1.011s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #132
+============================================================
+Sample timestamp: 1.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest with the name newk on it.')
+Vests: 0 (raw: 'A man in a safety vest with the name newk on it.')
+Status: NO_PERSON
+  people call: 0.216s  vest call: 0.731s
+Inference time: 0.947s
+Average inference: 1.010s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #133
+============================================================
+Sample timestamp: 2.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows looking out at a tree.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of large windows looking out at a tree.')
+Status: NO_PERSON
+  people call: 0.269s  vest call: 0.778s
+Inference time: 1.047s
+Average inference: 1.010s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #134
+============================================================
+Sample timestamp: 3.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Status: NO_PERSON
+  people call: 0.205s  vest call: 0.718s
+Inference time: 0.923s
+Average inference: 1.010s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #135
+============================================================
+Sample timestamp: 4.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of windows with a tree outside.')
+Status: NO_PERSON
+  people call: 0.207s  vest call: 0.743s
+Inference time: 0.951s
+Average inference: 1.009s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #136
+============================================================
+Sample timestamp: 5.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in safety vest stands in front of windows with a tree outside.')
+Vests: 0 (raw: 'Man standing in a room with a safety vest on and a tree outside.')
+Status: NO_PERSON
+  people call: 0.224s  vest call: 0.747s
+Inference time: 0.971s
+Average inference: 1.009s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #137
+============================================================
+Sample timestamp: 6.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'Man wearing a yellow safety vest standing in front of large windows.')
+Vests: 0 (raw: 'Man wearing a safety vest standing in front of windows with a tree outside.')
+Status: NO_PERSON
+  people call: 0.209s  vest call: 0.722s
+Inference time: 0.930s
+Average inference: 1.008s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #138
+============================================================
+Sample timestamp: 7.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A construction worker wearing a safety vest with the name tag visible.')
+Vests: 0 (raw: 'A construction worker wearing a safety vest with the name "Kwame" on it.')
+Status: NO_PERSON
+  people call: 0.207s  vest call: 0.765s
+Inference time: 0.972s
+Average inference: 1.008s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #139
+============================================================
+Sample timestamp: 8.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A worker in a yellow safety vest stands with his arms outstretched in front of large windows.')
+Vests: 0 (raw: 'A worker in safety vest stands with his arms outstretched in front of large windows.')
+Status: NO_PERSON
+  people call: 0.279s  vest call: 0.778s
+Inference time: 1.057s
+Average inference: 1.009s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #140
+============================================================
+Sample timestamp: 9.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest points out to the side.')
+Vests: 0 (raw: 'A man in safety vest points to windows with a building in the background.')
+Status: NO_PERSON
+  people call: 0.214s  vest call: 0.744s
+Inference time: 0.958s
+Average inference: 1.008s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #141
+============================================================
+Sample timestamp: 0.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in safety vest with the letters NB on it.')
+Vests: 0 (raw: 'A man in safety vest with a name tag that says Newk.')
+Status: NO_PERSON
+  people call: 0.234s  vest call: 0.740s
+Inference time: 0.974s
+Average inference: 1.008s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #142
+============================================================
+Sample timestamp: 1.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest with the name newk on it.')
+Vests: 0 (raw: 'A man in a safety vest with the name newk on it.')
+Status: NO_PERSON
+  people call: 0.213s  vest call: 0.711s
+Inference time: 0.924s
+Average inference: 1.007s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #143
+============================================================
+Sample timestamp: 2.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows looking out at a tree.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of large windows looking out at a tree.')
+Status: NO_PERSON
+  people call: 0.263s  vest call: 0.767s
+Inference time: 1.030s
+Average inference: 1.007s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #144
+============================================================
+Sample timestamp: 3.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Status: NO_PERSON
+  people call: 0.216s  vest call: 0.726s
+Inference time: 0.942s
+Average inference: 1.007s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #145
+============================================================
+Sample timestamp: 4.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of windows with a tree outside.')
+Status: NO_PERSON
+  people call: 0.219s  vest call: 0.744s
+Inference time: 0.963s
+Average inference: 1.007s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #146
+============================================================
+Sample timestamp: 5.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in safety vest stands in front of windows with a tree outside.')
+Vests: 0 (raw: 'Man standing in a room with a safety vest on and a tree outside.')
+Status: NO_PERSON
+  people call: 0.225s  vest call: 0.745s
+Inference time: 0.970s
+Average inference: 1.006s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #147
+============================================================
+Sample timestamp: 6.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'Man wearing a yellow safety vest standing in front of large windows.')
+Vests: 0 (raw: 'Man wearing a safety vest standing in front of windows with a tree outside.')
+Status: NO_PERSON
+  people call: 0.210s  vest call: 0.755s
+Inference time: 0.964s
+Average inference: 1.006s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #148
+============================================================
+Sample timestamp: 7.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A construction worker wearing a safety vest with the name tag visible.')
+Vests: 0 (raw: 'A construction worker wearing a safety vest with the name "Kwame" on it.')
+Status: NO_PERSON
+  people call: 0.210s  vest call: 0.755s
+Inference time: 0.966s
+Average inference: 1.006s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #149
+============================================================
+Sample timestamp: 8.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A worker in a yellow safety vest stands with his arms outstretched in front of large windows.')
+Vests: 0 (raw: 'A worker in safety vest stands with his arms outstretched in front of large windows.')
+Status: NO_PERSON
+  people call: 0.274s  vest call: 0.754s
+Inference time: 1.028s
+Average inference: 1.006s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #150
+============================================================
+Sample timestamp: 9.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest points out to the side.')
+Vests: 0 (raw: 'A man in safety vest points to windows with a building in the background.')
+Status: NO_PERSON
+  people call: 0.211s  vest call: 0.750s
+Inference time: 0.961s
+Average inference: 1.006s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #151
+============================================================
+Sample timestamp: 0.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in safety vest with the letters NB on it.')
+Vests: 0 (raw: 'A man in safety vest with a name tag that says Newk.')
+Status: NO_PERSON
+  people call: 0.221s  vest call: 0.731s
+Inference time: 0.952s
+Average inference: 1.005s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #152
+============================================================
+Sample timestamp: 1.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest with the name newk on it.')
+Vests: 0 (raw: 'A man in a safety vest with the name newk on it.')
+Status: NO_PERSON
+  people call: 0.229s  vest call: 0.714s
+Inference time: 0.943s
+Average inference: 1.005s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #153
+============================================================
+Sample timestamp: 2.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows looking out at a tree.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of large windows looking out at a tree.')
+Status: NO_PERSON
+  people call: 0.277s  vest call: 0.770s
+Inference time: 1.047s
+Average inference: 1.005s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #154
+============================================================
+Sample timestamp: 3.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Status: NO_PERSON
+  people call: 0.215s  vest call: 0.729s
+Inference time: 0.944s
+Average inference: 1.005s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #155
+============================================================
+Sample timestamp: 4.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of windows with a tree outside.')
+Status: NO_PERSON
+  people call: 0.212s  vest call: 0.746s
+Inference time: 0.958s
+Average inference: 1.005s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #156
+============================================================
+Sample timestamp: 5.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in safety vest stands in front of windows with a tree outside.')
+Vests: 0 (raw: 'Man standing in a room with a safety vest on and a tree outside.')
+Status: NO_PERSON
+  people call: 0.238s  vest call: 0.744s
+Inference time: 0.982s
+Average inference: 1.004s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #157
+============================================================
+Sample timestamp: 6.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'Man wearing a yellow safety vest standing in front of large windows.')
+Vests: 0 (raw: 'Man wearing a safety vest standing in front of windows with a tree outside.')
+Status: NO_PERSON
+  people call: 0.208s  vest call: 0.744s
+Inference time: 0.953s
+Average inference: 1.004s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #158
+============================================================
+Sample timestamp: 7.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A construction worker wearing a safety vest with the name tag visible.')
+Vests: 0 (raw: 'A construction worker wearing a safety vest with the name "Kwame" on it.')
+Status: NO_PERSON
+  people call: 0.217s  vest call: 0.765s
+Inference time: 0.982s
+Average inference: 1.004s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #159
+============================================================
+Sample timestamp: 8.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A worker in a yellow safety vest stands with his arms outstretched in front of large windows.')
+Vests: 0 (raw: 'A worker in safety vest stands with his arms outstretched in front of large windows.')
+Status: NO_PERSON
+  people call: 0.279s  vest call: 0.752s
+Inference time: 1.031s
+Average inference: 1.004s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #160
+============================================================
+Sample timestamp: 9.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest points out to the side.')
+Vests: 0 (raw: 'A man in safety vest points to windows with a building in the background.')
+Status: NO_PERSON
+  people call: 0.211s  vest call: 0.743s
+Inference time: 0.955s
+Average inference: 1.004s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #161
+============================================================
+Sample timestamp: 0.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in safety vest with the letters NB on it.')
+Vests: 0 (raw: 'A man in safety vest with a name tag that says Newk.')
+Status: NO_PERSON
+  people call: 0.242s  vest call: 0.731s
+Inference time: 0.972s
+Average inference: 1.004s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #162
+============================================================
+Sample timestamp: 1.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest with the name newk on it.')
+Vests: 0 (raw: 'A man in a safety vest with the name newk on it.')
+Status: NO_PERSON
+  people call: 0.234s  vest call: 0.738s
+Inference time: 0.972s
+Average inference: 1.003s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #163
+============================================================
+Sample timestamp: 2.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows looking out at a tree.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of large windows looking out at a tree.')
+Status: NO_PERSON
+  people call: 0.261s  vest call: 0.769s
+Inference time: 1.030s
+Average inference: 1.004s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #164
+============================================================
+Sample timestamp: 3.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Status: NO_PERSON
+  people call: 0.228s  vest call: 0.730s
+Inference time: 0.957s
+Average inference: 1.003s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #165
+============================================================
+Sample timestamp: 4.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of windows with a tree outside.')
+Status: NO_PERSON
+  people call: 0.215s  vest call: 0.749s
+Inference time: 0.964s
+Average inference: 1.003s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #166
+============================================================
+Sample timestamp: 5.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in safety vest stands in front of windows with a tree outside.')
+Vests: 0 (raw: 'Man standing in a room with a safety vest on and a tree outside.')
+Status: NO_PERSON
+  people call: 0.255s  vest call: 0.756s
+Inference time: 1.011s
+Average inference: 1.003s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #167
+============================================================
+Sample timestamp: 6.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'Man wearing a yellow safety vest standing in front of large windows.')
+Vests: 0 (raw: 'Man wearing a safety vest standing in front of windows with a tree outside.')
+Status: NO_PERSON
+  people call: 0.230s  vest call: 0.740s
+Inference time: 0.970s
+Average inference: 1.003s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #168
+============================================================
+Sample timestamp: 7.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A construction worker wearing a safety vest with the name tag visible.')
+Vests: 0 (raw: 'A construction worker wearing a safety vest with the name "Kwame" on it.')
+Status: NO_PERSON
+  people call: 0.204s  vest call: 0.765s
+Inference time: 0.969s
+Average inference: 1.003s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #169
+============================================================
+Sample timestamp: 8.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A worker in a yellow safety vest stands with his arms outstretched in front of large windows.')
+Vests: 0 (raw: 'A worker in safety vest stands with his arms outstretched in front of large windows.')
+Status: NO_PERSON
+  people call: 0.271s  vest call: 0.759s
+Inference time: 1.029s
+Average inference: 1.003s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #170
+============================================================
+Sample timestamp: 9.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest points out to the side.')
+Vests: 0 (raw: 'A man in safety vest points to windows with a building in the background.')
+Status: NO_PERSON
+  people call: 0.229s  vest call: 0.754s
+Inference time: 0.983s
+Average inference: 1.003s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #171
+============================================================
+Sample timestamp: 0.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in safety vest with the letters NB on it.')
+Vests: 0 (raw: 'A man in safety vest with a name tag that says Newk.')
+Status: NO_PERSON
+  people call: 0.246s  vest call: 0.735s
+Inference time: 0.981s
+Average inference: 1.003s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #172
+============================================================
+Sample timestamp: 1.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest with the name newk on it.')
+Vests: 0 (raw: 'A man in a safety vest with the name newk on it.')
+Status: NO_PERSON
+  people call: 0.230s  vest call: 0.705s
+Inference time: 0.935s
+Average inference: 1.002s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #173
+============================================================
+Sample timestamp: 2.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows looking out at a tree.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of large windows looking out at a tree.')
+Status: NO_PERSON
+  people call: 0.260s  vest call: 0.770s
+Inference time: 1.030s
+Average inference: 1.002s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #174
+============================================================
+Sample timestamp: 3.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Status: NO_PERSON
+  people call: 0.242s  vest call: 0.731s
+Inference time: 0.973s
+Average inference: 1.002s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #175
+============================================================
+Sample timestamp: 4.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of windows with a tree outside.')
+Status: NO_PERSON
+  people call: 0.206s  vest call: 0.752s
+Inference time: 0.958s
+Average inference: 1.002s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #176
+============================================================
+Sample timestamp: 5.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in safety vest stands in front of windows with a tree outside.')
+Vests: 0 (raw: 'Man standing in a room with a safety vest on and a tree outside.')
+Status: NO_PERSON
+  people call: 0.241s  vest call: 0.747s
+Inference time: 0.988s
+Average inference: 1.002s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #177
+============================================================
+Sample timestamp: 6.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'Man wearing a yellow safety vest standing in front of large windows.')
+Vests: 0 (raw: 'Man wearing a safety vest standing in front of windows with a tree outside.')
+Status: NO_PERSON
+  people call: 0.239s  vest call: 0.747s
+Inference time: 0.986s
+Average inference: 1.002s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #178
+============================================================
+Sample timestamp: 7.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A construction worker wearing a safety vest with the name tag visible.')
+Vests: 0 (raw: 'A construction worker wearing a safety vest with the name "Kwame" on it.')
+Status: NO_PERSON
+  people call: 0.212s  vest call: 0.779s
+Inference time: 0.991s
+Average inference: 1.002s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #179
+============================================================
+Sample timestamp: 8.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A worker in a yellow safety vest stands with his arms outstretched in front of large windows.')
+Vests: 0 (raw: 'A worker in safety vest stands with his arms outstretched in front of large windows.')
+Status: NO_PERSON
+  people call: 0.290s  vest call: 0.757s
+Inference time: 1.047s
+Average inference: 1.002s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #180
+============================================================
+Sample timestamp: 9.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest points out to the side.')
+Vests: 0 (raw: 'A man in safety vest points to windows with a building in the background.')
+Status: NO_PERSON
+  people call: 0.210s  vest call: 0.756s
+Inference time: 0.966s
+Average inference: 1.002s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #181
+============================================================
+Sample timestamp: 0.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in safety vest with the letters NB on it.')
+Vests: 0 (raw: 'A man in safety vest with a name tag that says Newk.')
+Status: NO_PERSON
+  people call: 0.231s  vest call: 0.728s
+Inference time: 0.959s
+Average inference: 1.002s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #182
+============================================================
+Sample timestamp: 1.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest with the name newk on it.')
+Vests: 0 (raw: 'A man in a safety vest with the name newk on it.')
+Status: NO_PERSON
+  people call: 0.254s  vest call: 0.724s
+Inference time: 0.979s
+Average inference: 1.001s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #183
+============================================================
+Sample timestamp: 2.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows looking out at a tree.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of large windows looking out at a tree.')
+Status: NO_PERSON
+  people call: 0.244s  vest call: 0.748s
+Inference time: 0.992s
+Average inference: 1.001s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #184
+============================================================
+Sample timestamp: 3.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Status: NO_PERSON
+  people call: 0.211s  vest call: 0.732s
+Inference time: 0.943s
+Average inference: 1.001s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #185
+============================================================
+Sample timestamp: 4.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of windows with a tree outside.')
+Status: NO_PERSON
+  people call: 0.219s  vest call: 0.725s
+Inference time: 0.945s
+Average inference: 1.001s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #186
+============================================================
+Sample timestamp: 5.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in safety vest stands in front of windows with a tree outside.')
+Vests: 0 (raw: 'Man standing in a room with a safety vest on and a tree outside.')
+Status: NO_PERSON
+  people call: 0.228s  vest call: 0.752s
+Inference time: 0.980s
+Average inference: 1.001s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #187
+============================================================
+Sample timestamp: 6.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'Man wearing a yellow safety vest standing in front of large windows.')
+Vests: 0 (raw: 'Man wearing a safety vest standing in front of windows with a tree outside.')
+Status: NO_PERSON
+  people call: 0.211s  vest call: 0.750s
+Inference time: 0.962s
+Average inference: 1.000s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #188
+============================================================
+Sample timestamp: 7.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A construction worker wearing a safety vest with the name tag visible.')
+Vests: 0 (raw: 'A construction worker wearing a safety vest with the name "Kwame" on it.')
+Status: NO_PERSON
+  people call: 0.228s  vest call: 0.770s
+Inference time: 0.998s
+Average inference: 1.000s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #189
+============================================================
+Sample timestamp: 8.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A worker in a yellow safety vest stands with his arms outstretched in front of large windows.')
+Vests: 0 (raw: 'A worker in safety vest stands with his arms outstretched in front of large windows.')
+Status: NO_PERSON
+  people call: 0.298s  vest call: 0.760s
+Inference time: 1.058s
+Average inference: 1.001s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #190
+============================================================
+Sample timestamp: 9.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest points out to the side.')
+Vests: 0 (raw: 'A man in safety vest points to windows with a building in the background.')
+Status: NO_PERSON
+  people call: 0.213s  vest call: 0.745s
+Inference time: 0.959s
+Average inference: 1.001s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #191
+============================================================
+Sample timestamp: 0.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in safety vest with the letters NB on it.')
+Vests: 0 (raw: 'A man in safety vest with a name tag that says Newk.')
+Status: NO_PERSON
+  people call: 0.236s  vest call: 0.728s
+Inference time: 0.965s
+Average inference: 1.000s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #192
+============================================================
+Sample timestamp: 1.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest with the name newk on it.')
+Vests: 0 (raw: 'A man in a safety vest with the name newk on it.')
+Status: NO_PERSON
+  people call: 0.223s  vest call: 0.723s
+Inference time: 0.945s
+Average inference: 1.000s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #193
+============================================================
+Sample timestamp: 2.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows looking out at a tree.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of large windows looking out at a tree.')
+Status: NO_PERSON
+  people call: 0.267s  vest call: 0.766s
+Inference time: 1.033s
+Average inference: 1.000s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #194
+============================================================
+Sample timestamp: 3.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Status: NO_PERSON
+  people call: 0.207s  vest call: 0.733s
+Inference time: 0.940s
+Average inference: 1.000s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #195
+============================================================
+Sample timestamp: 4.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a safety vest stands in front of large windows.')
+Vests: 0 (raw: 'A man in a safety vest stands in front of windows with a tree outside.')
+Status: NO_PERSON
+  people call: 0.236s  vest call: 0.705s
+Inference time: 0.941s
+Average inference: 1.000s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #196
+============================================================
+Sample timestamp: 5.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in safety vest stands in front of windows with a tree outside.')
+Vests: 0 (raw: 'Man standing in a room with a safety vest on and a tree outside.')
+Status: NO_PERSON
+  people call: 0.230s  vest call: 0.752s
+Inference time: 0.982s
+Average inference: 1.000s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #197
+============================================================
+Sample timestamp: 6.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'Man wearing a yellow safety vest standing in front of large windows.')
+Vests: 0 (raw: 'Man wearing a safety vest standing in front of windows with a tree outside.')
+Status: NO_PERSON
+  people call: 0.222s  vest call: 0.744s
+Inference time: 0.966s
+Average inference: 0.999s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #198
+============================================================
+Sample timestamp: 7.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A construction worker wearing a safety vest with the name tag visible.')
+Vests: 0 (raw: 'A construction worker wearing a safety vest with the name "Kwame" on it.')
+Status: NO_PERSON
+  people call: 0.238s  vest call: 0.776s
+Inference time: 1.014s
+Average inference: 0.999s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #199
+============================================================
+Sample timestamp: 8.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A worker in a yellow safety vest stands with his arms outstretched in front of large windows.')
+Vests: 0 (raw: 'A worker in safety vest stands with his arms outstretched in front of large windows.')
+Status: NO_PERSON
+  people call: 0.273s  vest call: 0.754s
+Inference time: 1.027s
+Average inference: 1.000s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #200
+============================================================
+Sample timestamp: 9.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest points out to the side.')
+Vests: 0 (raw: 'A man in safety vest points to windows with a building in the background.')
+Status: NO_PERSON
+  people call: 0.222s  vest call: 0.736s
+Inference time: 0.958s
+Average inference: 0.999s
+------------------------------------------------------------
+
+
+============================================================
+TARGET REACHED (200 inferences)
+============================================================
+Total inferences: 200
+Average inference time: 0.999s
+Total inference time: 199.868s
+
+Done. (Ollama server keeps running in the background -- nothing to unload here.)
+
+Log saved to: /home/icp/FLEXO-edge-machine-vision-safety-sentry-robot/benchmark_test/logs/2026-09-28_06-52-19_smolvlm_500m_ollama_video.txt

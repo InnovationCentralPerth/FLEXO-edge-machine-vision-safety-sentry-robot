@@ -1,0 +1,2623 @@
+============================================================
+SMOLVLM 500M (OLLAMA) + STATIC IMAGE REPEATED-INFERENCE TEST
+============================================================
+Log file: /home/icp/FLEXO-edge-machine-vision-safety-sentry-robot/benchmark_test/logs/2026-09-28_06-36-36_smolvlm_500m_ollama_image.txt
+Model: hf.co/rajvir73/SmolVLM-500M-Instruct-GGUF:Q8_0
+Image path: /home/icp/FLEXO-edge-machine-vision-safety-sentry-robot/benchmark_test/images/test.jpg
+Running warmup inference (absorbs first-call model-load cost)...
+Warmup inference: 1.511s (excluded from timing stats below)
+
+Press Ctrl+C to stop.
+------------------------------------------------------------
+
+============================================================
+INFERENCE #1
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.319s  vest call: 1.496s
+Inference time: 2.815s
+Average inference: 2.815s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #2
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.297s  vest call: 1.368s
+Inference time: 2.665s
+Average inference: 2.740s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #3
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.325s  vest call: 1.315s
+Inference time: 2.640s
+Average inference: 2.707s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #4
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.483s  vest call: 1.313s
+Inference time: 2.796s
+Average inference: 2.729s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #5
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.411s  vest call: 1.282s
+Inference time: 2.693s
+Average inference: 2.722s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #6
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.379s  vest call: 1.400s
+Inference time: 2.779s
+Average inference: 2.731s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #7
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.340s  vest call: 1.496s
+Inference time: 2.836s
+Average inference: 2.746s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #8
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.317s  vest call: 1.344s
+Inference time: 2.661s
+Average inference: 2.736s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #9
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.424s  vest call: 1.342s
+Inference time: 2.766s
+Average inference: 2.739s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #10
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.481s  vest call: 1.304s
+Inference time: 2.785s
+Average inference: 2.744s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #11
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.310s  vest call: 1.345s
+Inference time: 2.655s
+Average inference: 2.736s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #12
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.311s  vest call: 1.414s
+Inference time: 2.725s
+Average inference: 2.735s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #13
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.320s  vest call: 1.324s
+Inference time: 2.644s
+Average inference: 2.728s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #14
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.463s  vest call: 1.306s
+Inference time: 2.768s
+Average inference: 2.731s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #15
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.425s  vest call: 1.302s
+Inference time: 2.727s
+Average inference: 2.730s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #16
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.282s  vest call: 1.455s
+Inference time: 2.736s
+Average inference: 2.731s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #17
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.323s  vest call: 1.445s
+Inference time: 2.768s
+Average inference: 2.733s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #18
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.234s  vest call: 1.313s
+Inference time: 2.547s
+Average inference: 2.723s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #19
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.406s  vest call: 1.295s
+Inference time: 2.701s
+Average inference: 2.721s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #20
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.471s  vest call: 1.277s
+Inference time: 2.747s
+Average inference: 2.723s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #21
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.277s  vest call: 1.382s
+Inference time: 2.659s
+Average inference: 2.720s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #22
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.280s  vest call: 1.365s
+Inference time: 2.645s
+Average inference: 2.716s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #23
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.287s  vest call: 1.314s
+Inference time: 2.601s
+Average inference: 2.711s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #24
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.434s  vest call: 1.314s
+Inference time: 2.748s
+Average inference: 2.713s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #25
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.426s  vest call: 1.285s
+Inference time: 2.711s
+Average inference: 2.713s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #26
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.305s  vest call: 1.338s
+Inference time: 2.644s
+Average inference: 2.710s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #27
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.319s  vest call: 1.265s
+Inference time: 2.584s
+Average inference: 2.705s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #28
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.322s  vest call: 1.267s
+Inference time: 2.589s
+Average inference: 2.701s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #29
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.492s  vest call: 1.273s
+Inference time: 2.765s
+Average inference: 2.703s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #30
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.449s  vest call: 1.321s
+Inference time: 2.771s
+Average inference: 2.706s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #31
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.249s  vest call: 1.454s
+Inference time: 2.703s
+Average inference: 2.706s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #32
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.256s  vest call: 1.433s
+Inference time: 2.689s
+Average inference: 2.705s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #33
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.297s  vest call: 1.325s
+Inference time: 2.622s
+Average inference: 2.703s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #34
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.357s  vest call: 1.310s
+Inference time: 2.667s
+Average inference: 2.702s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #35
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.383s  vest call: 1.277s
+Inference time: 2.660s
+Average inference: 2.700s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #36
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.289s  vest call: 1.459s
+Inference time: 2.748s
+Average inference: 2.702s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #37
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.283s  vest call: 1.467s
+Inference time: 2.750s
+Average inference: 2.703s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #38
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.288s  vest call: 1.301s
+Inference time: 2.589s
+Average inference: 2.700s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #39
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.342s  vest call: 1.380s
+Inference time: 2.722s
+Average inference: 2.701s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #40
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.400s  vest call: 1.310s
+Inference time: 2.710s
+Average inference: 2.701s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #41
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.338s  vest call: 1.371s
+Inference time: 2.709s
+Average inference: 2.701s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #42
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.335s  vest call: 1.352s
+Inference time: 2.687s
+Average inference: 2.701s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #43
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.379s  vest call: 1.311s
+Inference time: 2.690s
+Average inference: 2.700s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #44
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.455s  vest call: 1.258s
+Inference time: 2.713s
+Average inference: 2.701s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #45
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.445s  vest call: 1.315s
+Inference time: 2.760s
+Average inference: 2.702s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #46
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.349s  vest call: 1.440s
+Inference time: 2.789s
+Average inference: 2.704s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #47
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.320s  vest call: 1.422s
+Inference time: 2.742s
+Average inference: 2.705s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #48
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.261s  vest call: 1.300s
+Inference time: 2.561s
+Average inference: 2.702s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #49
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.406s  vest call: 1.360s
+Inference time: 2.766s
+Average inference: 2.703s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #50
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.440s  vest call: 1.293s
+Inference time: 2.734s
+Average inference: 2.704s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #51
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.325s  vest call: 1.366s
+Inference time: 2.691s
+Average inference: 2.703s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #52
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.339s  vest call: 1.404s
+Inference time: 2.743s
+Average inference: 2.704s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #53
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.365s  vest call: 1.236s
+Inference time: 2.602s
+Average inference: 2.702s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #54
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.465s  vest call: 1.258s
+Inference time: 2.724s
+Average inference: 2.703s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #55
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.456s  vest call: 1.281s
+Inference time: 2.737s
+Average inference: 2.703s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #56
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.337s  vest call: 1.385s
+Inference time: 2.721s
+Average inference: 2.704s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #57
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.271s  vest call: 1.444s
+Inference time: 2.715s
+Average inference: 2.704s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #58
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.358s  vest call: 1.306s
+Inference time: 2.664s
+Average inference: 2.703s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #59
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.394s  vest call: 1.293s
+Inference time: 2.686s
+Average inference: 2.703s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #60
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.390s  vest call: 1.305s
+Inference time: 2.695s
+Average inference: 2.703s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #61
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.288s  vest call: 1.485s
+Inference time: 2.772s
+Average inference: 2.704s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #62
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.284s  vest call: 1.415s
+Inference time: 2.699s
+Average inference: 2.704s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #63
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.284s  vest call: 1.290s
+Inference time: 2.574s
+Average inference: 2.702s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #64
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.386s  vest call: 1.327s
+Inference time: 2.713s
+Average inference: 2.702s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #65
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.328s  vest call: 1.281s
+Inference time: 2.610s
+Average inference: 2.700s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #66
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.278s  vest call: 1.419s
+Inference time: 2.697s
+Average inference: 2.700s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #67
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.266s  vest call: 1.343s
+Inference time: 2.609s
+Average inference: 2.699s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #68
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.321s  vest call: 1.275s
+Inference time: 2.596s
+Average inference: 2.697s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #69
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.430s  vest call: 1.301s
+Inference time: 2.731s
+Average inference: 2.698s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #70
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.408s  vest call: 1.273s
+Inference time: 2.681s
+Average inference: 2.698s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #71
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.326s  vest call: 1.446s
+Inference time: 2.772s
+Average inference: 2.699s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #72
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.251s  vest call: 1.427s
+Inference time: 2.678s
+Average inference: 2.698s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #73
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.273s  vest call: 1.277s
+Inference time: 2.550s
+Average inference: 2.696s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #74
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.368s  vest call: 1.307s
+Inference time: 2.675s
+Average inference: 2.696s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #75
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.342s  vest call: 1.323s
+Inference time: 2.665s
+Average inference: 2.696s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #76
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.256s  vest call: 1.351s
+Inference time: 2.607s
+Average inference: 2.695s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #77
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.288s  vest call: 1.254s
+Inference time: 2.541s
+Average inference: 2.693s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #78
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.273s  vest call: 1.281s
+Inference time: 2.553s
+Average inference: 2.691s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #79
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.375s  vest call: 1.299s
+Inference time: 2.674s
+Average inference: 2.691s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #80
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.397s  vest call: 1.269s
+Inference time: 2.666s
+Average inference: 2.690s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #81
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.264s  vest call: 1.364s
+Inference time: 2.628s
+Average inference: 2.690s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #82
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.234s  vest call: 1.421s
+Inference time: 2.655s
+Average inference: 2.689s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #83
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.264s  vest call: 1.273s
+Inference time: 2.536s
+Average inference: 2.687s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #84
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.313s  vest call: 1.302s
+Inference time: 2.615s
+Average inference: 2.686s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #85
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.353s  vest call: 1.230s
+Inference time: 2.583s
+Average inference: 2.685s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #86
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.230s  vest call: 1.384s
+Inference time: 2.614s
+Average inference: 2.684s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #87
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.240s  vest call: 1.377s
+Inference time: 2.617s
+Average inference: 2.684s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #88
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.291s  vest call: 1.264s
+Inference time: 2.555s
+Average inference: 2.682s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #89
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.368s  vest call: 1.265s
+Inference time: 2.633s
+Average inference: 2.682s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #90
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.372s  vest call: 1.291s
+Inference time: 2.663s
+Average inference: 2.681s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #91
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.305s  vest call: 1.288s
+Inference time: 2.593s
+Average inference: 2.680s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #92
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.255s  vest call: 1.354s
+Inference time: 2.609s
+Average inference: 2.680s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #93
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.273s  vest call: 1.227s
+Inference time: 2.500s
+Average inference: 2.678s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #94
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.353s  vest call: 1.211s
+Inference time: 2.563s
+Average inference: 2.676s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #95
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.405s  vest call: 1.290s
+Inference time: 2.695s
+Average inference: 2.677s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #96
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.286s  vest call: 1.373s
+Inference time: 2.659s
+Average inference: 2.676s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #97
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.275s  vest call: 1.417s
+Inference time: 2.692s
+Average inference: 2.677s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #98
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.302s  vest call: 1.296s
+Inference time: 2.598s
+Average inference: 2.676s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #99
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.353s  vest call: 1.279s
+Inference time: 2.632s
+Average inference: 2.675s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #100
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.417s  vest call: 1.290s
+Inference time: 2.708s
+Average inference: 2.676s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #101
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.245s  vest call: 1.317s
+Inference time: 2.562s
+Average inference: 2.675s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #102
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.261s  vest call: 1.354s
+Inference time: 2.616s
+Average inference: 2.674s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #103
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.291s  vest call: 1.264s
+Inference time: 2.555s
+Average inference: 2.673s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #104
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.369s  vest call: 1.267s
+Inference time: 2.636s
+Average inference: 2.673s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #105
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.377s  vest call: 1.245s
+Inference time: 2.622s
+Average inference: 2.672s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #106
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.300s  vest call: 1.366s
+Inference time: 2.665s
+Average inference: 2.672s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #107
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.285s  vest call: 1.355s
+Inference time: 2.640s
+Average inference: 2.672s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #108
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.245s  vest call: 1.270s
+Inference time: 2.515s
+Average inference: 2.670s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #109
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.345s  vest call: 1.270s
+Inference time: 2.615s
+Average inference: 2.670s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #110
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.334s  vest call: 1.200s
+Inference time: 2.534s
+Average inference: 2.668s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #111
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.280s  vest call: 1.382s
+Inference time: 2.662s
+Average inference: 2.668s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #112
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.243s  vest call: 1.336s
+Inference time: 2.579s
+Average inference: 2.668s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #113
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.267s  vest call: 1.267s
+Inference time: 2.534s
+Average inference: 2.666s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #114
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.351s  vest call: 1.301s
+Inference time: 2.652s
+Average inference: 2.666s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #115
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.367s  vest call: 1.227s
+Inference time: 2.595s
+Average inference: 2.666s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #116
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.274s  vest call: 1.353s
+Inference time: 2.627s
+Average inference: 2.665s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #117
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.288s  vest call: 1.349s
+Inference time: 2.637s
+Average inference: 2.665s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #118
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.278s  vest call: 1.221s
+Inference time: 2.499s
+Average inference: 2.664s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #119
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.360s  vest call: 1.272s
+Inference time: 2.633s
+Average inference: 2.663s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #120
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.385s  vest call: 1.305s
+Inference time: 2.691s
+Average inference: 2.664s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #121
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.286s  vest call: 1.323s
+Inference time: 2.609s
+Average inference: 2.663s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #122
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.258s  vest call: 1.355s
+Inference time: 2.613s
+Average inference: 2.663s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #123
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.297s  vest call: 1.219s
+Inference time: 2.516s
+Average inference: 2.662s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #124
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.370s  vest call: 1.198s
+Inference time: 2.568s
+Average inference: 2.661s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #125
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.354s  vest call: 1.261s
+Inference time: 2.615s
+Average inference: 2.661s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #126
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.202s  vest call: 1.298s
+Inference time: 2.500s
+Average inference: 2.659s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #127
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.283s  vest call: 1.391s
+Inference time: 2.674s
+Average inference: 2.659s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #128
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.256s  vest call: 1.270s
+Inference time: 2.525s
+Average inference: 2.658s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #129
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.373s  vest call: 1.269s
+Inference time: 2.642s
+Average inference: 2.658s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #130
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.430s  vest call: 1.284s
+Inference time: 2.714s
+Average inference: 2.659s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #131
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.304s  vest call: 1.283s
+Inference time: 2.587s
+Average inference: 2.658s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #132
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.285s  vest call: 1.304s
+Inference time: 2.589s
+Average inference: 2.658s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #133
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.251s  vest call: 1.243s
+Inference time: 2.494s
+Average inference: 2.656s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #134
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.405s  vest call: 1.211s
+Inference time: 2.616s
+Average inference: 2.656s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #135
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.304s  vest call: 1.319s
+Inference time: 2.624s
+Average inference: 2.656s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #136
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.269s  vest call: 1.403s
+Inference time: 2.672s
+Average inference: 2.656s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #137
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.270s  vest call: 1.380s
+Inference time: 2.651s
+Average inference: 2.656s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #138
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.257s  vest call: 1.301s
+Inference time: 2.558s
+Average inference: 2.655s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #139
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.342s  vest call: 1.285s
+Inference time: 2.627s
+Average inference: 2.655s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #140
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.355s  vest call: 1.304s
+Inference time: 2.660s
+Average inference: 2.655s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #141
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.276s  vest call: 1.363s
+Inference time: 2.639s
+Average inference: 2.655s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #142
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.287s  vest call: 1.429s
+Inference time: 2.717s
+Average inference: 2.655s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #143
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.287s  vest call: 1.280s
+Inference time: 2.567s
+Average inference: 2.655s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #144
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.365s  vest call: 1.294s
+Inference time: 2.659s
+Average inference: 2.655s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #145
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.323s  vest call: 1.294s
+Inference time: 2.618s
+Average inference: 2.654s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #146
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.265s  vest call: 1.397s
+Inference time: 2.661s
+Average inference: 2.654s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #147
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.317s  vest call: 1.310s
+Inference time: 2.627s
+Average inference: 2.654s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #148
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.327s  vest call: 1.252s
+Inference time: 2.579s
+Average inference: 2.654s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #149
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.378s  vest call: 1.284s
+Inference time: 2.663s
+Average inference: 2.654s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #150
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.376s  vest call: 1.304s
+Inference time: 2.680s
+Average inference: 2.654s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #151
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.273s  vest call: 1.356s
+Inference time: 2.628s
+Average inference: 2.654s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #152
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.267s  vest call: 1.343s
+Inference time: 2.609s
+Average inference: 2.654s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #153
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.270s  vest call: 1.290s
+Inference time: 2.560s
+Average inference: 2.653s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #154
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.373s  vest call: 1.230s
+Inference time: 2.603s
+Average inference: 2.653s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #155
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.323s  vest call: 1.268s
+Inference time: 2.591s
+Average inference: 2.652s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #156
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.290s  vest call: 1.423s
+Inference time: 2.713s
+Average inference: 2.653s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #157
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.276s  vest call: 1.430s
+Inference time: 2.706s
+Average inference: 2.653s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #158
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.243s  vest call: 1.271s
+Inference time: 2.513s
+Average inference: 2.652s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #159
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.452s  vest call: 1.285s
+Inference time: 2.737s
+Average inference: 2.653s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #160
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.392s  vest call: 1.301s
+Inference time: 2.694s
+Average inference: 2.653s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #161
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.231s  vest call: 1.335s
+Inference time: 2.566s
+Average inference: 2.652s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #162
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.270s  vest call: 1.336s
+Inference time: 2.607s
+Average inference: 2.652s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #163
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.242s  vest call: 1.262s
+Inference time: 2.504s
+Average inference: 2.651s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #164
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.344s  vest call: 1.307s
+Inference time: 2.652s
+Average inference: 2.651s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #165
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.309s  vest call: 1.302s
+Inference time: 2.611s
+Average inference: 2.651s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #166
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.256s  vest call: 1.384s
+Inference time: 2.639s
+Average inference: 2.651s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #167
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.243s  vest call: 1.355s
+Inference time: 2.598s
+Average inference: 2.651s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #168
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.264s  vest call: 1.219s
+Inference time: 2.483s
+Average inference: 2.650s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #169
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.319s  vest call: 1.261s
+Inference time: 2.581s
+Average inference: 2.649s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #170
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.307s  vest call: 1.275s
+Inference time: 2.582s
+Average inference: 2.649s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #171
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.184s  vest call: 1.311s
+Inference time: 2.495s
+Average inference: 2.648s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #172
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.296s  vest call: 1.314s
+Inference time: 2.611s
+Average inference: 2.648s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #173
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.274s  vest call: 1.237s
+Inference time: 2.511s
+Average inference: 2.647s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #174
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.363s  vest call: 1.205s
+Inference time: 2.569s
+Average inference: 2.646s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #175
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.322s  vest call: 1.258s
+Inference time: 2.580s
+Average inference: 2.646s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #176
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.254s  vest call: 1.420s
+Inference time: 2.674s
+Average inference: 2.646s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #177
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.330s  vest call: 1.371s
+Inference time: 2.701s
+Average inference: 2.646s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #178
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.220s  vest call: 1.272s
+Inference time: 2.491s
+Average inference: 2.646s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #179
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.384s  vest call: 1.264s
+Inference time: 2.648s
+Average inference: 2.646s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #180
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.355s  vest call: 1.365s
+Inference time: 2.720s
+Average inference: 2.646s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #181
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.284s  vest call: 1.231s
+Inference time: 2.515s
+Average inference: 2.645s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #182
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.261s  vest call: 1.376s
+Inference time: 2.636s
+Average inference: 2.645s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #183
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.420s  vest call: 1.303s
+Inference time: 2.723s
+Average inference: 2.646s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #184
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.316s  vest call: 1.283s
+Inference time: 2.600s
+Average inference: 2.645s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #185
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.337s  vest call: 1.343s
+Inference time: 2.680s
+Average inference: 2.646s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #186
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.269s  vest call: 1.264s
+Inference time: 2.533s
+Average inference: 2.645s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #187
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.255s  vest call: 1.333s
+Inference time: 2.588s
+Average inference: 2.645s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #188
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.335s  vest call: 1.280s
+Inference time: 2.615s
+Average inference: 2.645s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #189
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.271s  vest call: 1.246s
+Inference time: 2.517s
+Average inference: 2.644s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #190
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.375s  vest call: 1.346s
+Inference time: 2.721s
+Average inference: 2.644s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #191
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.232s  vest call: 1.264s
+Inference time: 2.496s
+Average inference: 2.643s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #192
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.292s  vest call: 1.354s
+Inference time: 2.646s
+Average inference: 2.643s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #193
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.400s  vest call: 1.262s
+Inference time: 2.661s
+Average inference: 2.644s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #194
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.348s  vest call: 1.216s
+Inference time: 2.564s
+Average inference: 2.643s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #195
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.366s  vest call: 1.361s
+Inference time: 2.727s
+Average inference: 2.644s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #196
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.302s  vest call: 1.252s
+Inference time: 2.555s
+Average inference: 2.643s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #197
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.272s  vest call: 1.331s
+Inference time: 2.603s
+Average inference: 2.643s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #198
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.327s  vest call: 1.262s
+Inference time: 2.589s
+Average inference: 2.643s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #199
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.239s  vest call: 1.297s
+Inference time: 2.536s
+Average inference: 2.642s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #200
+============================================================
+
+------------------------------------------------------------
+People: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Vests: 0 (raw: 'A man in a yellow safety vest stands in front of a computer monitor.')
+Status: NO_PERSON
+  people call: 1.324s  vest call: 1.279s
+Inference time: 2.602s
+Average inference: 2.642s
+------------------------------------------------------------
+
+
+============================================================
+TARGET REACHED (200 inferences)
+============================================================
+Total inferences: 200
+Average inference time: 2.642s
+Total inference time: 528.387s
+
+Done. (Ollama server keeps running in the background -- nothing to unload here.)
+
+Log saved to: /home/icp/FLEXO-edge-machine-vision-safety-sentry-robot/benchmark_test/logs/2026-09-28_06-36-36_smolvlm_500m_ollama_image.txt

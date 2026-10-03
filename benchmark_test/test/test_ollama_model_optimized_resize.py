@@ -3,14 +3,20 @@ import time
 from pathlib import Path
 from datetime import datetime
 
+import cv2
 import ollama
 
 # ============================================================
 # Model registry
 #
-# Add new models here as you pull more -- (display_name, ollama
-# model_name, log_filename_slug). Nothing else in this script
-# needs to change.
+# Same models as test_ollama_models_optimized.py -- this script
+# tests the same single-call prompt architecture, but resizes the
+# frame to 336x336 before sending it, to check whether the
+# Hailo/Qwen2-VL-era finding (pre-resizing hurts accuracy) is
+# specific to dynamic-resolution models (e.g. Cosmos Reason 2) or
+# also affects fixed-resolution models (Gemma, Ministral, the
+# LLaVA family, etc.) that would resize to their own target
+# anyway.
 # ============================================================
 
 MODELS = {
@@ -26,8 +32,6 @@ MODELS = {
     "6": ("LLaVA-Llama3", "llava-llama3", "llava_llama3"),
     "7": ("Granite Vision", "granite3.2-vision", "granite_vision"),
     "8": ("BakLLaVA", "bakllava", "bakllava"),
-    "9": ("SmolVLM 500M", "hf.co/rajvir73/SmolVLM-500M-Instruct-GGUF:Q8_0", "smolvlm_500m"),
-    "10": ("SmolVLM2 2.2B", "richardyoung/smolvlm2-2.2b-instruct", "smolvlm2_2_2b"),
 }
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -36,27 +40,45 @@ IMAGE_PATH = PROJECT_ROOT / "images" / "test.jpg"
 
 LOG_DIR = PROJECT_ROOT / "logs"
 
-# Same count-based prompt shape used throughout this project --
-# direct yes/no or GO/STOP classification prompts are known to
-# trigger acquiescence bias on small VLMs (see project notes).
-PEOPLE_PROMPT = (
-    "How many people are visible in this image? "
-    "Answer with just a number."
-)
+MAX_INFERENCES = 200
 
-VEST_PROMPT = (
-    "How many people in this image are properly wearing a "
-    "high-visibility orange, yellow, or lime green safety vest "
-    "on their torso?\n\n"
-    "Do NOT count:\n"
-    "- a vest being held in a hand\n"
-    "- a vest being carried\n"
-    "- a vest resting on a shoulder\n"
-    "- a vest partway through being put on\n"
-    "- a vest lying or hanging nearby but not worn\n"
-    "- ordinary clothing that is not a safety vest\n\n"
-    "Answer with just a number."
-)
+# Resize target. 336x336 matches the classic CLIP ViT-L/14 encoder
+# size used by the LLaVA family -- chosen so at least some models in
+# this set are being resized to roughly what they'd resize to
+# internally anyway, while others (Cosmos Reason 2's dynamic
+# resolution, Gemma/PaliGemma-style larger fixed targets) are being
+# handed something smaller than their native preprocessing would
+# choose.
+RESIZE_WIDTH = 336
+RESIZE_HEIGHT = 336
+
+# ============================================================
+# Optimized VLM Prompt
+#
+# Identical wording to test_ollama_models_optimized.py -- the only
+# variable being changed in this script is the input resolution,
+# not the prompt.
+# ============================================================
+
+SAFETY_PROMPT = """
+Count two things in this image:
+1. The total number of clearly visible people.
+2. Of those, how many are properly wearing a high-visibility orange,
+   yellow, or lime green safety vest on their torso.
+
+Do NOT count as "wearing a vest":
+- a vest being held in a hand
+- a vest being carried
+- a vest resting on a shoulder
+- a vest partway through being put on
+- a vest lying or hanging nearby but not worn
+- ordinary clothing that is not a safety vest
+- reflective clothing that is not a high-visibility safety vest
+
+Answer with exactly two lines, nothing else:
+PEOPLE: <integer>
+VESTS: <integer>
+""".strip()
 
 
 # ============================================================
@@ -73,11 +95,39 @@ def log_print(message, log_file=None):
 
 
 # ============================================================
+# Image loading + resize
+# ============================================================
+
+def load_and_resize_frame_bytes(image_path: Path) -> bytes:
+    """Loads the image, resizes it to RESIZE_WIDTH x RESIZE_HEIGHT, and
+    returns it JPEG-encoded as raw bytes (no temp file written to disk)."""
+
+    frame_bgr = cv2.imread(str(image_path))
+
+    if frame_bgr is None:
+        raise RuntimeError(f"Could not decode image: {image_path}")
+
+    resized = cv2.resize(
+        frame_bgr,
+        (RESIZE_WIDTH, RESIZE_HEIGHT),
+        interpolation=cv2.INTER_AREA,
+    )
+
+    ok, buffer = cv2.imencode(".jpg", resized)
+
+    if not ok:
+        raise RuntimeError("Failed to JPEG-encode the resized frame.")
+
+    return buffer.tobytes()
+
+
+# ============================================================
 # Model helper
 # ============================================================
 
-def ask(model_name: str, image_path: Path, prompt: str) -> tuple[str, float]:
-    """Send one image + text prompt to the model. Returns (answer, seconds)."""
+def ask(model_name: str, frame_bytes: bytes, prompt: str) -> tuple[str, float]:
+    """Send one image (as raw JPEG bytes) + text prompt to the model.
+    Returns (answer, seconds)."""
 
     start = time.perf_counter()
 
@@ -87,12 +137,12 @@ def ask(model_name: str, image_path: Path, prompt: str) -> tuple[str, float]:
             {
                 "role": "user",
                 "content": prompt,
-                "images": [str(image_path)],
+                "images": [frame_bytes],
             }
         ],
         options={
             "temperature": 0.0,  # deterministic, matches every other detector in this project
-            "num_ctx": 8192,  # default 4096 too small once image tokens are added
+            "num_ctx": 8192,  # default 4096 is too small once image tokens are added for some models
         },
     )
 
@@ -103,11 +153,27 @@ def ask(model_name: str, image_path: Path, prompt: str) -> tuple[str, float]:
     return answer, elapsed
 
 
-def parse_number(text: str) -> int:
-    """Best-effort parse of a numeric answer; falls back to 0 rather than
-    raising if the model returns something unexpected."""
-    match = re.search(r"\d+", text)
-    return int(match.group(0)) if match else 0
+def parse_count(text: str, label: str) -> int:
+    """
+    Extract an integer from responses such as:
+
+        PEOPLE: 2
+        VESTS: 1
+
+    Returns 0 if the requested label cannot be parsed.
+    """
+
+    if not text:
+        return 0
+
+    pattern = rf"{label}\s*:\s*(\d+)"
+
+    match = re.search(pattern, text, re.IGNORECASE)
+
+    if match:
+        return int(match.group(1))
+
+    return 0
 
 
 # ============================================================
@@ -129,7 +195,7 @@ def select_model() -> tuple[str, str, str]:
 
 def select_mode() -> str:
     print("\nSelect test mode:")
-    print("  [1] Quick single-image test (console only, ~2 calls)")
+    print("  [1] Quick single-image test (console only, 1 call)")
     print("  [2] Full 200-inference benchmark (logged to file)")
 
     choice = input("Enter number: ").strip()
@@ -152,18 +218,20 @@ def run_quick_test(display_name: str, model_name: str):
             f"Update IMAGE_PATH at the top of this script."
         )
 
+    frame_bytes = load_and_resize_frame_bytes(IMAGE_PATH)
+
     print(f"\nModel: {display_name} ({model_name})")
-    print(f"Image: {IMAGE_PATH}")
+    print(f"Image: {IMAGE_PATH}  (resized to {RESIZE_WIDTH}x{RESIZE_HEIGHT} before sending)")
     print("-" * 60)
 
-    people_answer, people_time = ask(model_name, IMAGE_PATH, PEOPLE_PROMPT)
-    print(f"People prompt -> '{people_answer}'  ({people_time:.3f}s)")
+    response, elapsed = ask(model_name, frame_bytes, SAFETY_PROMPT)
 
-    vest_answer, vest_time = ask(model_name, IMAGE_PATH, VEST_PROMPT)
-    print(f"Vest prompt   -> '{vest_answer}'  ({vest_time:.3f}s)")
+    people = parse_count(response, "PEOPLE")
+    vests = min(parse_count(response, "VESTS"), people)
 
+    print(f"Raw response:\n{response}")
     print("-" * 60)
-    print(f"Total: {people_time + vest_time:.3f}s")
+    print(f"Parsed -> People: {people}  Vests: {vests}  ({elapsed:.3f}s)")
 
 
 # ============================================================
@@ -172,19 +240,18 @@ def run_quick_test(display_name: str, model_name: str):
 
 def run_benchmark(display_name: str, model_name: str, slug: str):
 
-    MAX_INFERENCES = 200
-
     LOG_DIR.mkdir(parents=True, exist_ok=True)
 
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-    log_path = LOG_DIR / f"{timestamp}_{slug}_ollama_image.txt"
+    log_path = LOG_DIR / f"{timestamp}_{slug}_ollama_optimized_resized_image.txt"
 
     with open(log_path, "w", encoding="utf-8") as log_file:
 
         log_print("=" * 60, log_file)
         log_print(
-            f"{display_name.upper()} (OLLAMA) + STATIC IMAGE "
-            f"REPEATED-INFERENCE TEST",
+            f"{display_name.upper()} (OLLAMA, SINGLE-CALL OPTIMIZED "
+            f"PROMPT, RESIZED {RESIZE_WIDTH}x{RESIZE_HEIGHT}) + STATIC "
+            f"IMAGE REPEATED-INFERENCE TEST",
             log_file
         )
         log_print("=" * 60, log_file)
@@ -192,6 +259,7 @@ def run_benchmark(display_name: str, model_name: str, slug: str):
         log_print(f"Log file: {log_path}", log_file)
         log_print(f"Model: {model_name}", log_file)
         log_print(f"Image path: {IMAGE_PATH}", log_file)
+        log_print(f"Resize target: {RESIZE_WIDTH}x{RESIZE_HEIGHT} (INTER_AREA)", log_file)
 
         if not IMAGE_PATH.is_file():
             raise FileNotFoundError(
@@ -200,13 +268,10 @@ def run_benchmark(display_name: str, model_name: str, slug: str):
                 f"place a test image at that path."
             )
 
+        frame_bytes = load_and_resize_frame_bytes(IMAGE_PATH)
+
         # ----------------------------------------------------
         # Throwaway warmup inference
-        #
-        # Absorbs first-call model-load cost (Ollama loads the
-        # model into memory on first request if not already
-        # resident) outside the timed loop -- same rationale as
-        # every other test script in this project.
         # ----------------------------------------------------
 
         log_print(
@@ -217,7 +282,7 @@ def run_benchmark(display_name: str, model_name: str, slug: str):
 
         warmup_start = time.perf_counter()
 
-        _ = ask(model_name, IMAGE_PATH, PEOPLE_PROMPT)
+        _ = ask(model_name, frame_bytes, SAFETY_PROMPT)
 
         warmup_time = time.perf_counter() - warmup_start
 
@@ -246,20 +311,17 @@ def run_benchmark(display_name: str, model_name: str, slug: str):
                 log_print("=" * 60, log_file)
 
                 # -------------------------------------------------
-                # 1. Count people
+                # ONE combined call, resized frame (same bytes reused
+                # each time -- the resize happened once above, not
+                # redone per inference, since the source image never
+                # changes).
                 # -------------------------------------------------
 
-                people_answer, people_time = ask(model_name, IMAGE_PATH, PEOPLE_PROMPT)
-                n_people = parse_number(people_answer)
+                response, inference_time = ask(model_name, frame_bytes, SAFETY_PROMPT)
 
-                # -------------------------------------------------
-                # 2. Count vests
-                # -------------------------------------------------
+                n_people = parse_count(response, "PEOPLE")
+                n_vests = min(parse_count(response, "VESTS"), n_people)
 
-                vest_answer, vest_time = ask(model_name, IMAGE_PATH, VEST_PROMPT)
-                n_vests = min(parse_number(vest_answer), n_people)
-
-                inference_time = people_time + vest_time
                 total_time += inference_time
 
                 # -------------------------------------------------
@@ -273,21 +335,10 @@ def run_benchmark(display_name: str, model_name: str, slug: str):
                 log_print("", log_file)
                 log_print("-" * 60, log_file)
 
-                log_print(
-                    f"People: {n_people} (raw: '{people_answer}')",
-                    log_file
-                )
-                log_print(
-                    f"Vests: {n_vests} (raw: '{vest_answer}')",
-                    log_file
-                )
+                log_print(f"Raw response: {response!r}", log_file)
+                log_print(f"People: {n_people}", log_file)
+                log_print(f"Vests: {n_vests}", log_file)
                 log_print(f"Status: {status}", log_file)
-
-                log_print(
-                    f"  people call: {people_time:.3f}s  "
-                    f"vest call: {vest_time:.3f}s",
-                    log_file
-                )
 
                 log_print(
                     f"Inference time: {inference_time:.3f}s",

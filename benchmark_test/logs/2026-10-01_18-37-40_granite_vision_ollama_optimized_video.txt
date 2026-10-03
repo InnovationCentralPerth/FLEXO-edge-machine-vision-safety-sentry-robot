@@ -1,0 +1,148 @@
+============================================================
+GRANITE VISION (OLLAMA, SINGLE-CALL OPTIMIZED PROMPT) + VIDEO FILE TIME-SAMPLED INFERENCE TEST
+============================================================
+Log file: /home/icp/FLEXO-edge-machine-vision-safety-sentry-robot/benchmark_test/logs/2026-10-01_18-37-40_granite_vision_ollama_optimized_video.txt
+Model: granite3.2-vision
+Video path: /home/icp/FLEXO-edge-machine-vision-safety-sentry-robot/benchmark_test/videos/test.mp4
+Video duration: 10.0s
+Sample interval: 1.0s (wraps to 0s if it exceeds video duration)
+Running warmup inference (absorbs first-call model-load cost)...
+Warmup inference: 19.796s (excluded from timing stats below)
+
+Running unattended -- Ctrl+C to stop early.
+------------------------------------------------------------
+
+============================================================
+INFERENCE #1
+============================================================
+Sample timestamp: 0.0s
+
+------------------------------------------------------------
+Raw response: 'PEOPLE: 2\nVESTS: 0'
+People: 2
+Vests: 0
+Status: STOP
+Inference time: 0.675s
+Average inference: 0.675s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #2
+============================================================
+Sample timestamp: 1.0s
+
+------------------------------------------------------------
+Raw response: 'PEOPLE: 2\nVESTS: 0'
+People: 2
+Vests: 0
+Status: STOP
+Inference time: 11.758s
+Average inference: 6.216s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #3
+============================================================
+Sample timestamp: 2.0s
+
+------------------------------------------------------------
+Raw response: 'PEOPLE: 2\nVESTS: 0'
+People: 2
+Vests: 0
+Status: STOP
+Inference time: 11.754s
+Average inference: 8.062s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #4
+============================================================
+Sample timestamp: 3.0s
+
+------------------------------------------------------------
+Raw response: 'PEOPLE: 2\nVESTS: 0'
+People: 2
+Vests: 0
+Status: STOP
+Inference time: 11.726s
+Average inference: 8.978s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #5
+============================================================
+Sample timestamp: 4.0s
+
+------------------------------------------------------------
+Raw response: 'PEOPLE: 2\nVESTS: 0'
+People: 2
+Vests: 0
+Status: STOP
+Inference time: 11.844s
+Average inference: 9.552s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #6
+============================================================
+Sample timestamp: 5.0s
+
+------------------------------------------------------------
+Raw response: 'PEOPLE: 2\nVESTS: 0'
+People: 2
+Vests: 0
+Status: STOP
+Inference time: 11.849s
+Average inference: 9.934s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #7
+============================================================
+Sample timestamp: 6.0s
+
+------------------------------------------------------------
+Raw response: 'PEOPLE: 2\nVESTS: 0'
+People: 2
+Vests: 0
+Status: STOP
+Inference time: 13.193s
+Average inference: 10.400s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #8
+============================================================
+Sample timestamp: 7.0s
+
+------------------------------------------------------------
+Raw response: 'PEOPLE: 2\nVESTS: 0'
+People: 2
+Vests: 0
+Status: STOP
+Inference time: 13.502s
+Average inference: 10.788s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #9
+============================================================
+Sample timestamp: 8.0s
+
+------------------------------------------------------------
+Raw response: 'PEOPLE: 2\nVESTS: 0'
+People: 2
+Vests: 0
+Status: STOP
+Inference time: 12.470s
+Average inference: 10.975s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #10
+============================================================
+Sample timestamp: 9.0s
+
+Done. (Ollama server keeps running in the background -- nothing to unload here.)
+
+Log saved to: /home/icp/FLEXO-edge-machine-vision-safety-sentry-robot/benchmark_test/logs/2026-10-01_18-37-40_granite_vision_ollama_optimized_video.txt

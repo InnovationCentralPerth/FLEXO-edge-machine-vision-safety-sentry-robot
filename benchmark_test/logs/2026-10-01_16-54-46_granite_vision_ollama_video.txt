@@ -1,0 +1,78 @@
+============================================================
+GRANITE VISION (OLLAMA) + VIDEO FILE TIME-SAMPLED INFERENCE TEST
+============================================================
+Log file: /home/icp/FLEXO-edge-machine-vision-safety-sentry-robot/benchmark_test/logs/2026-10-01_16-54-46_granite_vision_ollama_video.txt
+Model: granite3.2-vision
+Video path: /home/icp/FLEXO-edge-machine-vision-safety-sentry-robot/benchmark_test/videos/test.mp4
+Video duration: 10.0s
+Sample interval: 1.0s (wraps to 0s if it exceeds video duration)
+Running warmup inference (absorbs first-call model-load cost)...
+Warmup inference: 16.433s (excluded from timing stats below)
+
+Running unattended -- Ctrl+C to stop early.
+------------------------------------------------------------
+
+============================================================
+INFERENCE #1
+============================================================
+Sample timestamp: 0.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'unanswerable')
+Vests: 0 (raw: '1')
+Status: NO_PERSON
+  people call: 0.312s  vest call: 11.446s
+Inference time: 11.759s
+Average inference: 11.759s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #2
+============================================================
+Sample timestamp: 1.0s
+
+------------------------------------------------------------
+People: 0 (raw: 'unanswerable')
+Vests: 0 (raw: '1')
+Status: NO_PERSON
+  people call: 11.342s  vest call: 11.515s
+Inference time: 22.857s
+Average inference: 17.308s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #3
+============================================================
+Sample timestamp: 2.0s
+
+------------------------------------------------------------
+People: 2 (raw: '2')
+Vests: 1 (raw: '1')
+Status: STOP
+  people call: 11.491s  vest call: 11.578s
+Inference time: 23.068s
+Average inference: 19.228s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #4
+============================================================
+Sample timestamp: 3.0s
+
+------------------------------------------------------------
+People: 2 (raw: '2')
+Vests: 1 (raw: '1')
+Status: STOP
+  people call: 12.622s  vest call: 12.355s
+Inference time: 24.977s
+Average inference: 20.665s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #5
+============================================================
+Sample timestamp: 4.0s
+
+Done. (Ollama server keeps running in the background -- nothing to unload here.)
+
+Log saved to: /home/icp/FLEXO-edge-machine-vision-safety-sentry-robot/benchmark_test/logs/2026-10-01_16-54-46_granite_vision_ollama_video.txt

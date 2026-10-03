@@ -1,0 +1,252 @@
+============================================================
+LLAVA-PHI3 (OLLAMA) + VIDEO FILE TIME-SAMPLED INFERENCE TEST
+============================================================
+Log file: /home/icp/FLEXO-edge-machine-vision-safety-sentry-robot/benchmark_test/logs/2026-10-01_14-44-42_llava_phi3_ollama_video.txt
+Model: llava-phi3
+Video path: /home/icp/FLEXO-edge-machine-vision-safety-sentry-robot/benchmark_test/videos/test.mp4
+Video duration: 10.0s
+Sample interval: 1.0s (wraps to 0s if it exceeds video duration)
+Running warmup inference (absorbs first-call model-load cost)...
+Warmup inference: 7.432s (excluded from timing stats below)
+
+Running unattended -- Ctrl+C to stop early.
+------------------------------------------------------------
+
+============================================================
+INFERENCE #1
+============================================================
+Sample timestamp: 0.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and glasses.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 0.890s  vest call: 6.555s
+Inference time: 7.445s
+Average inference: 7.445s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #2
+============================================================
+Sample timestamp: 1.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and a name tag.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 2.158s  vest call: 6.558s
+Inference time: 8.716s
+Average inference: 8.080s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #3
+============================================================
+Sample timestamp: 2.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 1.917s  vest call: 6.559s
+Inference time: 8.476s
+Average inference: 8.212s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #4
+============================================================
+Sample timestamp: 3.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 2.235s  vest call: 6.568s
+Inference time: 8.804s
+Average inference: 8.360s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #5
+============================================================
+Sample timestamp: 4.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest with a number 8 on it.
+2. A man wearing a yellow safety vest with a number 8 on it.
+3. A man wearing a yellow safety vest with a number 8 on it.
+4. A man wearing a yellow safety vest with a number 8 on it.
+5. A man wearing a yellow safety vest with a number 8 on it.
+6. A man wearing a yellow safety vest with a number 8 on it.
+7. A man wearing a yellow safety vest with a number 8 on it.
+8. A man wearing a yellow safety vest with a number 8 on it.
+9. A man wearing a yellow safety vest with a number 8 on it.
+10. A man wearing a yellow safety vest with a number 8 on it.')
+Status: GO
+  people call: 2.383s  vest call: 10.255s
+Inference time: 12.638s
+Average inference: 9.216s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #6
+============================================================
+Sample timestamp: 5.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow safety vest and a black shirt.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 2.332s  vest call: 6.563s
+Inference time: 8.895s
+Average inference: 9.162s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #7
+============================================================
+Sample timestamp: 6.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 2.304s  vest call: 6.562s
+Inference time: 8.866s
+Average inference: 9.120s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #8
+============================================================
+Sample timestamp: 7.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and a name tag.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 2.517s  vest call: 6.605s
+Inference time: 9.122s
+Average inference: 9.120s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #9
+============================================================
+Sample timestamp: 8.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and standing with his arms outstretched.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 2.719s  vest call: 6.571s
+Inference time: 9.290s
+Average inference: 9.139s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #10
+============================================================
+Sample timestamp: 9.0s
+
+------------------------------------------------------------
+People: 1 (raw: '1. A man wearing a yellow vest and glasses standing in front of a window.')
+Vests: 1 (raw: '1. A man wearing a yellow safety vest.
+2. A man wearing a yellow safety vest.
+3. A man wearing a yellow safety vest.
+4. A man wearing a yellow safety vest.
+5. A man wearing a yellow safety vest.
+6. A man wearing a yellow safety vest.
+7. A man wearing a yellow safety vest.
+8. A man wearing a yellow safety vest.
+9. A man wearing a yellow safety vest.
+10. A man wearing a yellow safety vest.')
+Status: GO
+  people call: 2.637s  vest call: 6.569s
+Inference time: 9.206s
+Average inference: 9.146s
+------------------------------------------------------------
+
+============================================================
+INFERENCE #11
+============================================================
+Sample timestamp: 0.0s
+
+Done. (Ollama server keeps running in the background -- nothing to unload here.)
+
+Log saved to: /home/icp/FLEXO-edge-machine-vision-safety-sentry-robot/benchmark_test/logs/2026-10-01_14-44-42_llava_phi3_ollama_video.txt

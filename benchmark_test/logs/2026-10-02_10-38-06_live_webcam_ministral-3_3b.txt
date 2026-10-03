@@ -1,0 +1,39 @@
+============================================================
+LIVE WEBCAM VEST DETECTOR (OLLAMA, SINGLE-CALL OPTIMIZED PROMPT)
+============================================================
+Model: ministral-3:3b
+Webcam source: 1
+Log file: /home/icp/FLEXO-edge-machine-vision-safety-sentry-robot/benchmark_test/logs/2026-10-02_10-38-06_live_webcam_ministral-3_3b.txt
+
+Running warmup inference (absorbs first-call model-load cost)...
+Warmup inference: 11.569s
+Running headless (--no-display). Press Ctrl+C to stop.
+------------------------------------------------------------
+#1  people=0 vests=0 status=NO_PERSON  inference=2.375s  avg=2.375s  raw='PEOPLE: 0\nVESTS: 0'
+#2  people=0 vests=0 status=NO_PERSON  inference=2.312s  avg=2.343s  raw='PEOPLE: 0\nVESTS: 0'
+#3  people=0 vests=0 status=NO_PERSON  inference=2.345s  avg=2.344s  raw='PEOPLE: 0\nVESTS: 0'
+#4  people=0 vests=0 status=NO_PERSON  inference=2.345s  avg=2.344s  raw='PEOPLE: 0\nVESTS: 0'
+#5  people=0 vests=0 status=NO_PERSON  inference=2.380s  avg=2.351s  raw='PEOPLE: 0\nVESTS: 0'
+#6  people=0 vests=0 status=NO_PERSON  inference=2.391s  avg=2.358s  raw='PEOPLE: 0\nVESTS: 0'
+#7  people=0 vests=0 status=NO_PERSON  inference=2.346s  avg=2.356s  raw='PEOPLE: 0\nVESTS: 0'
+#8  people=0 vests=0 status=NO_PERSON  inference=2.357s  avg=2.356s  raw='PEOPLE: 0\nVESTS: 0'
+#9  people=2 vests=0 status=STOP  inference=2.360s  avg=2.357s  raw='PEOPLE: 2\nVESTS: 0'
+#10  people=1 vests=0 status=STOP  inference=2.365s  avg=2.357s  raw='PEOPLE: 1\nVESTS: 0'
+#11  people=1 vests=0 status=STOP  inference=2.341s  avg=2.356s  raw='PEOPLE: 1\nVESTS: 0'
+#12  people=1 vests=0 status=STOP  inference=2.377s  avg=2.358s  raw='PEOPLE: 1\nVESTS: 0'
+#13  people=1 vests=0 status=STOP  inference=2.344s  avg=2.357s  raw='PEOPLE: 1\nVESTS: 0'
+#14  people=1 vests=0 status=STOP  inference=2.400s  avg=2.360s  raw='PEOPLE: 1\nVESTS: 0'
+#15  people=1 vests=1 status=GO  inference=2.338s  avg=2.358s  raw='PEOPLE: 1\nVESTS: 1'
+#16  people=1 vests=1 status=GO  inference=2.397s  avg=2.361s  raw='PEOPLE: 1\nVESTS: 1'
+#17  people=1 vests=1 status=GO  inference=2.385s  avg=2.362s  raw='PEOPLE: 1\nVESTS: 1'
+#18  people=1 vests=1 status=GO  inference=2.462s  avg=2.368s  raw='PEOPLE: 1\nVESTS: 1'
+#19  people=1 vests=0 status=STOP  inference=2.357s  avg=2.367s  raw='PEOPLE: 1\nVESTS: 0'
+#20  people=0 vests=0 status=NO_PERSON  inference=2.404s  avg=2.369s  raw='PEOPLE: 0\nVESTS: 0'
+#21  people=1 vests=1 status=GO  inference=2.452s  avg=2.373s  raw='PEOPLE: 1\nVESTS: 1'
+#22  people=2 vests=1 status=STOP  inference=2.499s  avg=2.379s  raw='PEOPLE: 2\nVESTS: 1'
+#23  people=2 vests=1 status=STOP  inference=2.468s  avg=2.382s  raw='PEOPLE: 2\nVESTS: 1'
+#24  people=2 vests=1 status=STOP  inference=2.511s  avg=2.388s  raw='PEOPLE: 2\nVESTS: 1'
+------------------------------------------------------------
+Total inferences: 25
+Average inference time: 2.292s
+Log saved to: /home/icp/FLEXO-edge-machine-vision-safety-sentry-robot/benchmark_test/logs/2026-10-02_10-38-06_live_webcam_ministral-3_3b.txt

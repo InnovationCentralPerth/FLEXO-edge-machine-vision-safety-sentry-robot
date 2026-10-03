@@ -1,0 +1,31 @@
+============================================================
+LIVE WEBCAM VEST DETECTOR (OLLAMA, SINGLE-CALL OPTIMIZED PROMPT)
+============================================================
+Model: hf.co/apolo13x/Cosmos-Reason2-2B-GGUF:Q4_K_M
+Webcam source: 1
+Log file: /home/icp/FLEXO-edge-machine-vision-safety-sentry-robot/benchmark_test/logs/2026-10-02_10-44-24_live_webcam_hf.co_apolo13x_Cosmos-Reason2-2B-GGUF_Q4_K_M.txt
+
+Running warmup inference (absorbs first-call model-load cost)...
+Warmup inference: 9.870s
+Running headless (--no-display). Press Ctrl+C to stop.
+------------------------------------------------------------
+#1  people=2 vests=1 status=STOP  inference=2.872s  avg=2.872s  raw='PEOPLE: 2\nVESTS: 1'
+#2  people=2 vests=1 status=STOP  inference=2.867s  avg=2.869s  raw='PEOPLE: 2\nVESTS: 1'
+#3  people=2 vests=1 status=STOP  inference=2.845s  avg=2.861s  raw='PEOPLE: 2\nVESTS: 1'
+#4  people=2 vests=1 status=STOP  inference=2.865s  avg=2.862s  raw='PEOPLE: 2\nVESTS: 1'
+#5  people=2 vests=1 status=STOP  inference=2.848s  avg=2.859s  raw='PEOPLE: 2\nVESTS: 1'
+#6  people=2 vests=1 status=STOP  inference=2.862s  avg=2.860s  raw='PEOPLE: 2\nVESTS: 1'
+#7  people=2 vests=1 status=STOP  inference=2.813s  avg=2.853s  raw='PEOPLE: 2\nVESTS: 1'
+#8  people=2 vests=1 status=STOP  inference=2.888s  avg=2.857s  raw='PEOPLE: 2\nVESTS: 1'
+#9  people=2 vests=1 status=STOP  inference=2.876s  avg=2.860s  raw='PEOPLE: 2\nVESTS: 1'
+#10  people=1 vests=1 status=GO  inference=2.881s  avg=2.862s  raw='PEOPLE: 1\nVESTS: 1'
+#11  people=0 vests=0 status=NO_PERSON  inference=2.860s  avg=2.861s  raw='PEOPLE: 0\nVESTS: 0'
+#12  people=0 vests=0 status=NO_PERSON  inference=2.840s  avg=2.860s  raw='PEOPLE: 0\nVESTS: 0'
+#13  people=0 vests=0 status=NO_PERSON  inference=2.857s  avg=2.860s  raw='PEOPLE: 0\nVESTS: 0'
+#14  people=1 vests=1 status=GO  inference=2.889s  avg=2.862s  raw='PEOPLE: 1\nVESTS: 1'
+#15  people=1 vests=1 status=GO  inference=2.971s  avg=2.869s  raw='PEOPLE: 1\nVESTS: 1'
+#16  people=1 vests=1 status=GO  inference=2.883s  avg=2.870s  raw='PEOPLE: 1\nVESTS: 1'
+#17  people=1 vests=1 status=GO  inference=2.855s  avg=2.869s  raw='PEOPLE: 1\nVESTS: 1'
+#18  people=1 vests=1 status=GO  inference=2.888s  avg=2.870s  raw='PEOPLE: 1\nVESTS: 1'
+
+Stopped (Ctrl+C).
