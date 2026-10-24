@@ -1,0 +1,8 @@
+ebb0d132d14c91d056b19e42f22c90ad  flexo_service.py
+c06d19a0dbcabf210196f481918b657c  flexo_outputs.py
+0ed7346812456780e480995c157e3081  sign_servo.py
+01a5be1c45461617636e07df0bb11c49  servo_pwm.py
+7141ece2fb549622d45459a5a98bec0b  tts_speaker.py
+38bb2176044b64d369001e8cd9f157eb  install_flexo_service.sh
+c17cb9c8cd542d67992afc80c4c84af1  flexo_kiosk.sh
+f236eb0a49e3595909c1988d6599bb02  patch_feed_fit.py
